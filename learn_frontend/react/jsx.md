@@ -10,7 +10,7 @@ JSX 并不是标准的 JS 语法，它是 JS 的语法扩展，浏览器本身�
 也就是将 xml 标签解析为虚拟 DOM，然后将虚拟 DOM 渲染为真实的 DOM，这样将 html 标签用 xml 代替，就既可以享受 HTML 的声明式模版写法以及 JS 的可编程能力
 :::
 
-## jsx 的使用
+## jsx 的基本使用
 
 ### 表达式渲染
 
@@ -276,4 +276,46 @@ import classNames from "classnames";
 >
   {tab.text}
 </span>;
+```
+
+## 受控表单绑定
+
+```js{7-13}
+import "./style.css";
+import { useState } from "react";
+function App() {
+  const [value, setValue] = useState("");
+  return (
+    <div>
+      <input
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+        type="text"
+      />
+    </div>
+  );
+}
+```
+
+## 获取 DOM
+
+```js{4,7-9,12-14}
+import { useRef } from "react";
+function App() {
+  // 1.使用Ref来创建ref对象，绑定到dom标签上
+  const inputRef = useRef(null);
+  // 2. dom可用时，ref.curren获取dom
+  // 渲染完毕之后dom生成之后才可以使用
+  const showDom = () => {
+    console.log(inputRef.current);
+  };
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+      <button onClick={showDom}>获取DOM</button>
+    </div>
+  );
+}
 ```
