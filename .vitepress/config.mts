@@ -28,6 +28,7 @@ export default defineConfig({
             { text: "jsx语法基础", link: "/learn_frontend/react/jsx" },
             { text: "组件通信", link: "/learn_frontend/react/组件通信" },
             { text: "hook", link: "/learn_frontend/react/hook" },
+            { text: "redux", link: "/learn_frontend/react/redux" },
           ],
         },
       ],
