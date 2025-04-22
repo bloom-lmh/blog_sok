@@ -11,19 +11,21 @@ The main `useData()` API can be used to access site, theme, and page data for th
 ```md
 <script setup>
 import { useData } from 'vitepress'
-
 const { theme, page, frontmatter } = useData()
 </script>
 
 ## Results
 
 ### Theme Data
+
 <pre>{{ theme }}</pre>
 
 ### Page Data
+
 <pre>{{ page }}</pre>
 
 ### Page Frontmatter
+
 <pre>{{ frontmatter }}</pre>
 ```
 
@@ -31,17 +33,21 @@ const { theme, page, frontmatter } = useData()
 import { useData } from 'vitepress'
 
 const { site, theme, page, frontmatter } = useData()
+
 </script>
 
 ## Results
 
 ### Theme Data
+
 <pre>{{ theme }}</pre>
 
 ### Page Data
+
 <pre>{{ page }}</pre>
 
 ### Page Frontmatter
+
 <pre>{{ frontmatter }}</pre>
 
 ## More

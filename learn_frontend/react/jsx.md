@@ -1,5 +1,7 @@
 # jsx
 
+本课程学习网站
+https://www.yuque.com/fechaichai/qeamqf/xbai87
 [[toc]]
 
 ## 什么是 jsx
@@ -23,16 +25,16 @@ JSX 并不是标准的 JS 语法，它是 JS 的语法扩展，浏览器本身�
 
 ```js
 function getData() {
-  return "使用函数";
+  return '使用函数';
 }
 const num = 1;
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       {getData()}
-      {"字符串"}
+      {'字符串'}
       {num}
-      <div style={{ color: "red" }}>使用js对象</div>
+      <div style={{ color: 'red' }}>使用js对象</div>
     </div>
   );
 }
@@ -100,10 +102,10 @@ export default App;
 ```js [不传参数]{7}
 function App() {
   const handleClick = () => {
-    console.log("button点击了");
+    console.log('button点击了');
   };
   return (
-    <div className="App">
+    <div className='App'>
       <button onClick={handleClick}>click me</button>
     </div>
   );
@@ -113,11 +115,11 @@ function App() {
 ```js [传参]{7}
 function App() {
   const handleClick = (name, e) => {
-    console.log("name:", name, e);
+    console.log('name:', name, e);
   };
   return (
-    <div className="App">
-      <button onClick={(e) => handleClick("jack", e)}>click me</button>
+    <div className='App'>
+      <button onClick={e => handleClick('jack', e)}>click me</button>
     </div>
   );
 }
@@ -142,7 +144,7 @@ function Button() {
 }
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       {/* 自闭和 */}
       <Button />
       {/* 成对标签 */}
@@ -173,7 +175,7 @@ useState 是一个 React Hook（函数），它允许我们向组件添加一个
 ::: code-group
 
 ```js [对普通变量进行代理]{7,10}
-import { useState } from "react";
+import { useState } from 'react';
 
 function App() {
   // 1.调用useState添加一个状态变量
@@ -185,7 +187,7 @@ function App() {
     setCount(count + 1);
   };
   return (
-    <div className="App">
+    <div className='App'>
       <button onClick={handleClick}>{count}</button>
     </div>
   );
@@ -215,12 +217,12 @@ function App() {
 ```
 
 ```js [对数组进行代理]{6}
-import { useState } from "react";
+import { useState } from 'react';
 const defaultList = [1, 2, 3, 4];
 const App = () => {
   const [commentList, setCommentList] = useState(defaultList);
-  const handleDelete = (id) => {
-    setCommentList(commentList.filter((item) => item.id !== 1));
+  const handleDelete = id => {
+    setCommentList(commentList.filter(item => item.id !== 1));
   };
 };
 ```
@@ -234,14 +236,14 @@ const App = () => {
 ::: code-group
 
 ```js [app.js]{7-8}
-import "./style.css";
-import { useState } from "react";
+import './style.css';
+import { useState } from 'react';
 function App() {
   const [type, setType] = useState(false);
   return (
     <div>
-      <h1 className={`foo ${type && "zoo"}`}>标题</h1>
-      <button style={{ fontSize: "20px", color: "red" }}>修改人名</button>
+      <h1 className={`foo ${type && 'zoo'}`}>标题</h1>
+      <button style={{ fontSize: '20px', color: 'red' }}>修改人名</button>
     </div>
   );
 }

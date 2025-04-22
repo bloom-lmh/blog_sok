@@ -1,3 +1,4 @@
+import path from "path";
 import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -29,6 +30,11 @@ export default defineConfig({
             { text: "组件通信", link: "/learn_frontend/react/组件通信" },
             { text: "hook", link: "/learn_frontend/react/hook" },
             { text: "redux", link: "/learn_frontend/react/redux" },
+            { text: "router", link: "/learn_frontend/react/router" },
+            {
+              text: "记账本小项目",
+              link: "/learn_frontend/react/记账本小项目",
+            },
           ],
         },
       ],
@@ -39,5 +45,13 @@ export default defineConfig({
   },
   markdown: {
     lineNumbers: true,
+  },
+  vite: {
+    resolve: {
+      alias: {
+        // 配置路径别名
+        "@": path.resolve(__dirname, "../"),
+      },
+    },
   },
 });
