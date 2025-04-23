@@ -29,11 +29,11 @@ useEffect 副作用函数的执行时机存在多种情况，根据传入依赖�
 ::: code-group
 
 ```js [没有依赖项] {4-6}
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 function App() {
   const [count, setCount] = useState(1);
   useEffect(() => {
-    console.log("没有依赖项，组件初始渲染 + 组件更新时执行" + count);
+    console.log('没有依赖项，组件初始渲染 + 组件更新时执行' + count);
   });
   const add = () => {
     setCount(count + 1);
@@ -48,9 +48,9 @@ function App() {
 ```
 
 ```js [空数组依赖]{6-13}
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 // 1.创建一个顶层的上下文
-const URL = "http://geek.itheima.net/v1_0/channels";
+const URL = 'http://geek.itheima.net/v1_0/channels';
 function App() {
   const [list, setList] = useState([]);
   useEffect(() => {
@@ -65,7 +65,7 @@ function App() {
     <div>
       this is app
       <ul>
-        {list.map((item) => (
+        {list.map(item => (
           <li key={item.id}>{item.name}</li>
         ))}
       </ul>
@@ -75,11 +75,11 @@ function App() {
 ```
 
 ```js [添加特定依赖项] {4-6}
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 function App() {
   const [count, setCount] = useState(1);
   useEffect(() => {
-    console.log("添加特定依赖项，组件初始渲染 + 特性依赖项变化时执行" + count);
+    console.log('添加特定依赖项，组件初始渲染 + 特性依赖项变化时执行' + count);
   }, [count]);
   const add = () => {
     setCount(count + 1);
@@ -104,11 +104,11 @@ function App() {
 需求：在 Son 组件渲染时开启一个定制器，卸载时清除这个定时器
 
 ```js {8-10}
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 function Son() {
   useEffect(() => {
     const timer = setInterval(() => {
-      console.log("定时器执行");
+      console.log('定时器执行');
     }, 1000);
     // 组件卸载时的回调,清除副作用
     return () => {
@@ -131,6 +131,172 @@ function App() {
   );
 }
 ```
+
+## useMemo
+
+### 什么是 useMemo
+
+在 React 中，useMemo 是一个用于性能优化的 Hook，它可以缓存（记忆）复杂的计算结果，避免在每次组件渲染时重复执行高开销的计算。以下是它的核心用法和场景：
+useMemo 类似于 Vue 的计算属性使用来对数据进行二次处理的
+
+### 基本使用
+
+```js
+const memoizedValue = useMemo(() => {
+  // 返回一个计算后的值
+  return computeExpensiveValue(a, b);
+}, [a, b]); // 依赖数组：当 a 或 b 变化时，重新计算
+```
+
+::: tip
+这里可以使用 lodash 工具来简化计算使用
+:::
+
+## useLocation
+
+### 什么是 useLocation
+
+useLocation 是 React Router 提供的一个 Hook，用于获取当前路由的位置（location）信息。它是 React Router 中非常常用的一个 API。
+
+### 基本使用
+
+```js
+import { useLocation } from 'react-router-dom';
+
+function MyComponent() {
+  const location = useLocation();
+
+  return (
+    <div>
+      <p>当前路径: {location.pathname}</p>
+    </div>
+  );
+}
+```
+
+### location 对象包含的属性
+
+useLocation 返回的 location 对象包含以下属性：
+
+1. ​pathname​ - 当前 URL 的路径部分
+   例如："/products/123"
+2. ​search​ - URL 的查询字符串部分（以 ? 开头）
+   例如："?sort=price&page=2"
+3. ​hash​ - URL 的 hash 部分（以 # 开头）
+   例如："#section-2"
+4. ​state​ - 与该位置关联的状态对象（通过 navigate 或 Link 传递）
+   例如：{ fromDashboard: true }
+5. ​key​ - 唯一标识该位置的字符串（React Router 内部使用）
+
+### 常见的使用场景
+
+::: code-group
+
+```js [获取当前路径]
+const { pathname } = useLocation();
+
+// 根据路径显示不同内容
+if (pathname === '/about') {
+  return <AboutPage />;
+}
+```
+
+```js [解析查询参数]
+const { search } = useLocation();
+const queryParams = new URLSearchParams(search);
+const page = queryParams.get('page'); // 获取page参数
+```
+
+```js [监听路由变化]
+import { useEffect } from 'react';
+
+function MyComponent() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // 当路由变化时执行某些操作
+    console.log('路由变化了:', location.pathname);
+  }, [location]);
+
+  // ...
+}
+```
+
+```js [获取导航状态]
+// 当通过 navigate('/somewhere', { state: { from: 'home' } }) 导航时
+const { state } = useLocation();
+console.log(state?.from); // 输出: 'home'
+```
+
+:::
+
+### 注意事项
+
+1. useLocation 只能在 Router 组件内部使用
+2. 当路由变化时，useLocation 会返回新的 location 对象，触发组件重新渲染
+3. 对于查询参数解析，React Router v6 推荐使用 useSearchParams 而不是手动解析 search 字符串
+
+## useSelector
+
+### 什么是 useSelector
+
+useSelector 是 React-Redux 提供的一个 Hook，用于从 Redux store 中提取和订阅 state 数据。它是连接 React 组件与 Redux store 的主要方式之一。
+
+### 基础用法
+
+```js
+import { useSelector } from 'react-redux';
+
+function MyComponent() {
+  const counter = useSelector(state => state.counter);
+
+  return <div>当前计数: {counter}</div>;
+}
+```
+
+### 核心特性
+
+1. ​ 选择器函数 ​：接收整个 Redux state 作为参数，返回你需要的部分
+2. ​ 严格相等比较 ​：默认使用 === 比较前后结果，避免不必要的重渲染
+3. ​ 自动订阅 ​：当 Redux store 更新时，会自动重新执行选择器
+4. ​ 自动取消订阅 ​：组件卸载时自动清理订阅
+
+### 高级用法
+
+:::code-group
+
+```js [返回对象多个值]
+const { user, preferences } = useSelector(state => ({
+  user: state.auth.user,
+  preferences: state.settings.preferences,
+}));
+```
+
+```js [使用比较函数控制重渲染]
+import { shallowEqual } from 'react-redux';
+
+const userData = useSelector(
+  state => ({
+    name: state.user.name,
+    age: state.user.age,
+  }),
+  shallowEqual,
+); // 浅比较替代严格相等
+```
+
+```js [使用 reselect 创建记忆化选择器]
+import { createSelector } from 'reselect';
+
+const selectUser = state => state.user;
+const selectActiveUsers = createSelector([selectUser], user => user.filter(u => u.isActive));
+
+function UserList() {
+  const activeUsers = useSelector(selectActiveUsers);
+  // ...
+}
+```
+
+:::
 
 ## 自定义 Hook
 
