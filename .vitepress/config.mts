@@ -51,6 +51,10 @@ export default defineConfig({
               text: 'zustand',
               link: '/learn_frontend/react/zustand',
             },
+            {
+              text: '使用vite和ts',
+              link: '/learn_frontend/react/使用vite和ts',
+            },
           ],
         },
       ],
