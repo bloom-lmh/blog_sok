@@ -61,11 +61,11 @@ src
 ::: code-group
 
 ```js [counterStore.js]
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 // 1. 创建状态
 const counterStore = createSlice({
-  name: "counter",
+  name: 'counter',
   initialState: {
     count: 0,
   },
@@ -90,11 +90,11 @@ export default reducer;
 ```
 
 ```js [channelStore.js]
-import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 // 1. 创建状态
 const channelStore = createSlice({
-  name: "channel",
+  name: 'channel',
   initialState: {
     channelList: [],
   },
@@ -111,8 +111,8 @@ const reducer = channelStore.reducer;
 
 // 异步请求部分
 const fetchChannelList = () => {
-  return async (dispatch) => {
-    const res = await axios.get("http://geek.itheima.net/v1_0/channels");
+  return async dispatch => {
+    const res = await axios.get('http://geek.itheima.net/v1_0/channels');
     dispatch(setChannels(res.data.data.channels));
   };
 };
@@ -128,10 +128,10 @@ export default reducer;
 
 ```js
 // store/index.js
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 // 导入子模块reducer
-import counterReducer from "./modules/counterStore";
-import channelReducer from "./modules/channelStore";
+import counterReducer from './modules/counterStore';
+import channelReducer from './modules/channelStore';
 const store = configureStore({
   reducer: {
     counter: counterReducer,
@@ -148,16 +148,16 @@ react-redux 负责把 Redux 和 React 链接 起来，内置 Provider 组件 通
 
 ```js
 // index.js
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import store from "./store";
-import { Provider } from "react-redux";
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import store from './store';
+import { Provider } from 'react-redux';
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <App />
-  </Provider>
+  </Provider>,
 );
 ```
 
@@ -168,20 +168,20 @@ root.render(
 
 ```js
 // app.js
-const { count } = useSelector((state) => state.counter);
+const { count } = useSelector(state => state.counter);
 ```
 
 5. React 组件修改 store 中的数据
 
 ```js
 // app.js
-import { useDispatch, useSelector } from "react-redux";
-import { addToNum, decrement, increment } from "./store/modules/counterStore";
-import { useEffect } from "react";
-import { fetchChannelList } from "./store/modules/channelStore";
+import { useDispatch, useSelector } from 'react-redux';
+import { addToNum, decrement, increment } from './store/modules/counterStore';
+import { useEffect } from 'react';
+import { fetchChannelList } from './store/modules/channelStore';
 function App() {
-  const { count } = useSelector((state) => state.counter);
-  const { channelList } = useSelector((state) => state.channel);
+  const { count } = useSelector(state => state.counter);
+  const { channelList } = useSelector(state => state.channel);
   const dispatch = useDispatch();
   // 使用useEffect触发异步请求
   useEffect(() => {
@@ -195,7 +195,7 @@ function App() {
       <button onClick={() => dispatch(addToNum(10))}>加到10</button>
       <button onClick={() => dispatch(addToNum(20))}>加到20</button>
       <ul>
-        {channelList.map((item) => (
+        {channelList.map(item => (
           <li key={item.id}>{item.name}</li>
         ))}
       </ul>
@@ -204,6 +204,68 @@ function App() {
 }
 export default App;
 ```
+
+## useSelector 获取 redux 中的状态
+
+### 什么是 useSelector
+
+useSelector 是 React-Redux 提供的一个 Hook，用于从 Redux store 中提取和订阅 state 数据。它是连接 React 组件与 Redux store 的主要方式之一。
+
+### 基础用法
+
+```js
+import { useSelector } from 'react-redux';
+
+function MyComponent() {
+  const counter = useSelector(state => state.counter);
+
+  return <div>当前计数: {counter}</div>;
+}
+```
+
+### 核心特性
+
+1. ​ 选择器函数 ​：接收整个 Redux state 作为参数，返回你需要的部分
+2. ​ 严格相等比较 ​：默认使用 === 比较前后结果，避免不必要的重渲染
+3. ​ 自动订阅 ​：当 Redux store 更新时，会自动重新执行选择器
+4. ​ 自动取消订阅 ​：组件卸载时自动清理订阅
+
+### 高级用法
+
+:::code-group
+
+```js [返回对象多个值]
+const { user, preferences } = useSelector(state => ({
+  user: state.auth.user,
+  preferences: state.settings.preferences,
+}));
+```
+
+```js [使用比较函数控制重渲染]
+import { shallowEqual } from 'react-redux';
+
+const userData = useSelector(
+  state => ({
+    name: state.user.name,
+    age: state.user.age,
+  }),
+  shallowEqual,
+); // 浅比较替代严格相等
+```
+
+```js [使用 reselect 创建记忆化选择器]
+import { createSelector } from 'reselect';
+
+const selectUser = state => state.user;
+const selectActiveUsers = createSelector([selectUser], user => user.filter(u => u.isActive));
+
+function UserList() {
+  const activeUsers = useSelector(selectActiveUsers);
+  // ...
+}
+```
+
+:::
 
 ## redux 调试工具
 

@@ -38,16 +38,16 @@ export default Article;
 ```
 
 ```js [router/index.js]
-import { createBrowserRouter } from "react-router-dom";
-import Login from "../page/Login";
-import Article from "../page/Article";
+import { createBrowserRouter } from 'react-router-dom';
+import Login from '../page/Login';
+import Article from '../page/Article';
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: '/login',
     element: <Login />,
   },
   {
-    path: "/article",
+    path: '/article',
     element: <Article />,
   },
 ]);
@@ -55,12 +55,12 @@ export default router;
 ```
 
 ```js [index.js]
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import router from "./react-router/router";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import router from './react-router/router';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<RouterProvider router={router}></RouterProvider>);
 ```
 
@@ -76,13 +76,13 @@ root.render(<RouterProvider router={router}></RouterProvider>);
 字符串拼接的方式拼接参数即可
 
 ```js {7}
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
     <div>
       我是登录页面
-      <Link to="/article">跳转到文章页</Link>
+      <Link to='/article'>跳转到文章页</Link>
     </div>
   );
 };
@@ -97,14 +97,14 @@ export default Login;
 语法说明：通过调用 navigate 方法传入地址 path 实现跳转
 
 ```js {4,8}
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const Article = () => {
   const navigate = useNavigate();
   return (
     <div>
       我是文章页面
-      <button onClick={() => navigate("/login")}>返回登陆</button>
+      <button onClick={() => navigate('/login')}>返回登陆</button>
     </div>
   );
 };
@@ -119,13 +119,13 @@ export default Article;
 ::: code-group
 
 ```js [传递参数] {7}
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
     <div>
       我是登录页面
-      <Link to="/article?id=1001&name=bloom">跳转到文章页</Link>
+      <Link to='/article?id=1001&name=bloom'>跳转到文章页</Link>
     </div>
   );
 };
@@ -133,18 +133,18 @@ export default Login;
 ```
 
 ```js [接受参数] {4-6}
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Article = () => {
   const navigate = useNavigate();
   const [params] = useSearchParams();
-  const id = params.get("id");
-  const name = params.get("name");
+  const id = params.get('id');
+  const name = params.get('name');
   return (
     <div>
       我是文章页面 用户id：{id}
       用户名：{name}
-      <button onClick={() => navigate("/login")}>返回登陆</button>
+      <button onClick={() => navigate('/login')}>返回登陆</button>
     </div>
   );
 };
@@ -158,16 +158,16 @@ export default Article;
 ::: code-group
 
 ```js [router中配置占位符] {10}
-import { createBrowserRouter } from "react-router-dom";
-import Login from "../page/Login";
-import Article from "../page/Article";
+import { createBrowserRouter } from 'react-router-dom';
+import Login from '../page/Login';
+import Article from '../page/Article';
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: '/login',
     element: <Login />,
   },
   {
-    path: "/article/:id/:name",
+    path: '/article/:id/:name',
     element: <Article />,
   },
 ]);
@@ -175,13 +175,13 @@ export default router;
 ```
 
 ```js [传递参数] {7}
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
     <div>
       我是登录页面
-      <Link to="/article/1001/bloom">跳转到文章页</Link>
+      <Link to='/article/1001/bloom'>跳转到文章页</Link>
     </div>
   );
 };
@@ -189,7 +189,7 @@ export default Login;
 ```
 
 ```js [接受参数]{5-7}
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 const Article = () => {
   const navigate = useNavigate();
@@ -200,7 +200,7 @@ const Article = () => {
     <div>
       我是文章页面 用户id：{id}
       用户名：{name}
-      <button onClick={() => navigate("/login")}>返回登陆</button>
+      <button onClick={() => navigate('/login')}>返回登陆</button>
     </div>
   );
 };
@@ -220,21 +220,21 @@ export default Article;
 ::: code-group
 
 ```js [路由配置] {6-19}
-import { createBrowserRouter } from "react-router-dom";
-import Layout from "../page/Layout";
-import Board from "../page/Board";
-import About from "../page/About";
+import { createBrowserRouter } from 'react-router-dom';
+import Layout from '../page/Layout';
+import Board from '../page/Board';
+import About from '../page/About';
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     children: [
       {
-        path: "/board",
+        path: '/board',
         element: <Board />,
       },
       {
-        path: "/about",
+        path: '/about',
         element: <About />,
       },
     ],
@@ -244,14 +244,14 @@ export default router;
 ```
 
 ```js [一级路由组件Layout] {7-8,11-12}
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
     <div>
       我是一级路由layout组件
-      <Link to="/board">面板</Link>
-      <Link to="/about">关于</Link>
+      <Link to='/board'>面板</Link>
+      <Link to='/about'>关于</Link>
       <br />
       下面是子路由
       {/* 二级路由的组件会插入Outlet处 */}
@@ -281,13 +281,13 @@ export default Board;
 ::: code-group
 
 ```js {11}[路由配置改写]
-import { createBrowserRouter } from "react-router-dom";
-import Layout from "../page/Layout";
-import Board from "../page/Board";
-import About from "../page/About";
+import { createBrowserRouter } from 'react-router-dom';
+import Layout from '../page/Layout';
+import Board from '../page/Board';
+import About from '../page/About';
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     children: [
       {
@@ -295,7 +295,7 @@ const router = createBrowserRouter([
         element: <Board />,
       },
       {
-        path: "/about",
+        path: '/about',
         element: <About />,
       },
     ],
@@ -305,14 +305,14 @@ export default router;
 ```
 
 ```js {7}[link改写]
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
     <div>
       我是一级路由layout组件
-      <Link to="/">面板</Link>
-      <Link to="/about">关于</Link>
+      <Link to='/'>面板</Link>
+      <Link to='/about'>关于</Link>
       <br />
       下面是子路由
       <Outlet />
@@ -343,11 +343,11 @@ export default NotFound;
 ```
 
 ```js [路由配置] {5-6}
-import { createBrowserRouter } from "react-router-dom";
-import NotFound from "../page/NotFound";
+import { createBrowserRouter } from 'react-router-dom';
+import NotFound from '../page/NotFound';
 const router = createBrowserRouter([
   {
-    path: "*",
+    path: '*',
     element: <NotFound />,
   },
 ]);
@@ -364,3 +364,87 @@ createHashRouter 函数负责创建
 |-----------|----------------|---------------------------|------------------|
 | history | `url/login` | history 对象 + pushState 事件 | 需要 |
 | hash | `url/#/login` | 监听 hashChange 事件 | 不需要 |
+
+## useLocation 组件中获取路由信息
+
+### 什么是 useLocation
+
+useLocation 是 React Router 提供的一个 Hook，用于获取当前路由的位置（location）信息。它是 React Router 中非常常用的一个 API。
+
+### 基本使用
+
+```js
+import { useLocation } from 'react-router-dom';
+
+function MyComponent() {
+  const location = useLocation();
+
+  return (
+    <div>
+      <p>当前路径: {location.pathname}</p>
+    </div>
+  );
+}
+```
+
+### location 对象包含的属性
+
+useLocation 返回的 location 对象包含以下属性：
+
+1. ​pathname​ - 当前 URL 的路径部分
+   例如："/products/123"
+2. ​search​ - URL 的查询字符串部分（以 ? 开头）
+   例如："?sort=price&page=2"
+3. ​hash​ - URL 的 hash 部分（以 # 开头）
+   例如："#section-2"
+4. ​state​ - 与该位置关联的状态对象（通过 navigate 或 Link 传递）
+   例如：{ fromDashboard: true }
+5. ​key​ - 唯一标识该位置的字符串（React Router 内部使用）
+
+### 常见的使用场景
+
+::: code-group
+
+```js [获取当前路径]
+const { pathname } = useLocation();
+
+// 根据路径显示不同内容
+if (pathname === '/about') {
+  return <AboutPage />;
+}
+```
+
+```js [解析查询参数]
+const { search } = useLocation();
+const queryParams = new URLSearchParams(search);
+const page = queryParams.get('page'); // 获取page参数
+```
+
+```js [监听路由变化]
+import { useEffect } from 'react';
+
+function MyComponent() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // 当路由变化时执行某些操作
+    console.log('路由变化了:', location.pathname);
+  }, [location]);
+
+  // ...
+}
+```
+
+```js [获取导航状态]
+// 当通过 navigate('/somewhere', { state: { from: 'home' } }) 导航时
+const { state } = useLocation();
+console.log(state?.from); // 输出: 'home'
+```
+
+:::
+
+### 注意事项
+
+1. useLocation 只能在 Router 组件内部使用
+2. 当路由变化时，useLocation 会返回新的 location 对象，触发组件重新渲染
+3. 对于查询参数解析，React Router v6 推荐使用 useSearchParams 而不是手动解析 search 字符串

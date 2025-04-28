@@ -1,4 +1,4 @@
-# jsx
+# Jsx
 
 本课程学习网站
 https://www.yuque.com/fechaichai/qeamqf/xbai87
