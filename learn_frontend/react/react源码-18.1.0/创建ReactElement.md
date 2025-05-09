@@ -1,4 +1,4 @@
-# ReactElement 的创建
+# React 的源码与原理解读（一）：ReactElement 的创建
 
 [[toc]]
 
@@ -674,3 +674,17 @@ export function jsxDEV(type, config, maybeKey, self, source, owner, props) {
 ## 总结
 
 jsx 函数实现了 jsx 到 ReactElement 的映射
+
+### ReactElement
+
+1. $$typeof 使用 symbol 来唯一标识元素，并根据不会序列化的特性防止 xss 攻击
+2. source 和\_owner 由 Babel 添加调试信息
+
+### jsx 函数逻辑
+
+1. 校验 maybekey 是否为稳定唯一字符串，若不稳定则报警告，若稳定则设置 maybekey
+2. 校验 props 中的 key 和 ref，开发模式下会触发警告 getter 并丢弃 key 和 ref，生产模式下与 maybekey 具有排他性
+3. 收集显示的 props 属性
+4. 收集并合并默认 props 属性
+5. 为 props 中的 key 和 ref 设置警告 getter 防止在组件中直接通过 props 使用
+6. 调用 ReactElement 工厂创建 ReactElement 元素

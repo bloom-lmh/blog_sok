@@ -16,6 +16,10 @@ export default defineConfig({
             link: '/learn_frontend/html/重要知识点',
           },
           {
+            text: 'CSS3',
+            link: '/learn_frontend/css/css基础/css基础知识',
+          },
+          {
             text: 'React',
             link: '/learn_frontend/react/react基础/jsx',
           },
@@ -64,8 +68,20 @@ export default defineConfig({
           text: 'React源码-18.1.0',
           items: [
             {
-              text: '01从创建React元素出发',
+              text: '从创建React元素出发',
               link: '/learn_frontend/react/react源码-18.1.0/创建ReactElement',
+            },
+            {
+              text: 'Fiber 与 Fiber 链表树',
+              link: '/learn_frontend/react/react源码-18.1.0/Fiber与Fiber链表树',
+            },
+            {
+              text: 'Render函数与元素的挂载和解析',
+              link: '/learn_frontend/react/react源码-18.1.0/Render函数与元素的挂载和解析',
+            },
+            {
+              text: 'updateContainer深度优先搜索构建Fiber树',
+              link: '/learn_frontend/react/react源码-18.1.0/updateContainer深度优先搜索构建Fiber树',
             },
           ],
         },
