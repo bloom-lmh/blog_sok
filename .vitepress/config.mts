@@ -9,6 +9,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
+
       {
         text: '前端知识',
         items: [
@@ -29,11 +30,45 @@ export default defineConfig({
             text: 'React',
             link: '/learn_frontend/react/react基础/jsx',
           },
+
+          {
+            text: '浏览器',
+            link: '/learn_frontend/browser/browser基础/浏览器渲染流程',
+          },
+        ],
+      },
+      {
+        text: '软件架构',
+        items: [
+          {
+            text: 'DesignPattern',
+            link: '/learn_sofrwareArchitecture/designPattern/designPattern基础/设计模式七大原则',
+          },
+        ],
+      },
+
+      {
+        text: '算法',
+        items: [
+          {
+            text: '双指针问题',
+            link: '/learn_algorithms/双指针的运用/双指针的运用',
+          },
+          {
+            text: '数据结构问题',
+            link: '/learn_algorithms/数据结构/队列',
+          },
         ],
       },
     ],
 
-    sidebar: buildSideBar(['/learn_frontend/css/', '/learn_frontend/react']),
+    sidebar: buildSideBar([
+      '/learn_frontend/css/',
+      '/learn_frontend/react',
+      '/learn_frontend/js/',
+      '/learn_sofrwareArchitecture/designPattern/',
+      '/learn_algorithms/双指针的运用/',
+    ]),
     socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
   },
   markdown: {
