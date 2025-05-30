@@ -1,6 +1,6 @@
 import path from 'path';
 import { defineConfig } from 'vitepress';
-import { buildSideBar, buildSideBarItem } from './utils/sideBarGenerator';
+import { buildSideBar } from './utils/sideBarGenerator';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'BLOOM',
@@ -51,12 +51,12 @@ export default defineConfig({
         text: '算法',
         items: [
           {
-            text: '双指针问题',
-            link: '/learn_algorithms/双指针的运用/双指针的运用',
+            text: '经验技巧',
+            link: '/learn_algorithms/经验技巧/经验技巧.md',
           },
           {
             text: '数据结构问题',
-            link: '/learn_algorithms/数据结构/队列',
+            link: '/learn_algorithms/数据结构',
           },
         ],
       },
@@ -67,13 +67,14 @@ export default defineConfig({
       '/learn_frontend/react',
       '/learn_frontend/js/',
       '/learn_sofrwareArchitecture/designPattern/',
-      '/learn_algorithms/双指针的运用/',
+      '/learn_algorithms/',
     ]),
     socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
   },
   markdown: {
     lineNumbers: true,
     breaks: true,
+    math: true,
   },
   vite: {
     resolve: {

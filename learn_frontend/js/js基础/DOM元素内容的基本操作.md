@@ -1,0 +1,137 @@
+# DOM 元素内容的基本操作
+
+[[toc]]
+
+## 操作 HTML 内容
+
+### innerHTML
+
+inneHTML 用于向标签中添加 html 内容，设置 InnerHTML 通常效率很高。
+不过要注意，通过+=操作符给 innerHTML 追加文本的效率不高。因为这个操作既会涉及序列化操作，也会涉及解析操作：先把元素内容转换为字符串，然后再把新字符串转换回元素内容，也就是浏览器的解析器会重绘 DOM。
+比如下面的案例使用 innertHTML 操作会重绘元素，下面在点击第二次就没有效果了
+
+- 因为对#app 内容进行了重绘，即删除原内容然后设置新内容
+- 重绘后产生的 button 对象没有事件
+- 重绘后又产生了新 img 对象，所以在控制台中可看到新图片在加载
+
+```html
+<div id="app">
+  <button>点我重绘</button>
+  <img src="./images/tx1.jpg" alt="" />
+</div>
+<script>
+  const app = document.querySelector('#app');
+  app.querySelector('button').addEventListener('click', function () {
+    alert(this.innerHTML);
+    this.parentElement.innerHTML += '<hr/>新的内容';
+  });
+</script>
+```
+
+### outerHTML
+
+outerHTML 与 innerHTML 的区别是包含父标签
+
+- outerHTML 不会删除原来的旧元素
+- 只是用新内容替换替换旧内容，旧内容（元素）依然存在
+
+下面将 div#app 替换为新内容
+
+```html
+<div id="app">
+  <div data="mydata">bloom</div>
+  <div>bloom11</div>
+</div>
+<script>
+  let app = document.querySelector('#app');
+  app.outerHTML = '<h1>LMH</h1>';
+  console.log(app.outerHTML);
+</script>
+```
+
+以下是 `innerHTML` 和 `outerHTML` 的对比总结，包括是否触发 **回流（Reflow）** 和 **重绘（Repaint）**：
+
+| **特性**             | **`innerHTML`**                       | **`outerHTML`**                        |
+| -------------------- | ------------------------------------- | -------------------------------------- |
+| **作用范围**         | 仅操作元素的 **子内容**（不包含自身） | 操作元素的 **完整 HTML**（包含自身）   |
+| **修改行为**         | 替换内部子节点                        | 替换整个元素（包括自身）               |
+| **是否解析 HTML**    | 是（会渲染传入的标签）                | 是                                     |
+| **是否触发回流**     | **可能触发**（若修改布局相关属性）    | **一定触发**（因元素被完全替换）       |
+| **是否触发重绘**     | **是**（内容变化需重新绘制）          | **是**（新元素需完全渲染）             |
+| **性能影响**         | 中等（需解析 HTML 并更新子节点）      | 较高（需销毁旧元素、解析并插入新元素） |
+| **适用场景**         | 动态更新内容（如列表、表格行）        | 替换整个元素结构（如改变标签类型）     |
+| **事件监听是否保留** | 可能丢失（若覆盖子元素）              | **完全丢失**（旧元素被销毁）           |
+| **安全风险**         | 可能引发 XSS（需转义不可信内容）      | 同 `innerHTML`                         |
+
+---
+
+**关键说明：**
+
+1. **回流（Reflow）条件**：
+
+   - `innerHTML` 仅在修改内容涉及布局（如改变元素尺寸、边距）时触发回流。
+   - `outerHTML` **必然触发回流**，因为整个元素被替换，浏览器需要重新计算布局。
+
+2. **重绘（Repaint）条件**：  
+   两者均会触发重绘，因为视觉内容发生了变化。
+
+3. **优化建议**：
+   - 避免频繁使用 `innerHTML/outerHTML`，优先使用 `createElement` + `appendChild`。
+   - 批量操作时，使用 `DocumentFragment` 减少回流次数。
+
+如果需要更细粒度的性能分析，建议使用浏览器开发者工具的 **Performance 面板** 进行监控。
+
+### insertAdjacentHTHL
+
+另一个相关的 Element 方法是 insertAdjacentHTHL,用于插入与指定元素“相邻”(adjacent)的任意 HTML 标记字符串。要插入的标签作为第二个参数传入，而“相邻”的精确含义取决于第一个参数的值。第一个参数可以是以下字符串值中的一个：“beforebegin" "afterbegin" "beforeend" "afterend"。
+
+## 操作纯文本内容
+
+### innerText/textContent
+
+textContent 与 innerText 是访问或添加文本内容到元素中
+
+- textContent 部分 IE 浏览器版本不支持
+- innerText 部分 FireFox 浏览器版本不支持
+- 获取时忽略所有标签,只获取文本内容
+- 设置时将内容中的标签当文本对待不进行标签解析,并替换原来的所有标签
+
+获取时忽略内容中的所有标签
+
+```html
+<div id="app">
+  <div class="bloom">我是文本</div>
+</div>
+<script>
+  let app = document.querySelector('#app');
+  console.log(app.textContent); // 我是文本
+  app.textContent = '<h1>插入的新文本</h1>';
+</script>
+```
+
+### insertAdjacentText
+
+将文本插入到元素指定位置，不会对文本中的标签进行解析，包括以下位置
+
+| 选项        | 说明         |
+| ----------- | ------------ |
+| beforebegin | 元素本身前面 |
+| afterend    | 元素本身后面 |
+| afterbegin  | 元素内部前面 |
+| beforeend   | 元素内部后面 |
+
+```html
+<div id="app">
+  <div data="mydata">bloom</div>
+  <div>bloom11</div>
+</div>
+<script>
+  let app = document.querySelector('#app');
+  app.insertAdjacentText('beforeend', '<h1>LMH</h1>');
+  console.log(app.outerHTML);
+</script>
+```
+
+### `<script>`元素中的文本
+
+行内(即那些没有 src 属性的)＜ script ＞元素有一个 text 属性，可以用于获取它们的文本。浏览器永远不会显示＜ script ＞元素的内容，HTML 解析器会忽略脚本中的尖括号和&字符。这就让＜ script ＞元素成为在 Web 应用中嵌入任意文本数据的理想场所。只要把这个元素的 type 属性设置为某个值(如 text/x-custom-data),明确它不是可执行的 JavaScript 代码即可。这样，JavaScript 解释器将会忽略这个脚本，但该元素还会出现在文档树中，它的 text 属性可以返回你在其中保存的数据。

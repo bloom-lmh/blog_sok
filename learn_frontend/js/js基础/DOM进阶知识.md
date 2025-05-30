@@ -1,0 +1,761 @@
+# DOM 进阶知识
+
+[[toc]]
+
+## DOM 元素的原型链
+
+对于每个 DOM 元素都有原型对象
+
+### 查看原型链
+
+通过下面的方法可以提取原型链
+
+```html
+<h1 id="app">bloom</h1>
+<script>
+  function prototype(el) {
+    console.dir(el.__proto__);
+    el.__proto__ ? prototype(el.__proto__) : '';
+  }
+  prototype(document.getElementById('app'));
+</script>
+```
+
+比如 h1 标签结点的原型链如下：
+
+| 原型               | 说明                                                                    |
+| ------------------ | ----------------------------------------------------------------------- |
+| Object             | 根对象，提供 hasOwnProperty 等基本对象操作支持                          |
+| EventTarget        | 提供 addEventListener、removeEventListener 等事件支持方法               |
+| Node               | 提供 firstChild、parentNode 等节点操作方法                              |
+| Element            | 提供 getElementsByTagName、querySelector 等方法                         |
+| HTMLElement        | 所有元素的基础类，提供 childNodes、nodeType、nodeName、className 等方法 |
+| HTMLHeadingElement | Head 标题元素类                                                         |
+
+### 在原型链上添加方法
+
+可以为 DOM 对象原型链上添加方法
+
+```html
+<h1 id="app">bloom</h1>
+<script>
+  let app = document.getElementById('app');
+  HTMLHeadingElement.prototype = Object.assign(HTMLHeadingElement.prototype, {
+    color(color) {
+      this.style.color = color;
+    },
+    hide() {
+      this.style.display = 'none';
+    },
+  });
+  app.hide();
+</script>
+```
+
+## Nodelist 和 HtmlCollection
+
+### length
+
+Nodelist 与 HTMLCollection 包含 length 属性，记录了节点元素的数量
+
+```html
+<div name="app">
+  <div id="bloom">bloom</div>
+  <div name="bloom">bloom</div>
+</div>
+<script>
+  const nodes = document.getElementsByTagName('div');
+  for (let i = 0; i < nodes.length; i++) {
+    console.log(nodes[i]);
+  }
+</script>
+```
+
+### item
+
+Nodelist 与 HTMLCollection 提供了 item()方法来根据索引获取元素
+
+```html
+<div name="app">
+  <div id="bloom">bloom</div>
+  <div name="lmh">bloom</div>
+</div>
+
+<script>
+  const nodes = document.getElementsByTagName('div');
+  console.dir(nodes.item(0));
+  // 也可以使用数组下标
+  console.dir(nodes[0]);
+</script>
+```
+
+### namedItem
+
+HTMLCollection 具有 namedItem 方法可以按 name 或 id 属性来获取元素
+
+```html
+<div name="app">
+  <div id="bloom">bloom</div>
+  <div name="lmh">bloom</div>
+</div>
+
+<script>
+  const nodes = document.getElementsByTagName('div');
+  console.dir(nodes.namedItem('bloom'));
+  console.dir(nodes.namedItem('lmh'));
+  // 也可以使用下面的方式
+  console.dir(nodes['bloom']);
+  console.dir(nodes.lmh);
+</script>
+```
+
+### 动态与静态
+
+通过 getElementsByTagname 等 getElementsBy... 函数获取的 Nodelist 与 HTMLCollection 集合是动态的，即有元素添加或移动操作将实时反映最新状态。
+• 使用 getElement...返回的都是动态的集合
+• 使用 querySelectorAll 返回的是静态集合
+比如下面的案例
+
+```html
+<div id="app">
+  <li>bloom</li>
+  <li>lmh</li>
+</div>
+<button onclick="handleAddElement()">添加元素</button>
+<script>
+  let nodeList = document.querySelectorAll(`#app li`);
+  let htmlCollection = document.getElementsByTagName('li');
+  function handleAddElement() {
+    let nLi = document.createElement('li');
+    nLi.innerHTML = 'new Element';
+    document.getElementById('app').appendChild(nLi);
+    // 下面的nodeList长度不会变化，因为这个nodeList是静态的
+    console.log(nodeList.length);
+    // 下面的htmlCollection会发生变化，htmlCollection是动态的
+    console.log(htmlCollection.length);
+  }
+</script>
+```
+
+### 小结
+
+| 特性     | NodeList                                              | HTMLCollection                                         |
+| -------- | ----------------------------------------------------- | ------------------------------------------------------ |
+| 包含内容 | 任意节点（元素、文本、注释等）                        | 仅元素节点                                             |
+| 动态性   | 可以是静态（快照）或动态（实时）                      | 始终动态（实时更新）                                   |
+| 访问方式 | item(index)、forEach、数组索引                        | item(index)、namedItem(id)、数组索引                   |
+| 新增方法 | 支持 forEach（现代浏览器）                            | 无 forEach，需转换为数组遍历                           |
+| 常见场景 | querySelectorAll、childNodes、getElementsByName(动态) | getElementsByTagName、getElementsByClassName、children |
+
+::: tip 伪数组
+NodeList 和 HTMLCollection 都是伪数组，可看数组章节
+:::
+
+## DocumentFragment
+
+### 什么是 DocumentFragment
+
+DocumentFragment 是一个轻量级的文档节点容器，它不属于主 DOM 树，但可以存储一组 DOM 节点，用于高效地批量操作 DOM。以下是它的核心用法和优势：
+
+### 基本特性
+
+- ​ 内存中的文档片段 ​：不在主 DOM 树中，因此操作它不会触发页面重排/重绘
+- ​ 临时容器 ​：可以存储多个节点，一次性插入到 DOM 中
+- ​ 无父节点 ​：继承自 Node，但没有 parentNode 属性
+
+### 核心用法
+
+1. 创建 DocumentFragment
+
+```js
+// 创建空片段
+const fragment = document.createDocumentFragment();
+
+// 或者通过构造函数（较少使用）
+const fragment = new DocumentFragment();
+```
+
+2. 添加节点到片段
+
+```js
+// 创建多个元素
+for (let i = 0; i < 10; i++) {
+  const li = document.createElement('li');
+  li.textContent = `项目 ${i}`;
+  fragment.appendChild(li);
+}
+```
+
+3. 插入到 DOM
+
+```js
+// 一次性插入所有子节点
+document.getElementById('list').appendChild(fragment);
+```
+
+### 优势场景
+
+1. 批量插入节点（性能优化）
+
+```js
+// 传统方式（性能差，多次重排）
+const list = document.getElementById('list');
+for (let i = 0; i < 1000; i++) {
+  const li = document.createElement('li');
+  li.textContent = `项目 ${i}`;
+  list.appendChild(li); // 每次插入都会触发重排
+}
+
+// 使用 DocumentFragment（性能好，单次重排）
+const fragment = document.createDocumentFragment();
+for (let i = 0; i < 1000; i++) {
+  const li = document.createElement('li');
+  li.textContent = `项目 ${i}`;
+  fragment.appendChild(li);
+}
+list.appendChild(fragment);
+```
+
+2. 移动多个节点
+
+```js
+// 将多个节点从一处移动到另一处
+const sourceList = document.getElementById('source-list');
+const targetList = document.getElementById('target-list');
+const fragment = document.createDocumentFragment();
+
+// 移动所有子节点到片段
+while (sourceList.firstChild) {
+  fragment.appendChild(sourceList.firstChild);
+}
+
+// 一次性插入到目标位置
+targetList.appendChild(fragment);
+```
+
+### 注意事项
+
+- ​ 片段插入后自动清空 ​：当 DocumentFragment 被插入到 DOM 时，它的所有子节点会被移动，片段本身变为空,这样使得这个元素有可以复用了
+- ​ 不是真实 DOM 节点 ​：不能直接设置样式或添加事件监听器到片段本身,需要节点插入后通过获取真实 DOM 才能添加事件
+- ​ 查询限制 ​：不能使用 getElementById 等方法在片段中查询，也是要等到插入后通过真实 DOM 获取
+- ​ 兼容性 ​：所有现代浏览器都支持，包括 IE9+
+
+## 实现 Web 组件的三个浏览器特性
+
+### HTML 模板（template）
+
+HTML 的`<template>`标签跟 Web 组件的关系虽然没那么密切，但通过它确实可以对网页中频繁使用的组件进行优化。**`<template>`标签及其子元素永远不会被浏览器渲染**，只能在使用 JavaScript 的网页中使用。
+
+这个标签背后的思想是，当网页包含多个重复的基本 HTML 结构时(比如表格行或 Web 组件的内部实现)，就可以使用`<template>`定义一次该结构，然后通过 JavaScript 按照需要任意重复使用该结构。在 JavaScript 中，`<template>` 标签对应的是一个 HTMLTemplateElement 对象。这个对象只定义了一个 content 属性，而这个属性的值是包含`<template>`所有子节点的 DocumentFragment,可以克隆这个 DocumentFragment
+
+然后把克隆的副本插入文档中需要的地方。这个片段自身不会被插入，只有其子节点会。假设你的文档中包含一个`<table>`和`<template ="row">`标签，而后者作为模板定义了表格中行的结构，那可以像下面这样使用模板：
+
+```html
+<body>
+  <template id="rows">
+    <tr>
+      <td>1001</td>
+      <td>小明</td>
+    </tr>
+    <tr>
+      <td>1002</td>
+      <td>小李</td>
+    </tr>
+  </template>
+  <table>
+    <tbody></tbody>
+  </table>
+</body>
+<script>
+  let tbody = document.querySelector('tbody');
+  let template = document.querySelector('#rows');
+  // 深度克隆，克隆的是包含所有子节点的DocumentFragment
+  let clone = template.content.cloneNode(true);
+  // 将包含所有子节点的DocumentFragment的元素作为文档片段插入tbody标签中，但插入时不会包括DocumentFragment元素
+  tbody.append(clone);
+</script>
+```
+
+::: tip 本质
+从本质来讲，template 标签其实起了一个声明的作用，表示它所包裹的子节点都会被视为被 DocumentFragment 元素所包裹的文档片段。这样就可以以书写 html 的方式，来指定要将哪一部分内容作为文档片段，而不用我们使用 JavaScript 来创建了
+:::
+当然如果想使用 JavaScript 来创建也可以，本质上和上面是一样的
+
+```html
+<body>
+  <table>
+    <tbody></tbody>
+  </table>
+  <script>
+    let template = new DocumentFragment();
+    for (let i = 0; i < 2; i++) {
+      let tr = document.createElement('tr');
+      let td1 = document.createElement('td');
+      let td2 = document.createElement('td');
+      td1.innerHTML = i;
+      td2.innerHTML = '名字' + i;
+      tr.append(td1);
+      tr.append(td2);
+      template.append(tr);
+    }
+    document.querySelector('tbody').append(template);
+  </script>
+</body>
+```
+
+### 自定义标签
+
+#### 创建自定义标签
+
+创建自定义元素可以使用 customElements.define 方法，这个方法第一个参数是一个自定义标签（注意连字符），第二个参数是以一个 HTMLElement 的子类，这样就实现了自定义标签与 JavaScript 类关联起来了。文档中具有该标签名的任何元素都会被"升级”为这个类的一个新实例。
+
+#### 标签创建时的生命周期方法
+
+当自定义元素被插入文档时,会调用 connectedCallback 方法。很多自定义元素通过这个方法来执行初始化。还有一个 disconnectedCallback 方法，会在(如果)自定义元素从文档中被移除时调用， 但用得多。
+
+#### 标签属性设置和修改时的回调方法
+
+如果自定义元素类定义了静态的 observedAttributes 属性，其值为一个属性名的数组， 且如果任何这些命名属性在这个自定义元素的一个实例上被设置(或修改)，浏览器就会调用 attributeChangedCallback()方法，传入属性名、旧值和新值。这个回调可以根据属性值的变化采取必要的步骤以更新组件。
+
+#### 自定义标签案例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+      .elem-style {
+        width: 100px;
+        height: 100px;
+        display: block;
+        background-color: rgb(117, 178, 232);
+      }
+    </style>
+  </head>
+  <body>
+    <z-div model="小明"></z-div>
+    <button onclick="change()">改变数据</button>
+    <script>
+      // 自定义web组件标签
+      customElements.define(
+        'z-div',
+        class ZDivElement extends HTMLElement {
+          // 标签被插入文档时的回调
+          connectedCallback() {
+            this.classList.add('elem-style');
+          }
+
+          // 监听属性，当这些属性变化时就会调用attributeChangedCallback()方法
+          static get observedAttributes() {
+            return ['model'];
+          }
+
+          // 监听属性变化时的回调
+          attributeChangedCallback(name, oldValue, newValue) {
+            if (name === 'model') {
+              this.innerHTML = newValue;
+            }
+          }
+
+          // 定义与元素标签属性相对应的JavaScript属性
+          get model() {
+            return this.getAttribute('model');
+          }
+
+          set model(model) {
+            this.setAttribute('model', model);
+            // 如果需要，可以在这里添加额外的逻辑
+          }
+        },
+      );
+
+      // 改变值的方法
+      function change() {
+        document.querySelector('z-div').setAttribute('model', '小李');
+      }
+    </script>
+  </body>
+</html>
+```
+
+#### Web 组件升级
+
+使用`<scrtpt type="module" src="conponents/search-box.js">`会导致模块在文档内容解析完成后再进行加载，就像添加了 defer 属性一样。这意味着浏览器通常会在运行包含`<search-box>`定义的代码之前，就要解析和渲染`<search-box>`标签。这在使用 Web 组件时是正常的。浏览器中的 HTML 解析器很灵活，对自己不理解的输入非常宽容。当在 Web 组件还没有定义就遇到其标签时，浏览器会向 DOM 树中添加一个通用的 HTMLElement,即便它们不知道要对它做什么。之后，当自定义元素有定义之后，这个通用元素会被“升级”，从而具备预期的外观和行为
+
+1. 升级的流程
+   a. 元素创建 ​:创建为 HTMLUnknownElement，此时无法实例化组件类。
+   b. 定义检查 ​:调用 customElements.define() 时，浏览器检查匹配的 DOM 元素。
+   c. 实例化升级 ​,对每个匹配元素：i.创建新的 MyButton 实例 ii.复制原元素的所有属性和子节点到新实例 iii. 替换原 DOM 节点
+   d. ​ 生命周期调用
+
+```js
+class MyButton extends HTMLElement {
+  constructor() {
+    super();
+  } // 1. 构造
+  connectedCallback() {} // 2. 挂载
+  attributeChangedCallback() {} // 3. 属性变化（如果有）
+}
+```
+
+2.防止多次升级
+
+```js
+if (!customElements.get('my-button')) {
+  customElements.define('my-button', MyButton);
+}
+```
+
+3. 为未升级元素添加基础样式
+
+```css
+my-button:not(:defined) {
+  display: inline-block;
+  opacity: 0.5;
+}
+```
+
+4. 错误处理
+
+```js
+customElements.whenDefined('my-button').catch(err => {
+  console.error('组件注册失败', err);
+});
+```
+
+### 影子 DOM
+
+#### 基本概念
+
+影子 DOM 是一种浏览器技术，**用于在网页上创建具有隔离作用域的 DOM 子树**。它允许开发者在 HTML 元素内部创建一个独立的 DOM 子树，这个子树的样式和行为都被隔离在一个封闭的环境中，不会与外部的页面发生冲突。
+
+- **Shadow Host（影子宿主）**：Shadow DOM 的容器，它是普通 DOM 中的一个元素，可以称为宿主元素。宿主元素可以是自定义的 Web 组件，如自定义标签、视频标签等。
+- **Shadow Tree（影子的树）**：Shadow DOM 内部的 DOM 树。在 Shadow Host 内部，开发者可以定义一个独立的 DOM 子树，其中包含组件的样式和结构。就像一个迷你文档一样
+- **Shadow Root（影子的根节点）**：Shadow Tree 的根节点。通过使用 Shadow Root，开发者可以将 Shadow Tree 连接到 Shadow Host 上。Shadow Root 是 Shadow DOM 的入口点，通过它可以访问 Shadow Tree 中的内容。
+- **Shadow Boundary（影子的边界）**：Shadow DOM 的隔离边界。这个边界将 Shadow DOM 和外部 DOM 分隔开来，防止它们互相干扰。
+
+#### 影子 DOM 的特点
+
+影子 DOM 的关键特性是它所提供的封装。影子根节点的后代对常规 DOM 树而言是隐藏且独立的，几乎就像它们是在一个独立的文档中一样。影子 DOM 提供了三种非常重要的封装。
+
+- 影子 DOM 中的元素对 querySelectorAll 等常规 DOM 方法是不可见的。
+- 在创建影子根节点并将其附加于影子宿主时，可以指定其模式是 **开放** (open)还是**关闭**(closed)。关闭的影子根节点将被完全封闭，不可访问。 不过，影子根节点更多地是以**开放**模式创建的，这意味着影子宿主会有一个 ShadowRoot。
+- 在影子根节点之下定义的样式对该子树是私有的，永远不会影响外部的阳光 DOM（普通的常规的 DOM）
+- 影子根节点可以为其宿主元素定义默认样式，但这些样式可以被阳光 DOM 样式覆盖。同样的应用给影子宿主元素的阳光 DOM 样式也不会影响影子根节点
+- 影子 DOM 中的元素会从阳光 DOM 继承字体大小和背景颜色等，而影子 DOM 中的样式可以选择使用阳光 DOM 中定义的 CSS 变量，不过在大多数情况下，阳光 DOM 的样式与影子 DOM 的样式是完全独立的。因此 Web 组件的作者和 Web 组件的用户不用担心他们的样式会冲突或抵触。可以像这样限定 CSS 的范围或许是影子 DOM 最重要的特性。
+- 影子 DOM 中发生的某些事件（如“load”）会被封闭在影子 DOM 中。另外一些事件，像 focus, mouse 和键盘事件则会向上冒泡，穿透影子 DOM。当一个发源于影子 DOM 内的事件跨过了边界开始向阳光 DOM 传播时，其 target 属性会变成影子宿主元素，就好像事件直接起源于该元素一样
+
+举个例子:
+::: code-group
+
+```js [组件实例] {29-32,35-38,12-16,26,41-42,7-8}
+class MyButton extends HTMLElement {
+  constructor() {
+    super();
+    const shadow = this.attachShadow({ mode: 'open' });
+
+    // 从宿主元素继承的CSS变量
+    const fontSize = this.style.getPropertyValue('--button-font-size') || '16px';
+    const bgColor = this.style.getPropertyValue('--button-bg-color') || '#6200ee';
+
+    shadow.innerHTML = `
+      <style>
+        /* 宿主元素默认样式可以覆盖 */
+        :host {
+          display: block; /* 宿主默认样式 */
+          border: 2px solid red; /* 可被外部覆盖 */
+        }
+        /* 组件私有样式（外部无法覆盖） */
+        button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          border-radius: 4px;
+          padding: 0.5em 1em;
+          cursor: pointer;
+          font-family: inherit; /* 唯一继承的阳光DOM属性 */
+          transition: all 0.3s ease;
+          
+          /* 使用CSS变量允许外部控制 */
+          font-size: var(--button-font-size, ${fontSize});
+          background: var(--button-bg-color, ${bgColor});
+          color: var(--button-text-color, white);
+        }
+        
+        /* 通过::part暴露可样式化的部分 */
+        button::part(icon) {
+          margin-right: 0.5em;
+        }
+      </style>
+      
+      <button part="button">
+        <slot part="icon" name="icon">🎯</slot>
+        <slot>Submit</slot>
+      </button>
+    `;
+  }
+}
+
+customElements.define('my-button', MyButton);
+```
+
+```html [HTML 使用示例] {13-20,22-26,28-34,44,50}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shadow DOM 样式隔离案例</title>
+    <style>
+      /* 全局样式（不会影响Shadow DOM内部） */
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        padding: 2rem;
+      }
+
+      /* 通过CSS变量控制组件样式 */
+      my-button {
+        --button-bg-color: #ff5722;
+        --button-font-size: 18px;
+        margin: 1rem;
+        border: 3px dashed blue; /* 覆盖 Shadow 的 :host 样式 */
+        font-family: Arial; /* 会继承到 Shadow DOM 内部 */
+      }
+
+      /* 特殊场景覆盖 */
+      .special-button {
+        --button-bg-color: #4caf50;
+        --button-text-color: #000;
+      }
+
+      /* 通过::part选择器精细控制 */
+      my-button::part(button) {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      my-button::part(icon) {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>样式隔离演示</h1>
+
+    <!-- 默认样式 -->
+    <my-button></my-button>
+
+    <!-- 通过CSS变量定制 -->
+    <my-button style="--button-bg-color: #2196f3;">
+      <span slot="icon">🚀</span>
+      Launch
+    </my-button>
+
+    <!-- 通过class定制 -->
+    <my-button class="special-button">
+      <span slot="icon">✔</span>
+      Confirm
+    </my-button>
+
+    <!-- 外部尝试直接修改（不会生效） -->
+    <style>
+      /* 这些样式会被Shadow DOM隔离 */
+      my-button button {
+        border-radius: 50px !important;
+        background: red !important;
+      }
+    </style>
+
+    <script src="my-button.js"></script>
+  </body>
+</html>
+```
+
+:::
+
+#### 影子 DOM 插槽和阳光 DOM 子元素
+
+作为影子宿主的 HTML 元素有两个后代子树。一个是 children[]数组，即宿主元素常规的阳光 DOM 后代，另一个则是影子根节点及其后代。有人可能会问：位于同一宿主元素中的两个完全不同的内容树是怎么显示的呢？下面是它们的工作原理：
+
+- 影子根节点的后代始终显示在影子宿主内。
+- 如果这些后代中包含一个`<slot>`元素，那么宿主元素的常规阳光 DOM 子元素会像它们本来就是该`<slot>`的子元素一样显示，替代该插槽中的任何影子 DOM 元素。 如果影子 DOM 不包含`<slot>`,那么宿主的阳光 DOM 内容永远不会显示。如果影子 DOM 有一个`<slot>`,但影子宿主没有阳光 DOM 子元素，那么该插槽的影子 DOM 内容作为默认内容显示。
+- 当阳光 DOM 内容显示在影子 DOM 插槽中时，我们说那些元素“已分配”（distributed）,此时关键要理解：那些元素实际上并未变成影子 DOM 的一部分。使用 querySelector()依旧可以查询它们，它们仍然作为宿主元素的子元素或后代出现在阳光 DOM 中
+- 如果影子 DOM 定义了多个`<slot>`，且通过 nane 属性为它们命名，那么影子宿主的阳光 DOM 后代可以通过 slot="slotname"属性指定自己想出现在哪个插槽中。下面面的搜索框介绍过这种用法的例子，该例子演示了如何自定义由`<search-box></search-box>`组件显示的图标。
+
+#### 影子 DOM API
+
+就其强大的能力而言，影子 DOM 并未提供太多 JavaScript API。要把一个阳光 DOM 元素转换为影子宿主，只要调用其 `attachShadow()`方法，传入`{node:"open"｝`这个唯一的参数即可。这个方法返回一个影子根节点对象，同时也将该对象设置为这个宿主的 `shadowRoot` 属性的值。这个影子根节点对象是一个 `DocumentFragment`,可以使用 DOM 方法为它添加内容，也可以直接将其 InnerHTML 属性设置为一个 HTML 字符串。如果你的 Web 组件想知道影子 DOM（slot）中的阳光 DOM 内容什么时候变化，那它可以直接在该`<slot>`素上注册一个`"slotchanged"`事件
+
+## 封装`<search-box>` Web 组件
+
+基于上面三个浏览器特性
+
+1. template
+2. 自定义标签
+3. 影子 DOM
+
+我们就能封装自己的 web 组件了
+![SearchBox](https://s3.bmp.ovh/imgs/2025/05/18/1bc9ea722fe5088c.png)
+
+```js
+class SearchBox extends HTMLElement {
+  constructor() {
+    // 使用this前需要先调用父类构造器
+    super();
+    // 将这个元素设置为影子宿主 模式为open，这样就可以使用ShadowRoot来访问影子根节点了
+    this.attachShadow({ mode: 'open' });
+    // 从模板上克隆影子树，并挂载到影子根节点上
+    this.shadowRoot.append(SearchBox.template.content.cloneNode(true));
+    // 获取影子DOM的引用
+    this.input = this.shadowRoot.querySelector('#input');
+    let leftSlot = this.shadowRoot.querySelector('slot[name=left]');
+    let rightSlot = this.shadowRoot.querySelector('slot[name=right]');
+
+    // 让内部影子DOM input元素的行为冒泡，使其好像是影子宿主发生的事件一样
+    this.input.onfocus = () => {
+      this.setAttribute('focused', '');
+    };
+    this.input.onblur = () => {
+      this.removeAttribute('focused');
+    };
+
+    // 若用户点击放大镜或在输入文职时则出发search事件
+    leftSlot.onclick = this.input.onchange = event => {
+      // 阻止事件
+      event.stopPropagation();
+      // 若设置了禁用则什么都不做
+      if (this.disabled) return;
+      // 主动触发search事件
+      this.dispatchEvent(
+        new CustomEvent('search', {
+          detail: this.input.value,
+        }),
+      );
+    };
+
+    // 当用户点击X，即出发clear事件
+    rightSlot.onclick = event => {
+      event.stopPropagation();
+      if (this.disabled) return;
+      // 派发自定义清除事件
+      let e = new CustomEvent('clear', { cancelable: true });
+      this.dispatchEvent(e);
+      // clear是自定义组件中x图标默认行为，用户可以设置阻止默认行为
+      if (!e.defaultPrevented) {
+        this.input.value = '';
+      }
+    };
+  }
+  // 在属性被设置或改变的时候的回调函数
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'disabled') {
+      this.input.disabled = newValue !== null;
+    } else if (name === 'placeholder') {
+      this.input.placeholder = newValue;
+    } else if (name === 'size') {
+      this.input.size = newValue;
+    } else if (name === 'value') {
+      this.input.value = newValue;
+    }
+  }
+
+  // 设置访问器属性
+  get placeholder() {
+    return this.getAttribute('placeholder');
+  }
+  get value() {
+    return this.getAttribute('value');
+  }
+  get size() {
+    return this.getAttribute('size');
+  }
+  get disabled() {
+    return this.hasAttribute('disabled');
+  }
+  get hidden() {
+    return this.hasAttribute('hidden');
+  }
+  // 设置访问器属性
+  set placeholder(value) {
+    return this.setAttribute('placeholder', value);
+  }
+  set value(text) {
+    return this.setAttribute('value', text);
+  }
+  set size(value) {
+    return this.setAttribute('size', value);
+  }
+  set disabled(value) {
+    if (value) this.setAttribute('disabled', value);
+    else this.removeAttribute('disabled');
+  }
+  set hidden(value) {
+    if (value) this.setAttribute('hidden', value);
+    else this.removeAttribute('hidden');
+  }
+}
+// 设置组件要监听的属性
+SearchBox.observedAttributes = ['disabled', 'placeholder', 'size', 'value'];
+// 创建一个＜template＞元素，用于保存样式表和元素树，并作为类属性，这样可以在每个SearchBox元素的实例中使用它们
+SearchBox.template = document.createElement('template');
+// SearchBox的样式和元素树
+SearchBox.template.innerHTML = `
+  <style>
+    /*
+     * 这里的host选择符是引用的是阳光DOM中的<search-box>元素，也就是影子宿主
+     * 这些样式是默认的，＜search-box＞的使用者可以通过阳光D0M中的样式来覆盖这些样式
+     */
+    :host {
+      display: inline-block;
+      border: solid black 3px;
+      border-radius: 8px;
+      padding: 4px 6px;
+    }
+    :host([hidden]) {
+      display: none;
+    }
+    :host([disabled]) {
+      opacity: 0.5;
+    }
+    :host([focused]) {
+      box-shadow: 0 0 2px 2px #6ae;
+    }
+    /* 剩下的样式是应用给影子DOM的 */
+    input {
+      border-width: 0;
+      outline: none;
+      font: inherit;
+      background: inherit;
+    }
+    slot {
+      cursor: default;
+      user-select: none;
+    }
+</style>
+<div>
+  <slot name="left">\u{1f50d}</slot>
+  <input type="text" id="input" />
+  <slot name="right">\u{2573}</slot>
+</div>
+`;
+customElements.define('search-box', SearchBox);
+```
+
+#### 使用演示
+
+```html
+<scrtpt type="module" src="conponents/search-box.js">
+<search-box>
+    <img src="lmages/search-icon.png" slot="left" />
+    <img src="images/cancel-icon,png" slot="right" />
+</search-box
+
+```
+
+与常规 HTML 元素一样，Web 组件可以在 JavaScript 中使用。如果在网页中包含`<search-box></search-box>`标签，就可以通过 querySelector()和适当的 CSS 选择符获得对它的引用，就像对任何其他 HTML 标签一样。
+Web 组件实现通常都会(但并非必须)为它们支持的每个 HTML 属性都定义一个 JavaScript 属性。另外，与 HTML 元素相似，它们也可能定义有用的方法。同样，你所使用 Web 组件的文档应该指出可以在 JavaScript 中使用什么属性和方法。

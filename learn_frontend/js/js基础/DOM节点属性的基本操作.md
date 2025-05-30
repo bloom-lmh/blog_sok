@@ -1,17 +1,5 @@
 # 操作属性的基本方法
 
-:::tip 每日回顾
-
-1. 节点属性
-   a. 哪些属性可以获取注释文本节点哪些不可以获取
-   b. 其它常用的节点属性 nodeType、nodeValue 等
-   c. 什么是标准属性，标准属性的对应规则，一些标准属性的属性值
-2. 属性的操作
-   a. CRUD 属性
-   b. 自定义特征
-   c. attributes
-
-:::
 [[toc]]
 
 ## DOM 节点属性
@@ -33,9 +21,13 @@
 | `parentNode`             | ❌ 不忽略             | 返回任何类型的父节点（包括文档/注释节点的父节点）             |
 | `childNodes`             | ❌ 不忽略             | 包含所有类型的子节点（包括文本/注释节点）                     |
 
+::: tip 总结
+一般不带 Element 的都不会忽略
+:::
+
 ### 节点的标准属性
 
-元素的标准属性（Standard Properties）是指通过 DOM 对象直接暴露的、与 HTML 标签原生属性对应的属性。
+元素的标准属性（Standard Properties）是指通过 DOM 对象直接暴露的、与 HTML 标签原生属性对应的属性，这些属性也叫做特性。
 
 ```html {4}
 <a id="link" href="/">Click</a>
@@ -81,7 +73,7 @@ nodeType 指以数值返回节点类型
 | `10` | `Node.DOCUMENT_TYPE_NODE`     | 文档类型节点 | `<!DOCTYPE html>`                   |
 | `11` | `Node.DOCUMENT_FRAGMENT_NODE` | 文档片段节点 | `document.createDocumentFragment()` |
 
-```html
+```html {8-10,12}
 <div id="app">
   <div class="bloom" data="hd">bloom.com</div>
   <div class="lmh">lmh.com</div>
@@ -112,7 +104,7 @@ nodeName 指定节点的名称
 | **10**      | `Node.DOCUMENT_TYPE_NODE`     | `"html"`               | 文档类型声明节点（如 `<!DOCTYPE html>`）                       |
 | **11**      | `Node.DOCUMENT_FRAGMENT_NODE` | `"#document-fragment"` | 文档片段节点（通过 `document.createDocumentFragment()` 创建）  |
 
-```javascript
+```javascript {3-4,8-9,13-14}
 // 元素节点
 const div = document.createElement('div');
 console.log(div.nodeType); // 1
@@ -133,7 +125,7 @@ console.log(comment.nodeName); // "#comment"
 
 tagName 仅能用于获取标签节点的名称,文本、注释节点值为 undefined,获取的值为大写的标签名
 
-```html
+```html {11,15,18}
 <div id="app">
   <div class="bloom" data="myData">bloom.com</div>
   <div class="lmh">lmh.com</div>
@@ -171,7 +163,7 @@ tagName 仅能用于获取标签节点的名称,文本、注释节点值为 unde
 | 8 | 注释内容 |
 下面来看 nodeValue 的示例
 
-```html
+```html {6-10}
 <div class="bloom">
   <!-- 注释节点 -->
   <div class="lmh">文本节点</div>
@@ -187,7 +179,7 @@ tagName 仅能用于获取标签节点的名称,文本、注释节点值为 unde
 
 使用 data 属性可以获取文本与注释内容
 
-```html
+```html {8-9}
 <div id="app">
   bloom
   <!-- lmh 注释内容-->
@@ -206,7 +198,7 @@ tagName 仅能用于获取标签节点的名称,文本、注释节点值为 unde
 
 属性值都为字符串，所以数值类型需要进行转换
 
-```html
+```html {4}
 <input class="inputClass" type="number" name="age" value="88" />
 <script>
   let input = document.querySelector('.inputClass');
@@ -216,7 +208,7 @@ tagName 仅能用于获取标签节点的名称,文本、注释节点值为 unde
 
 ### 对节点属性值的设置
 
-```html
+```html {4}
 <input class="inputClass" type="number" name="age" value="88" />
 <script>
   let input = document.querySelector('.inputClass');
@@ -228,7 +220,7 @@ tagName 仅能用于获取标签节点的名称,文本、注释节点值为 unde
 
 使用 removeAttribute 删除元素的 class 属性，并通过 hasAttribute 进行检测删除结果
 
-```html
+```html {4}
 <input class="inputClass" type="number" name="age" value="88" />
 <script>
   let input = document.querySelector('.inputClass');
@@ -240,7 +232,7 @@ tagName 仅能用于获取标签节点的名称,文本、注释节点值为 unde
 
 使用 hasAttribute 检测是否含有某个属性
 
-```html
+```html {5}
 <input class="inputClass" type="number" name="age" value="88" />
 <script>
   let input = document.querySelector('.inputClass');
@@ -249,12 +241,123 @@ tagName 仅能用于获取标签节点的名称,文本、注释节点值为 unde
 </script>
 ```
 
-### 自定义特征属性
+## 属性和特性
 
-虽然可以随意定义特征并使用 getAttribute 等方法管理，但很容易造成与标签的现在或未来属性重名。建议使用以 data-为前缀的自定义特征处理，针对这种定义方式 JS 也提供了接口方便操作。
+### 属性和特性的区别
+
+1. 特性（Attribute）是 HTML 标签上的原始属性，存储在 DOM 对象的 attributes 属性中（Element.attributes 返回一个 NamedNodeMap 集合）,通过 setArrtribute 等进行操作。
+   例如：`<input id="test" value="hello">` 中的 id 和 value 就是 ​ 属性。
+
+2. 自定义特性挂载到 dataset 集合上，当然 attributes 上也有自定义属性只是获取方法不同
+3. 属性（Property）是 DOM 对象在内存中的实际值，直接挂载在 DOM 对象上（如 input.value）。
+
+### 自定义特性
+
+虽然可以随意定义特性但很容易造成与标签的现在或未来属性重名。建议使用以 data-为前缀的自定义特性处理，针对这种定义方式 JS 也提供了接口方便操作。
 
 - 元素中以 data-为前缀的属性会添加到属性集中
 - 使用元素的 dataset 可获取属性集中的属性
 - 改变 dataset 的值也会影响到元素上
 
 下面演示使用属性集设置 DIV 标签内容
+
+```html {4}
+<div class="box" data-first-title="自定义title"></div>
+<script>
+  let oDiv = document.querySelector('.box');
+  console.log(oDiv.dataset['firstTitle']); // 自定义title
+</script>
+```
+
+### attributes 属性
+
+```html {4-5}
+<div class="box"></div>
+<script>
+  let oDiv = document.querySelector('.box');
+  console.log(oDiv.attributes['class']); // class=box
+  console.log(oDiv.attributes['data-title']); // 自定义属性也可以拿到
+</script>
+```
+
+::: tip attributes 和 dataset
+attributes 能获取包括自定义属性的所有属性
+而 dataset 只能获取自定义属性
+:::
+
+### 属性和特性同步
+
+特性和属性是记录元素属性的两个不同场所，大部分更改会进行同步操作。
+下面使用属性更改了 className，会自动同步到了特性集中，反之亦然
+
+```html {5,8}
+<div class="box"></div>
+<input type="text" name="" id="_input" value="this is a value" />
+<script>
+  let oDiv = document.querySelector('.box');
+  // 修改属性特性会同步修改
+  oDiv.setAttribute('class', 'newBox');
+  console.log(oDiv.className); // newBox
+  // 但是对于input,修改特性不会改变属性
+  let oInput = document.querySelector('#_input');
+  oInput.value = 'change value';
+  console.log(oInput.getAttribute('value')); // this is a value
+</script>
+```
+
+常见的一些属性
+| HTML 属性 | DOM Property | 是否同步？ | 说明 |
+| --------- | ------------ | ----------- | ----------------------------------------------------- |
+| class | className | ✔️ 双向同步 | className 修改会更新 class，反之亦然 |
+| value | value | ❌ 不同步 | property 存储当前值，attribute 存储初始值 |
+| checked | checked | ❌ 部分同步 | checkbox 的 attribute 是初始状态，property 是当前状态 |
+| disabled | disabled | ❌ 部分同步 | 类似 checked |
+| href | href | ❌ 不同步 | attribute 存储完整 URL，property 可能是相对路径 |
+
+### 总结特性和属性
+
+1. **`attributes`**：
+
+   - 存储所有 HTML 特性（包括标准特性和自定义特性）。
+   - 通过 `getAttribute()` 和 `setAttribute()` 操作。
+
+2. **DOM 属性**：
+
+   - 存储 JavaScript 动态属性（如 `style`、`value`）。
+   - 直接通过 `.` 或 `[]` 访问。
+
+3. **`dataset`**：
+
+   - 仅存储 `data-*` 自定义特性，提供驼峰命名访问。
+   - 是特性和属性之间的桥梁。
+
+4. **关键区别**：
+   - **特性（Attributes）** 是 HTML 原始值（字符串）。
+   - **属性（Properties）** 是 DOM 对象的实时状态（任意类型）。
+
+```html
+<div id="app" class="container" data-role="main" data-user-id="123"></div>
+```
+
+```javascript
+const div = document.querySelector('#app');
+
+// 1. 访问 attributes
+console.log(div.attributes.id.value); // 'app'（特性值）
+console.log(div.getAttribute('data-role')); // 'main'（特性值）
+
+// 2. 访问 DOM 属性
+console.log(div.id); // 'app'（属性值）
+console.log(div.className); // 'container'（属性值）
+
+// 3. 访问 dataset
+console.log(div.dataset.role); // 'main'（data-role）
+console.log(div.dataset.userId); // '123'（data-user-id）
+
+// 4. 修改属性并检查同步
+div.id = 'newApp';
+console.log(div.getAttribute('id')); // 'newApp'（同步）
+
+div.dataset.userId = '456';
+console.log(div.getAttribute('data-user-id')); // '456'（同步）
+```

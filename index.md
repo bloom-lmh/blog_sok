@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "BLOOM_LMH"
-  text: "Programming learning"
-  tagline: 天行健，君子以自强不息
+  name: 'BLOOM_LMH'
+  text: 'Programming learning'
+  tagline: 嘟嘟嘟
   actions:
     - theme: brand
       text: Markdown Examples
