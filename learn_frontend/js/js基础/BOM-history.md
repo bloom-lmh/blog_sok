@@ -3,52 +3,43 @@
 `history` 是浏览器对象模型(BOM)的重要组成部分，它提供了与浏览器会话历史记录交互的接口，允许开发者以编程方式导航和操作浏览历史。
 [[toc]]
 
-## history 条目
+## :star:history 条目
 
-在解释 history 对象属性和方法之间有必要说明什么是条目
+在解释 history 对象属性和方法之前有必要说明什么是条目
 
 ### 什么是条目
 
-历史条目是浏览器历史记录栈的基本信息单元
-每个历史条目包含以下关键信息：
+历史条目是浏览器历史记录栈的基本信息单元,每个历史条目包含以下关键信息：
 
-1. URL 信息
-   - 完整 URL 地址（包括协议、域名、路径、查询参数和 hash）
-   - 示例：https://example.com/products?id=123#details
-2. 文档状态
-   - 页面 DOM 结构的快照（部分浏览器通过 bfcache 实现）
-   - 滚动条位置（大多数浏览器会自动保存）
-   - 表单输入值（部分浏览器会保留）
-3. 状态对象（State Object）
-   - 通过 pushState()/replaceState()存储的任意可序列化数据
-   - 最大容量通常为 2-10MB（不同浏览器限制不同）
-4. 元信息
-   - 时间戳（记录访问时间）
-   - 引荐来源（referrer）
-   - 安全上下文（HTTPS 状态）
+| **类别**           | **包含内容**                                                                                                | **备注**                      |
+| ------------------ | ----------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| **URL 信息**       | - 完整 URL（协议+域名+路径+查询参数+hash）<br>（例：`https://example.com/products?id=123#details`）         | 核心标识，必须存储            |
+| **文档状态**       | - DOM 结构快照（部分浏览器通过 bfcache 实现）<br>- 滚动条位置（自动保存）<br>- 表单输入值（部分浏览器保留） | 恢复页面时保持用户交互状态    |
+| **状态对象 state** | - `pushState()`/`replaceState()` 存储的 JSON 数据<br>（最大 2-10MB，浏览器差异）                            | 开发者可控，用于 SPA 状态管理 |
+| **元信息**         | - 时间戳<br>- 引荐来源（referrer）<br>- 安全上下文（HTTPS 状态）                                            | 用于分析和安全验证            |
 
-### 历史条目的生命周期
+### :star:条目创建机制
 
-1. 创建机制
+| 方法/场景                | 创建新历史记录条目 | 触发 popstate | 页面刷新     |
+| ------------------------ | ------------------ | ------------- | ------------ |
+| `history.pushState()`    | 是                 | 否            | 否           |
+| `history.replaceState()` | 否                 | 否            | 否           |
+| 常规`<a>`链接点击        | 是                 | 不适用        | 是           |
+| `location.hash` 变化     | 是(仅 hash 不同时) | 是            | 否           |
+| `location.replace()`     | 否                 | 不适用        | 是           |
+| `location.href` 赋值     | 是                 | 不适用        | 是           |
+| 表单提交                 | 是                 | 是            | 传统表单交互 |
 
-| 创建方式                 | 是否新建条目 | 是否加载页面 | 典型场景         |
-| ------------------------ | ------------ | ------------ | ---------------- |
-| `location.href=`         | ✔️           | ✔️           | 传统链接跳转     |
-| `location.hash=`         | ✔️           | ❌           | SPA 锚点导航     |
-| `history.pushState()`    | ✔️           | ❌           | 现代 SPA 路由    |
-| `history.replaceState()` | ❌（替换）   | ❌           | 重定向不保留历史 |
-| 表单提交                 | ✔️           | ✔️           | 传统表单交互     |
+### 条目激活过程
 
-2. 激活过程
-
-当用户点击后退/前进按钮时
+当用户点击后退/前进按钮时,对应`history.back()/history.go()`
 
 - 浏览器从历史栈中取出对应条目
 - 恢复 URL 显示
 - 尝试从 bfcache 恢复完整页面状态（若可用）
-- 触发 popstate 事件（Hash 变化则触发 hashchange）
+- 触发 `popstate` 事件（`Hash` 变化则触发 `hashchange`）
 
-3. 销毁条件
+### 条目销毁
 
 - 关闭浏览器标签页
 - 超过历史记录最大限制（通常 50-100 条）
@@ -56,8 +47,9 @@
 
 ### 条目和页面的关系
 
-- 一个新页面一定对应至少一个条目
-- 改变 hash 或通过 pushState 会为一个一面添加新的条目
+- 一个新页面对应可以多个条目，每个条目是页面不同状态下的映射
+- 改变 hash 或通过 pushState 会为一个页面添加新的条目
+- 状态 state 是页面信息的一种还有其它页面信息一起构成条目
 
 ## history 对象属性
 
@@ -67,16 +59,9 @@
 
 ### :star: history.state 对象
 
-history.state 是浏览器 History API 提供的核心功能之一，用于在 ​ 无刷新页面导航 ​（如单页应用 SPA）中存储和传递状态数据。
-​**state 是一个 JavaScript 对象**，可以存储任意可序列化的数据（如 { page: "home", id: 123 }）。
-它与当前的历史记录条目绑定，当用户前进/后退时，对应的 state 会被恢复。
-
-:::tip 总结
-
-1. 一个 url 对应一个 state
-2. state 对象不会因为刷新而丢失，它保存着页面相关信息
-
-:::
+1. history.state 是浏览器 History API 提供的核心功能之一，用于在无刷新页面导航 ​（如单页应用 SPA）中存储和传递状态数据。
+2. ​**state 是一个 JavaScript 对象**，可以存储任意可序列化的数据（如 `{ page: "home", id: 123 }`）。它与当前的历史记录条目绑定，**当用户前进/后退时，对应的 state 会被恢复**。
+3. state 对象不会因为刷新而丢失，它保存着页面相关信息
 
 ## history 对象方法
 
@@ -167,67 +152,5 @@ window.addEventListener('hashchange', () => {
 
 ## 实际应用场景
 
-### 单页应用(SPA)路由
-
-```javascript
-// 定义路由状态
-const routes = {
-  '/': { title: 'Home', content: 'Welcome' },
-  '/about': { title: 'About', content: 'About us' },
-};
-
-// 导航函数
-function navigate(path) {
-  const state = routes[path];
-  history.pushState(state, '', path);
-  renderPage(state); // 根据 state 更新页面
-}
-
-// 监听前进/后退
-window.addEventListener('popstate', event => {
-  if (event.state) renderPage(event.state);
-});
-```
-
-### 滚动位置恢复
-
-```js
-// 离开页面时保存滚动位置
-window.addEventListener('beforeunload', () => {
-  history.replaceState({ ...history.state, scrollY: window.scrollY }, '', location.href);
-});
-
-// 返回时恢复
-window.addEventListener('popstate', event => {
-  if (event.state?.scrollY) {
-    window.scrollTo(0, event.state.scrollY);
-  }
-});
-```
-
-### 无刷新页面更新
-
-```javascript
-// 更新URL而不刷新页面
-function updateQueryParams(params) {
-  const url = new URL(location);
-  Object.entries(params).forEach(([key, value]) => {
-    url.searchParams.set(key, value);
-  });
-  history.replaceState({ params }, '', url);
-}
-```
-
-### 导航历史分析
-
-```javascript
-// 分析用户导航路径
-const navigationPath = [];
-
-window.addEventListener('popstate', () => {
-  navigationPath.push({
-    path: location.pathname,
-    time: new Date(),
-  });
-});
-```
+1. 单页应用(SPA)路由
+2. 滚动位置恢复

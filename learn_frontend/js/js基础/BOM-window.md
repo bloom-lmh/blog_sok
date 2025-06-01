@@ -222,3 +222,5 @@ const myWin = window.open('htttp://www.vue3js.cn','topFrame')
 
 `window.close()`仅用于通过`window.open()`打开的窗口
 新创建的 window 对象有一个 opener 属性，该属性指向打开他的原始窗口对象
+
+## 相关事件
