@@ -223,4 +223,124 @@ const myWin = window.open('htttp://www.vue3js.cn','topFrame')
 `window.close()`仅用于通过`window.open()`打开的窗口
 新创建的 window 对象有一个 opener 属性，该属性指向打开他的原始窗口对象
 
-## 相关事件
+## 常用事件
+
+Window 对象代表浏览器窗口，提供了许多有用的事件。以下是常见的 window 事件及其用途：
+
+### 加载 & 卸载事件
+
+| 事件               | 触发时机                             | 示例用途                   |
+| ------------------ | ------------------------------------ | -------------------------- |
+| `load`             | 页面所有资源（图片、脚本等）加载完成 | 初始化页面、绑定事件       |
+| `DOMContentLoaded` | DOM 树构建完成（不等待资源）         | 尽早执行脚本、提高用户体验 |
+| `beforeunload`     | 页面即将卸载（关闭/刷新/跳转）       | 提示用户保存未提交的数据   |
+| `unload`           | 页面正在卸载                         | 清理资源、发送统计数据     |
+
+示例代码
+
+```javascript
+window.addEventListener('load', () => {
+  console.log('所有资源加载完成');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM 已就绪');
+});
+
+window.addEventListener('beforeunload', e => {
+  e.preventDefault();
+  e.returnValue = '您有未保存的更改，确定离开吗？';
+});
+```
+
+### 窗口大小 & 滚动事件
+
+| 事件     | 触发时机     | 示例用途                      |
+| -------- | ------------ | ----------------------------- |
+| `resize` | 窗口大小改变 | 响应式布局调整                |
+| `scroll` | 页面滚动时   | 懒加载、返回顶部按钮显示/隐藏 |
+
+示例代码：
+
+```javascript
+window.addEventListener('resize', () => {
+  console.log(`窗口尺寸：${window.innerWidth}x${window.innerHeight}`);
+});
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    console.log('已滚动超过 100px');
+  }
+});
+```
+
+### 焦点 & 可见性事件
+
+| 事件               | 触发时机                       | 示例用途                 |
+| ------------------ | ------------------------------ | ------------------------ |
+| `focus`            | 窗口获得焦点                   | 恢复动画、继续音视频播放 |
+| `blur`             | 窗口失去焦点                   | 暂停动画、节省资源       |
+| `visibilitychange` | 页面可见性变化（如切换标签页） | 暂停后台任务、节省电量   |
+
+示例代码：
+
+```javascript
+window.addEventListener('focus', () => {
+  console.log('窗口获得焦点');
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    console.log('页面不可见');
+  } else {
+    console.log('页面可见');
+  }
+});
+```
+
+#### 键盘 & 鼠标事件
+
+| 事件        | 触发时机     | 示例用途               |
+| ----------- | ------------ | ---------------------- |
+| `keydown`   | 按下键盘按键 | 快捷键操作、表单控制   |
+| `keyup`     | 释放键盘按键 | 松开按键时的操作       |
+| `click`     | 鼠标点击     | 交互元素响应           |
+| `mousemove` | 鼠标移动     | 拖拽效果、鼠标跟随元素 |
+
+示例代码：
+
+```javascript
+window.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    console.log('按下了 ESC 键');
+  }
+});
+
+window.addEventListener('click', e => {
+  console.log(`点击位置：(${e.clientX}, ${e.clientY})`);
+});
+```
+
+### 其他实用事件
+
+| 事件               | 触发时机                      | 示例用途                  |
+| ------------------ | ----------------------------- | ------------------------- |
+| `hashchange`       | URL 的哈希部分变化            | 单页面应用（SPA）路由更新 |
+| `online`/`offline` | 网络连接状态变化              | 提示用户网络状态          |
+| `message`          | 接收到跨窗口消息（如 iframe） | 跨窗口通信                |
+
+示例代码
+
+```javascript
+window.addEventListener('hashchange', () => {
+  console.log('URL 哈希变化：', window.location.hash);
+});
+
+window.addEventListener('online', () => {
+  console.log('网络已连接');
+});
+
+window.addEventListener('message', e => {
+  console.log('收到消息：', e.data);
+});
+```

@@ -65,6 +65,107 @@ console.log(result); // 0.3
 
 :::
 
+#### 一些算数运算 API-Math
+
+::: code-group
+
+```js [ES6之前]
+Math.pow(2, 53); //=>9007199254740992:2的53次方
+Math.round(0.6); //=>1.0：舍入到最接近的整数
+Math.ceil(0.6); //=>1.0：向上舍入到一个整数
+Math.floor(0.6); //=>0.0：向下舍入到一个整数
+Math.abs(-5); //=>5：绝对值
+Math.max(x, y, z); //返回最大的参数
+Math.min(x, y, z); //返回最小的参数
+Math.random(); //伪随机数x，其中0≤×<1.0
+Math.PI; //T：圆周率
+Math.E; //e：自然对数的底数
+Math.sqrt(3); //=>3**0.5:3的平方根
+Math.pow(3, 1 / 3); //=>3**（1/3）:3的立方根
+Math.sin(0); //三角函数：还有Math.cos、Math.atan等
+Math.log(10); //10的自然对数
+Math.log(100) / Math.LN10; //以10为底100的对数
+Math.log(512) / Math.LN2; //以2为底512的对数
+Math.exp(3); //Math.E的立方
+```
+
+```js [ES6之后]
+Math.cbrt(27); //=>3：立方根
+Math.hypot(3, 4); //=>5：所有参数平方和的平方根
+Math.log10(100); //=>2:以10为底的对数
+Math.log2(1024); //=>10：以2为底的对数
+Math.log1p(x); //（1+x）的自然对数；精确到非常小的x
+Math.expm1(x); //Math.exp（x)-1;Math.log1p（）的逆运算
+Math.sign(x); //对<、==或>0的参数返回-1、0或1
+Math.imul(2, 3); //=>6：优化的32位整数乘法
+Math.clz32(0xf); //=>28：32位整数中前导0的位数
+Math.trunc(3.9); //=>3：剪掉分数部分得到整数
+Math.fround(x); //舍入到最接近的32位浮点数
+Math.sinh(x); //双曲线正弦，还有Math.cosh（）和Math.tanh（）
+Math.asinh(x); //双曲线反正弦，还有Math.acosh（）和Math.atanh（）
+```
+
+:::
+
+#### Infinity 常量
+
+Infinity 常量代表无穷大时 window 对象上的属性
+出现 Infinity 的场景：
+
+- JavaScript 中的算术在遇到上溢出、下溢出或被零除时不会发生错误。在数值操作的结果超过最大可表示数值时(上溢出)，结果是一个特殊的无穷值 Infinity。类似地，当某个负数的绝对值超过了最大可表示负数的绝对值时，结果是负无穷值-Infinity。
+- 任何数加、减、乘、除无穷值结果还是无穷值(只是符号可能相反)。
+
+#### NaN
+
+NaN 表示非数值
+出现 NaN 的场景：
+
+- 0 除以 0 是没有意义的值，这个操作的结果是一个特殊的 NaN
+- 无穷除无穷，负数平方根或者用无法转换为数值的非数值作为算术操作符的操作数，结果也都是 NaN
+
+::: tip 关于与 NaN 的比较
+NaN 与任何值比较都不相等，也不等于自己。这意味着不能通过 `x === NaN` 来确定某个变量 x 的值是 NaN。相反，此时必须写成 `x != x` 或 `Number.lsNaN(x)`
+:::
+
+#### Number 对象
+
+Number 对象是 window 对象的上的一个对象
+Infinity 是全局常量挂载在 window 对象上，但同时也挂载在 window.Number 对象上，Number 对象也有许多关于操作数值的属性和方法，如下所示
+::: code-group
+
+```txt [ES6之前]
+Infinity; // 因为太大而无法表示的正数
+Number.POSITIVE_INFINITY; // 同上
+1 / 0; // =>Infinity
+Number.MAX_VALUE * 2 - // =>Infinity;溢出
+Infinity; // 因为太大而无法表示的负数
+Number.NEGATIVE_INFINITY - // 同上
+1 / 0 - // =>-Infinity
+Number.MAX_VALUE * 2; // =>-Infinity
+NaN; // 非数值
+Number.NaN; // 同上，写法不同
+0 / 0; // =>NaN
+Infinity / Infinity; // =>NaN
+Number.MIN_VALUE / 2 - // =>0：下溢出
+Number.MIN_VALUE / 2 - // =>-0:负零
+1 / Infinity - // =>-0：也是负零
+0;
+```
+
+```js [ES6之后]
+Number.parseInt()                // 同全局parseInt()函数
+Number.parseFloat()              // 同全局parseFloat()函数
+Number.isNaN(x)                  // 判断x是不是NaN
+Number.isFinite(x)               // 判断×是数值还是无穷
+Number.isInteger(x)              // 判断×是不是整数
+Number.isSafeInteger(x)          //
+Number.MIN_SAFE_INTEGER          // =>-(2**53-1)
+Number.MAX_SAFE_INTEGER          // =>2**53-1
+Number.EPSILON/=>2**-52：        // 数值与数值之间最小的差
+```
+
+:::
+
 #### BigInt
 
 BigInt 表示 64 位的整数，`123n`

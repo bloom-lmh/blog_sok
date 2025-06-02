@@ -39,10 +39,10 @@
 
 ![指定网格容器划分行/列轨道数及其行/列轨道高度/宽度](https://bloom-lmh.website/images/20250601152047869.png)
 
-### 隐式指定行/列轨道的默认高度/宽度-grid-auto-[columns/rows]
+### :star:隐式指定行/列轨道的默认高度/宽度-grid-auto-[columns/rows]
 
-- grid-auto-columns 这个属性能够指定列轨道的默认宽度，会被 grid-template-columns 覆盖
-- grid-auto-rows 这个属性能够指定行轨道的默认高度，会被 grid-template-rows 覆盖
+- grid-auto-columns 这个属性能够指定列轨道的默认宽度，会被 grid-template-columns 覆盖(若有)
+- grid-auto-rows 这个属性能够指定行轨道的默认高度，会被 grid-template-rows 覆盖(若有)
 
 :::tip 使用场景
 定义隐式列轨道的默认宽度（当网格项目超出显式定义的列时生效）,比如如下所示：
@@ -51,8 +51,7 @@
 <style>
   .grid {
     display: grid;
-    grid-template-rows: 50px; /* 只定义1行 */
-    grid-auto-rows: 80px; /* 第2行及以后的默认高度 */
+    grid-auto-rows: 80px; /* 下面的三个元素，会创建三个行轨道，每个行轨道80px，同时要注意当设置row-gap时会有间隔*/
   }
 </style>
 <div class="grid">
@@ -63,6 +62,10 @@
 </div>
 ```
 
+:::
+
+::: danger 一些小细节
+当使用 grid-auto-rows 指定了默认（隐式）的行轨道高度时，多出元素会按照这个标准（高度）创建行轨道，但是一定要注意，如果此时指定了 row-gap，row-gap 依然会生效。这在使用 grid 进行瀑布流布局时会很容易忽视
 :::
 
 ### 设置网格容器所有轨道及其间隙的对齐方式-justify-content & align-content
@@ -375,12 +378,12 @@ grid-template-columns: 100px auto 200px; /* 固定 + 自适应 + 固定 */
 
 ![网格项目](https://bloom-lmh.website/images/20250601150736079.png)
 
-```html {16,21,25}
+```html {5,16,21,25}
 <style>
   .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    grid-gap: 10px;
+    grid-gap: 10px; /* 注意 当跨轨道时会将gap包含进去 */
     background-color: #2196f3;
     padding: 10px;
   }
@@ -414,6 +417,10 @@ grid-template-columns: 100px auto 200px; /* 固定 + 自适应 + 固定 */
   <div class="item5">5</div>
 </div>
 ```
+
+::: danger 注意事项
+注意 当跨轨道时会将 gap 包含进去,计算时不要忽略了
+:::
 
 ### 网格元素命名及其引用-grid-area & grid-template-areas
 
@@ -573,7 +580,7 @@ justify-self 是设置单个单元格内的网格项的水平对齐方式，而 
 
 由一个或多个网络单元格构成的区域叫做网格区域。
 
-## 响应式实战
+## 响应式布局实现
 
 ### fr 实现等分响应式
 
@@ -657,3 +664,69 @@ fr 等分单位，可以将容器的可用空间分成想要的多个等分空�
 ```
 
 ![repeat+auto-fit+minmax-span-dense 解决空缺问题2](https://bloom-lmh.website/images/grid5.awebp)
+
+## 瀑布流布局实现
+
+```html {47}
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>瀑布流布局</title>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 10px; /* 注意gap包含有row-gap需要减去row-gap */
+        grid-auto-rows: 1px; /* 隐式行高为1px */
+      }
+      .item {
+        border-radius: 8px;
+        overflow: hidden;
+        background: #f0f0f0;
+        grid-column-end: span 1;
+      }
+      .item img {
+        width: 100%;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 示例图片，实际使用时替换为您的图片路径 -->
+      <div class="item"><img src="../../../images/0001.png" alt="" /></div>
+      <div class="item"><img src="../../../images/0002.png" alt="" /></div>
+      <!-- ... -->
+    </div>
+
+    <script>
+      function calculateRowSpan() {
+        const itemEls = document.querySelectorAll('.item');
+        // 默认每一行的高度
+        const defaultRowHeight = 1;
+        // row-gap的高度
+        const rowGapHeight = 10;
+        itemEls.forEach(itemEl => {
+          // 获取图片
+          const imageEl = itemEl.querySelector('img');
+          // 获取图片高度
+          const imgElHeight = imageEl.getBoundingClientRect().height;
+          // 计算总所跨行数,注意所跨行数要把每行gap算在里面
+          const totalRowSpan = Math.ceil(imgElHeight / (defaultRowHeight + rowGapHeight));
+          // 动态设置所跨行数
+          itemEl.style.gridRowEnd = `span ${totalRowSpan}`;
+        });
+      }
+      window.addEventListener('load', calculateRowSpan);
+      window.addEventListener('resize', calculateRowSpan);
+    </script>
+  </body>
+</html>
+```
+
+::: tip 小技巧
+当计算跨越行数时，采用 （默认行高+gap） 来作为一个基本单元来计算需要跨越多少行
+如 `const totalRowSpan = Math.ceil(imgElHeight / (defaultRowHeight + rowGapHeight));`
+:::

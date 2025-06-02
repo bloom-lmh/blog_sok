@@ -14,11 +14,6 @@ export default defineConfig({
         text: '前端知识',
         items: [
           {
-            text: 'HTML',
-            link: '/learn_frontend/html/重要知识点',
-          },
-
-          {
             text: 'CSS',
             link: '/learn_frontend/css/css基础/盒模型',
           },
@@ -52,7 +47,7 @@ export default defineConfig({
         items: [
           {
             text: '经验技巧',
-            link: '/learn_algorithms/经验技巧/经验技巧.md',
+            link: '/learn_algorithms/经验技巧/经验技巧',
           },
           {
             text: '数据结构问题',
@@ -62,13 +57,116 @@ export default defineConfig({
       },
     ],
 
-    sidebar: buildSideBar([
+    sidebar: {
+      '/learn_frontend/css/': [
+        {
+          text: 'css基础',
+          items: [
+            { text: '盒模型', link: '/learn_frontend/css/css基础/盒模型' },
+            { text: '关于浮动', link: '/learn_frontend/css/css基础/关于浮动' },
+            { text: 'BFC机制', link: '/learn_frontend/css/css基础/BFC机制' },
+            { text: '元素居中方法', link: '/learn_frontend/css/css基础/元素居中的方法' },
+            { text: 'Gird', link: '/learn_frontend/css/css基础/Grid' },
+            { text: '布局', link: '/learn_frontend/css/css基础/布局' },
+            { text: '响应式设计', link: '/learn_frontend/css/css基础/响应式设计' },
+          ],
+        },
+        {
+          text: 'css项目',
+          items: [],
+        },
+      ],
+      '/learn_frontend/js/': [
+        {
+          text: 'js基础',
+          items: [
+            { text: 'Js中的数据类型', link: '/learn_frontend/js/js基础/Js中的数据类型' },
+            { text: 'Js事件', link: '/learn_frontend/js/js基础/Js事件' },
+            { text: 'DOM节点的基本操作', link: '/learn_frontend/js/js基础/DOM节点的基本操作' },
+            {
+              text: 'DOM节点属性的基本操作',
+              link: '/learn_frontend/js/js基础/DOM节点属性的基本操作',
+            },
+            {
+              text: 'DOM元素内容的基本操作',
+              link: '/learn_frontend/js/js基础/DOM元素内容的基本操作',
+            },
+            {
+              text: 'DOM节点样式的基本操作',
+              link: '/learn_frontend/js/js基础/DOM节点样式的基本操作',
+            },
+            { text: 'DOM进阶知识', link: '/learn_frontend/js/js基础/DOM进阶知识' },
+            { text: 'BOM-window', link: '/learn_frontend/js/js基础/BOM-window' },
+            { text: 'BOM-location', link: '/learn_frontend/js/js基础/BOM-location' },
+            { text: 'BOM-history', link: '/learn_frontend/js/js基础/BOM-history' },
+            {
+              text: 'BOM-location与history的相互作用',
+              link: '/learn_frontend/js/js基础/BOM-location与history的相互作用',
+            },
+          ],
+        },
+        {
+          text: 'js项目',
+          items: [
+            {
+              text: '实现轮播图的两种方式',
+              link: '/learn_frontend/js/js项目/实现轮播图',
+            },
+            {
+              text: '实现SPA路由',
+              link: '/learn_frontend/js/js项目/实现SPA路由',
+            },
+          ],
+        },
+      ],
+      '/learn_frontend/react/': [
+        {
+          text: 'react基础',
+          items: [
+            { text: 'Jsx', link: '/learn_frontend/react/react基础/Jsx' },
+            { text: '组件通信', link: '/learn_frontend/react/react基础/组件通信' },
+            { text: '组件生命周期', link: '/learn_frontend/react/react基础/组件生命周期' },
+            { text: '类组件', link: '/learn_frontend/react/react基础/优化方案' },
+            { text: 'Router', link: '/learn_frontend/react/react基础/Router' },
+            { text: 'Redux', link: '/learn_frontend/react/react基础/Redux' },
+            { text: 'zustand', link: '/learn_frontend/react/react基础/zustand' },
+            { text: 'Hook', link: '/learn_frontend/react/react基础/Hook' },
+            { text: '优化方案', link: '/learn_frontend/react/react基础/优化方案' },
+            { text: '使用vite和Ts', link: '/learn_frontend/react/react基础/使用vite和Ts' },
+            { text: '极客园小项目', link: '/learn_frontend/react/react基础/极客园小项目' },
+          ],
+        },
+        {
+          text: 'react源码',
+          items: [
+            {
+              text: '创建ReactElement',
+              link: '/learn_frontend/react/react源码-18.1.0/创建ReactElement',
+            },
+            {
+              text: 'Fiber与Fiber链表树',
+              link: '/learn_frontend/react/react源码-18.1.0/Fiber与Fiber链表树',
+            },
+            { text: 'Fiber中的模式', link: '/learn_frontend/react/react源码-18.1.0/Fiber中的模式' },
+            { text: 'Fiber中的Lane', link: '/learn_frontend/react/react源码-18.1.0/Fiber中的Lane' },
+            {
+              text: 'Render函数与元素的挂载和解析',
+              link: '/learn_frontend/react/react源码-18.1.0/Render函数与元素的挂载和解析',
+            },
+            {
+              text: 'updateContainer深度优先搜索构建Fiber树',
+              link: '/learn_frontend/react/react源码-18.1.0/updateContainer深度优先搜索构建Fiber树',
+            },
+          ],
+        },
+      ],
+    } /* buildSideBar([
       '/learn_frontend/css/',
       '/learn_frontend/react',
       '/learn_frontend/js/',
       '/learn_sofrwareArchitecture/designPattern/',
       '/learn_algorithms/',
-    ]),
+    ]), */,
     socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
   },
   markdown: {
