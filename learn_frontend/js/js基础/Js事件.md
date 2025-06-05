@@ -491,10 +491,10 @@ element.addEventListener('click', function (e) {
 | 属性 | 说明 |
 |------|------|
 | which | 执行 mousedown/mouseup 时，显示所按的键 1 左键，2 中键，3 右键 |
-| clientX | 相对窗口 X 坐标 |
-| clientY | 相对窗口 Y 坐标 |
-| pageX | 相对于文档的 X 坐标 |
-| pageY | 相对于文档的 Y 坐标 |
+| clientX | 相对窗口(可视区) X 坐标 |
+| clientY | 相对窗口(可视区) Y 坐标 |
+| pageX | 相对于文档的 X 坐标（包含滚动距离） |
+| pageY | 相对于文档的 Y 坐标 （包含滚动距离）|
 | offsetX | 目标元素内部的 X 坐标 |
 | offsetY | 目标元素内部的 Y 坐标 |
 | altKey | 是否按了 alt 键 |

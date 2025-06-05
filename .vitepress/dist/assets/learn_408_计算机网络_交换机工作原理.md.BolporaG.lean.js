@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.Dh1jimFm.js";const l=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"learn_408/计算机网络/交换机工作原理.md","filePath":"learn_408/计算机网络/交换机工作原理.md"}'),r={name:"learn_408/计算机网络/交换机工作原理.md"};function _(n,o,s,c,p,d){return a(),t("div")}const m=e(r,[["render",_]]);export{l as __pageData,m as default};

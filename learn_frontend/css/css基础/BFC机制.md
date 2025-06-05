@@ -1,5 +1,7 @@
 # BFC 机制
 
+[[toc]]
+
 ## 什么是 BFC 机制
 
 BFC（块格式化上下文，Block Formatting Context）是 CSS 中用于**控制块级元素布局的一种机制/规则**。它通过创建一个独立的渲染区域，让内部元素与外部元素隔离，从而避免布局时的相互干扰。以下是 BFC 的核心机制：
@@ -20,7 +22,7 @@ BFC 目的是形成一个相对于外界完全独立的空间，让内部的子�
 - overflow 值不为 visible,为 auto、scroll、hidden
 - display 的值为 inline-block、inltable-cell、table-caption、table、inline-table、flex、inline-
   flex、grid、inline-grid
-- positionl 的值为 absolute:或 fixed
+- position 的值为 absolute:或 fixed
 
 ## BFC 的应用场景
 
@@ -79,7 +81,7 @@ BFC 目的是形成一个相对于外界完全独立的空间，让内部的子�
 下面为解决后的效果：
 ![BFC解决浮动元素塌陷](https://s3.bmp.ovh/imgs/2025/05/09/a1e9ceaeb0b1b4ea.png)
 
-### 解决 margin 塌陷问题
+### 解决 margin 合并问题
 
 当 BFC 中两个块级元素都采用了 margin，那么两个块级连接处的 margin 将会塌陷，如图所示：
 ![margin 塌陷](https://s3.bmp.ovh/imgs/2025/05/09/264fc9d01b576f42.png)

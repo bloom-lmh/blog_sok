@@ -82,6 +82,58 @@ export default defineConfig({
           items: [
             { text: 'Js中的数据类型', link: '/learn_frontend/js/js基础/Js中的数据类型' },
             { text: 'Js事件', link: '/learn_frontend/js/js基础/Js事件' },
+            {
+              text: 'Js中的作用域',
+              link: '/learn_frontend/js/js基础/Js中的作用域',
+            },
+            {
+              text: 'Js中的对象',
+              link: '/learn_frontend/js/js基础/Js中的对象',
+            },
+            {
+              text: 'Js中的数组',
+              link: '/learn_frontend/js/js基础/Js中的数组',
+            },
+            {
+              text: 'Js中的函数',
+              link: '/learn_frontend/js/js基础/Js中的函数',
+            },
+            {
+              text: 'Js中的闭包、高阶函数和函数柯里化',
+              link: '/learn_frontend/js/js基础/Js中的闭包、高阶函数和函数柯里化',
+            },
+            {
+              text: 'Js中的类',
+              link: '/learn_frontend/js/js基础/Js中的类',
+            },
+            {
+              text: 'Js基于原型链的继承',
+              link: '/learn_frontend/js/js基础/Js基于原型链的继承',
+            },
+            {
+              text: 'Js中的标准库',
+              link: '/learn_frontend/js/js基础/Js中的标准库',
+            },
+            {
+              text: 'Js中的正则表达式',
+              link: '/learn_frontend/js/js基础/Js中的正则表达式',
+            },
+            {
+              text: 'Js中的模块化',
+              link: '/learn_frontend/js/js基础/Js中的模块化',
+            },
+            {
+              text: 'Js中的元编程',
+              link: '/learn_frontend/js/js基础/Js中的元编程',
+            },
+            {
+              text: 'Js中的this',
+              link: '/learn_frontend/js/js基础/Js中的this',
+            },
+            {
+              text: 'Js中的防抖节流',
+              link: '/learn_frontend/js/js基础/Js中的防抖节流',
+            },
             { text: 'DOM节点的基本操作', link: '/learn_frontend/js/js基础/DOM节点的基本操作' },
             {
               text: 'DOM节点属性的基本操作',
@@ -102,6 +154,14 @@ export default defineConfig({
             {
               text: 'BOM-location与history的相互作用',
               link: '/learn_frontend/js/js基础/BOM-location与history的相互作用',
+            },
+            {
+              text: 'ES6-ES13新特性',
+              link: '/learn_frontend/js/js基础/ES6-ES13新特性',
+            },
+            {
+              text: 'Promise',
+              link: '/learn_frontend/js/js基础/Promise',
             },
           ],
         },
