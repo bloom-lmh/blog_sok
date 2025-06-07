@@ -1,0 +1,541 @@
+# JS-数组基础
+
+[[toc]]
+
+## 创建数组
+
+### 数组字面量方式创建数组
+
+- 数组字面量的值可以是表达式
+- 数组字面量的值可以是任意类型
+- 数组字面量末尾允许出现都逗号
+
+```js
+function a() {
+  return 'a';
+}
+// 数组元素可以是表达式,也可以是任意类型
+let arr = [a(), 'b'，{name:'xiaoming'}];
+
+// 数组元素末尾允许出现逗号
+let count = [, ,]; // 这个数组没有元素但长度为2
+```
+
+### 使用 Array 构造函数创建数组
+
+- 传入一个参数表示创建指定长度的数组，但是索引等不会定义
+- 传入多个参数表示创建由这些参数为元素组成的数组
+- Array 构造函数无法创建只有一个数值的数组
+
+```js
+// 注意，这时的数组中不会存储任何值，数组索引属性0、1等甚至都没有定义。
+let a = new Array(10);
+let a1 = new Array(5, 4, 3, 2, 1, 'testing, testing');
+```
+
+### 使用 Array.of 方法创建数组
+
+Array 构造函数无法创建只包含一个数值的元素的数组，而使用 Array.of 可以实现
+
+```js
+Array.of(); // => [];返回没有参数的空数组
+Array.of(10); //=> [10]：可以创建只有一个数值元素的数组
+Array.of(l, 2, 3); // => [1, 2, 3]
+```
+
+### 使用 Array.from 方法创建数组
+
+- 第一个参数接受一个可迭代对象（类数组也可以）
+- 第二个参数为处理函数，可迭代对象的每一个元素会进入这个函数进行处理后返回作为新数组的元素
+
+```js
+let arr = Array.from(["a","b","c"].function(item){
+  return item+"1"
+})
+arr// => ["a1","b1","c1"]
+```
+
+## 添加数组元素
+
+### 向数组末尾添加元素-push
+
+```js
+let fruits = ['apple', 'banana'];
+let fruitsCount = fruits.push('mango', 'grape');
+console.log(fruits); //  ['apple', 'banana', 'mango', 'grape']
+console.log(fruitsCount); // 4
+```
+
+### 在数组开头添加元素-unshift
+
+```js
+let newLength = fruits.unshift('mango', 'grape'); // 添加多个元素
+console.log(fruits); // ['mango', 'grape', 'orange', 'banana', 'apple']
+console.log(newLength); // 5
+```
+
+## 删除数组元素
+
+### 删除数组元素索引 -delete
+
+使用 delete 会删除数组元素属性但是不会导致数组长度 length 变化
+
+```js
+let numbers = [1, 2, 3, 4];
+delete numbers[1]; // 删除索引1的元素（变为empty）
+console.log(numbers); // [1, empty, 3, 4]
+console.log(numbers.length); // 4（长度不变）
+```
+
+### 通过改变长度删除元素-length
+
+如果将 length 属性缩小为小于当前值的非负整数 n，则任何索引大于等于 n 的数组元素都会从数组中删除
+
+```js
+let a = [1, 2, 3, 4, 5]; // 先定义一个包含5个元素的数组
+
+a.length = 3; // a变成[1, 2, 3]
+a.length = 0; // 删除所有元素。a是[]
+```
+
+### 移除并返回数组第一个元素-shift
+
+```js
+let numbers = [1, 2, 3, 4];
+let first = numbers.shift(); // 移除并返回第一个元素
+console.log(first); // 1
+console.log(numbers); // [2, 3, 4]
+
+let empty = [];
+let result = empty.shift(); // 空数组返回undefined
+console.log(result); // undefined
+```
+
+### 移除并返回数组最后一个元素-pop
+
+```js
+let colors = ['red', 'green', 'blue'];
+let last = colors.pop(); // 移除并返回最后一个元素
+console.log(last); // 'blue'
+console.log(colors); // ['red', 'green']
+
+let empty = [];
+let result = empty.pop(); // 空数组返回undefined
+console.log(result); // undefined
+```
+
+## 增删改通用方法
+
+### 删除/替换/插入元素 - splice
+
+```js
+let numbers = [1, 2, 3, 4, 5];
+let removed = numbers.splice(1, 2); // 从索引1删除2个元素
+console.log(removed); // [2, 3]
+console.log(numbers); // [1, 4, 5]
+
+numbers.splice(1, 0, 'a', 'b'); // 在索引1插入元素（不删除）
+console.log(numbers); // [1, 'a', 'b', 4, 5]
+
+numbers.splice(2, 1, 'x'); // 替换索引2的元素
+console.log(numbers); // [1, 'a', 'x', 4, 5]
+```
+
+## 查询数组元素
+
+### 检查是否包含某元素-includes
+
+```js
+let languages = ['JavaScript', 'Python', 'Java'];
+console.log(languages.includes('Python')); // true
+console.log(languages.includes('Ruby')); // false
+console.log(languages.includes('java')); // false（区分大小写）
+```
+
+### 查找符合条件的元素/索引- find & findIndex
+
+```js
+let users = [
+  { id: 1, name: 'Alice' },
+  { id: 2, name: 'Bob' },
+  { id: 3, name: 'Charlie' },
+];
+
+// find() 返回第一个匹配的元素
+let user = users.find(u => u.id === 2);
+console.log(user); // { id: 2, name: 'Bob' }
+
+// findIndex() 返回第一个匹配的索引
+let index = users.findIndex(u => u.name.startsWith('C'));
+console.log(index); // 2
+```
+
+### 查找元素首次出现的索引 - indexOf
+
+```js
+let nums = [10, 20, 30, 20, 40];
+console.log(nums.indexOf(20)); // 1
+console.log(nums.indexOf(50)); // -1（未找到）
+console.log(nums.indexOf(20, 2)); // 3（从索引2开始搜索）
+```
+
+### 返回指定元素在数组中最后一次出现的索引-lastIndexOf
+
+```js
+const numbers = [2, 5, 3, 5, 8, 5];
+
+console.log(numbers.lastIndexOf(5)); // 5（最后一次出现的索引）
+console.log(numbers.lastIndexOf(5, 3)); // 3（从索引3往前搜索）
+console.log(numbers.lastIndexOf(10)); // -1（未找到）
+```
+
+## 迭代数组元素
+
+### 遍历所有数组元素-for/of 方法
+
+- 遍历可迭代对象（数组、字符串、Map、Set 等）
+- 可以直接获取元素值（而非索引）
+- 支持 break 和 continue 控制流程
+- 不会跳过空占位，会将空值（empty slots）视为 undefined
+- 异步支持，异步方法可按顺序输出
+- 性能更好
+
+```js
+let arr = ['a', , 'c'];
+
+for (const [index, item] of arr.entries()) {
+  console.log(item, index);
+}
+// a 0
+// undefined 1
+// c 2
+
+//  for...of + await
+async function runTasks() {
+  for (const num of asyncTasks) {
+    await new Promise(resolve => setTimeout(resolve, 100));
+    console.log(num); // 保证顺序: 1, 2, 3
+  }
+}
+runTasks();
+```
+
+### 遍历所有非空索引元素- forEach
+
+- 是数组的迭代方法，直接操作数组元素
+- 无法中断循环（不支持 break 或 continue）
+- 回调函数接收三个参数：(元素, 索引, 原数组)
+- 会跳过空占位
+- 异步方法可能不会按顺序输出
+- 性能慢于 for/of
+
+```js
+let arr = ['a', , 'c'];
+arr.forEach((item, index) => {
+  console.log(item, index);
+});
+// a 0
+// c 2
+
+const asyncTasks = [1, 2, 3];
+asyncTasks.forEach(async num => {
+  await new Promise(resolve => setTimeout(resolve, 100));
+  console.log(num); // 可能不按顺序输出！
+});
+```
+
+## 排序数组元素
+
+### 通用排序-sort
+
+```js
+// 比较函数：决定排序顺序
+function compare(value1, value2) {
+  if (value1 < value2) {
+    return -1; // value1 应该排在 value2 前面
+  } else if (value1 > value2) {
+    return 1; // value1 应该排在 value2 后面
+  } else {
+    return 0; // value1 和 value2 保持原顺序
+  }
+}
+
+// 测试数组
+let values = [0, 1, 5, 10, 15];
+
+// 使用比较函数进行排序
+values.sort(compare);
+
+// 显示结果
+alert(values); // 输出: 0,1,5,10,15
+```
+
+### 逆向排序-reverse
+
+```js
+let values = [1, 2, 3, 4, 5];
+values.reverse();
+alert(values); // 5,4,3,2,1
+```
+
+## 复制/合并/剪切数组元素
+
+### 将数组的一部分复制到同一数组的另一个位置- copyWithin
+
+```js
+const arr = [1, 2, 3, 4, 5];
+
+// 将索引3到4的元素复制到索引0的位置
+arr.copyWithin(0, 3, 5);
+console.log(arr); // [4, 5, 3, 4, 5]（原数组被修改）
+
+// 负数索引表示从末尾计算
+const nums = [10, 20, 30, 40, 50];
+nums.copyWithin(-2, 0, 2); // 将前两个元素复制到倒数第二的位置
+console.log(nums); // [10, 20, 30, 10, 20]
+```
+
+### 合并多个数组或值并返回新数组-concat
+
+```js
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+
+// 合并两个数组
+const combined = arr1.concat(arr2);
+console.log(combined); // [1, 2, 3, 4]
+
+// 合并数组和值
+const withValues = arr1.concat(99, 'hello');
+console.log(withValues); // [1, 2, 99, 'hello']
+
+// 嵌套数组不会自动展开
+const nested = arr1.concat([5, [6, 7]]);
+console.log(nested); // [1, 2, 5, [6, 7]]
+```
+
+### 合并多个数组元素并返回新数组-扩展运算符
+
+可以使用扩展操作符来将任意可迭代对象的每个元素变为数组的元素
+
+```js
+// abc 是可迭代的所以可以使用扩展操作符来初始化数组
+const arr = [...'abc'];
+// arr => ["a","b","c"]
+```
+
+:::tip 元素去重小技巧
+set 集合是可迭代的，利用 set 很容易实现数组去重
+
+```js
+let letters = [..."hello world"]
+[...new Set(letters)]
+```
+
+:::
+
+### 提取数组的一部分并返回新数组 - slice
+
+```js
+const arr = [10, 20, 30, 40, 50];
+
+// 提取索引1到3（不包括3）
+console.log(arr.slice(1, 3)); // [20, 30]
+
+// 负数索引（从末尾计算）
+console.log(arr.slice(-3, -1)); // [30, 40]
+
+// 浅拷贝整个数组
+const copy = arr.slice();
+console.log(copy); // [10, 20, 30, 40, 50]
+
+// 原数组未被修改
+console.log(arr); // [10, 20, 30, 40, 50]
+```
+
+## 数组转换
+
+### 拍平数组（降维）-flat | flatMap
+
+- flat 将嵌套数组"拉平"到指定深度（默认深度为 1）
+- 先对每个元素执行映射函数，再将结果拉平一层（相当于 `map() + flat(1)`）
+
+::: code-group
+
+```js [flap]
+const nestedArr = [1, [2, 3], [4, [5, 6]]];
+
+// 默认拉平一层
+console.log(nestedArr.flat()); // [1, 2, 3, 4, [5, 6]]
+
+// 拉平所有层（Infinity）
+console.log(nestedArr.flat(Infinity)); // [1, 2, 3, 4, 5, 6]
+
+// 跳过空占位
+const sparseArr = [1, , 3];
+console.log(sparseArr.flat()); // [1, 3]
+```
+
+```js [flatMap]
+const phrases = ['hello world', 'goodbye moon'];
+
+// 分割字符串并拉平
+const words = phrases.flatMap(phrase => phrase.split(' '));
+console.log(words); // ["hello", "world", "goodbye", "moon"]
+
+// 与 map() 对比
+const mapped = phrases.map(phrase => phrase.split(' '));
+console.log(mapped); // [["hello", "world"], ["goodbye", "moon"]]
+```
+
+:::
+
+### 将数组所有元素连接成一个字符串-join
+
+```js
+const fruits = ['apple', 'banana', 'orange'];
+
+// 默认逗号分隔
+console.log(fruits.join()); // "apple,banana,orange"
+
+// 自定义分隔符
+console.log(fruits.join(' - ')); // "apple - banana - orange"
+
+// 空数组返回空字符串
+console.log([].join('*')); // ""
+```
+
+## 数组映射/断言/过滤/归并/填充
+
+### 数组元素映射 - map
+
+对数组中每个元素应用指定的函数处理，并将处理结果返回作为新数组元素，这个方法也会感知稀疏数组，不会对没有的元素数组调用函数。
+
+```js
+const nums = [1, 2, 3];
+
+// 每个元素乘以2
+const doubled = nums.map(num => num * 2);
+console.log(doubled); // [2, 4, 6]
+
+// 生成新对象数组
+const users = ['Alice', 'Bob'];
+const userObjs = users.map((name, index) => ({ id: index, name }));
+console.log(userObjs); // [{id:0, name:'Alice'}, {id:1, name:'Bob'}]
+```
+
+### 过滤数组元素 - filter
+
+对数组每个元素应用指定的函数，留下函数运算后返回 true 的符合条件的元素作为新数组元素，这个方法也会感知稀疏数组，不会对没有的元素数组调用函数。
+
+```js
+const numbers = [10, 15, 3, 8, 20];
+
+// 筛选大于10的数
+const filtered = numbers.filter(num => num > 10);
+console.log(filtered); // [15, 20]
+
+// 筛选偶数索引元素
+const evenIndex = numbers.filter((_, index) => index % 2 === 0);
+console.log(evenIndex); // [10, 3, 20]
+```
+
+### 数组全称/存在量词断言全 - every 与 some
+
+every()和 some()方法是数组断言方法，即它们会对数组元素调用我们传入的断言函数，最后返回 true 或 false。
+
+- every 是全称量词，当所有元素满足断言函数时返回 true，一个为 false 时返回 false
+- some 是存在量词，只要一个元素满足就返回 true，全部 false 时返回 false
+
+这两个方法也会感知稀疏数组，不会对没有的元素调用函数
+::: code-group
+
+```js [every]
+const ages = [18, 22, 25, 30];
+
+console.log(ages.every(age => age >= 18)); // true（全部成年）
+console.log(ages.every(age => age > 20)); // false（不全部大于20）
+```
+
+```js [some]
+const colors = ['red', 'green', 'blue'];
+
+console.log(colors.some(color => color === 'green')); // true
+console.log(colors.some(color => color.length > 10)); // false
+```
+
+:::
+
+### 归并数组元素- reduce 与 reduceRight
+
+`reduce()`与 `reduceRight()`
+方法使用我们指定的函数归并数组元素，最终产生一个值。 在函数编程中，归并是一个常见操作，有时候也称为注入(inject)或折叠(fold)。看例子更容易理解
+
+- reduce 从低索引到高索引
+- reduceRight 从高索引到低索引
+
+- 第一个参数是执行归并操作的函数，这个归并函数的任务就是把两个值归并或组合为一个值并返回这个值作为下一次操作的起始值
+- 第二个参数是可选的，是传给归并函数的初始值
+
+这两个方法也会感知稀疏数组，不会对没有的元素调用函数
+::: code-group
+
+```js [reduce]
+const orders = [
+  { product: '苹果', price: 10, quantity: 2 },
+  { product: '香蕉', price: 5, quantity: 3 },
+  { product: '橙子', price: 8, quantity: 1 },
+];
+
+const total = orders.reduce((sum, order) => {
+  return sum + order.price * order.quantity;
+}, 0); // 初始值设为0
+
+console.log(total); // 10 * 2 + 5 * 3 + 8 * 1 = 43
+```
+
+```js [reduceRight]
+// 需要按顺序执行函数：f(g(h(x)))
+const functions = [
+  x => x + 1, // h(x)
+  x => x * 2, // g(x)
+  x => x.toUpperCase(), // f(x)
+];
+
+const input = 'hello';
+
+// 从右到左组合函数
+const result = functions.reduceRight(
+  (combinedFn, currentFn) => {
+    return x => currentFn(combinedFn(x)); // 嵌套执行
+  },
+  x => x,
+); // 初始值为恒等函数
+
+console.log(result(input)); // "HELLO" → "hello" → "helloh" → "HELLOH"
+```
+
+:::
+
+### 数组填充-fill
+
+```js
+let numbers = [1, 2, 3, 4];
+numbers.fill(0); // 全部填充为0
+console.log(numbers); // [0, 0, 0, 0]
+
+let partialFill = [1, 2, 3, 4].fill(5, 1, 3); // 从索引1到3填充5
+console.log(partialFill); // [1, 5, 5, 4]
+
+let createFilled = Array(5).fill('default'); // 创建并填充新数组
+console.log(createFilled); // ['default', 'default', 'default', 'default', 'default']
+```
+
+## 判断是否为数组
+
+通过 Array.isArray 可以判断是否为数组
+
+```js
+let arr = [];
+console.log(Array.isArray(arr)); //true
+```

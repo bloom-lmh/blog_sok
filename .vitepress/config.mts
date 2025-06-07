@@ -80,59 +80,68 @@ export default defineConfig({
         {
           text: 'js基础',
           items: [
-            { text: 'Js中的数据类型', link: '/learn_frontend/js/js基础/Js中的数据类型' },
-            { text: 'Js事件', link: '/learn_frontend/js/js基础/Js事件' },
+            { text: 'JS-数据类型', link: '/learn_frontend/js/js基础/JS-数据类型' },
+            { text: 'JS-类型转换', link: '/learn_frontend/js/js基础/JS-类型转换' },
+            { text: 'JS-表达式与操作符', link: '/learn_frontend/js/js基础/JS-表达式与操作符' },
+
             {
-              text: 'Js中的作用域',
-              link: '/learn_frontend/js/js基础/Js中的作用域',
+              text: 'JS-作用域问题',
+              link: '/learn_frontend/js/js基础/JS-作用域问题',
             },
             {
-              text: 'Js中的对象',
-              link: '/learn_frontend/js/js基础/Js中的对象',
+              text: 'JS-对象',
+              link: '/learn_frontend/js/js基础/JS-对象',
             },
             {
-              text: 'Js中的数组',
-              link: '/learn_frontend/js/js基础/Js中的数组',
+              text: 'JS-数组基础',
+              link: '/learn_frontend/js/js基础/JS-数组基础',
             },
             {
-              text: 'Js中的函数',
-              link: '/learn_frontend/js/js基础/Js中的函数',
+              text: 'JS-数组进阶',
+              link: '/learn_frontend/js/js基础/JS-数组进阶',
             },
             {
-              text: 'Js中的闭包、高阶函数和函数柯里化',
-              link: '/learn_frontend/js/js基础/Js中的闭包、高阶函数和函数柯里化',
+              text: 'JS-函数基础',
+              link: '/learn_frontend/js/js基础/JS-函数基础',
             },
             {
-              text: 'Js中的类',
-              link: '/learn_frontend/js/js基础/Js中的类',
+              text: 'JS-函数进阶',
+              link: '/learn_frontend/js/js基础/JS-函数进阶',
             },
             {
-              text: 'Js基于原型链的继承',
-              link: '/learn_frontend/js/js基础/Js基于原型链的继承',
+              text: 'JS-类',
+              link: '/learn_frontend/js/js基础/JS-类',
             },
             {
-              text: 'Js中的标准库',
-              link: '/learn_frontend/js/js基础/Js中的标准库',
+              text: 'JS-基于原型链的继承',
+              link: '/learn_frontend/js/js基础/JS-基于原型链的继承',
             },
             {
-              text: 'Js中的正则表达式',
-              link: '/learn_frontend/js/js基础/Js中的正则表达式',
+              text: 'JS-标准库',
+              link: '/learn_frontend/js/js基础/JS-标准库',
             },
             {
-              text: 'Js中的模块化',
-              link: '/learn_frontend/js/js基础/Js中的模块化',
+              text: 'JS-正则表达式',
+              link: '/learn_frontend/js/js基础/JS-正则表达式',
             },
             {
-              text: 'Js中的元编程',
-              link: '/learn_frontend/js/js基础/Js中的元编程',
+              text: 'JS-模块化',
+              link: '/learn_frontend/js/js基础/JS-模块化',
+            },
+            { text: 'JS-事件基础', link: '/learn_frontend/js/js基础/JS-事件基础' },
+            { text: 'JS-事件循环', link: '/learn_frontend/js/js基础/JS-事件循环' },
+            {
+              text: 'JS-执行上下文this',
+              link: '/learn_frontend/js/js基础/JS-执行上下文this',
             },
             {
-              text: 'Js中的this',
-              link: '/learn_frontend/js/js基础/Js中的this',
+              text: 'JS-元编程',
+              link: '/learn_frontend/js/js基础/JS-元编程',
             },
+
             {
-              text: 'Js中的防抖节流',
-              link: '/learn_frontend/js/js基础/Js中的防抖节流',
+              text: 'JS-防抖节流',
+              link: '/learn_frontend/js/js基础/JS-防抖节流',
             },
             { text: 'DOM节点的基本操作', link: '/learn_frontend/js/js基础/DOM节点的基本操作' },
             {

@@ -1,0 +1,160 @@
+# JS 中的作用域
+
+[[toc]]
+
+## 作用域与词法作用域
+
+### 何为作用域？
+
+定义 ​​：作用域是指变量、函数或对象的可访问范围 ​​，即代码中"变量在哪里有效"。
+核心 ​​：它回答的是"这个变量/函数能不能被访问"的问题。
+分类 ​​：
+
+- 全局作用域
+- 函数作用域（var 声明的变量）
+- 块级作用域（let/const 声明的变量，ES6+）
+
+### 何为词法作用域
+
+定义 ​​：词法作用域是 JavaScript 的作用域确定规则（JS 采用词法作用域，也就是变量的作用域是在代码编写时确定的）
+
+- 变量和函数的作用域在代码编写时(即词法分析阶段)就已经确定 ​​
+- 作用域的嵌套关系由代码的书写结构决定 ​​
+- 与函数在哪里调用无关，只与函数在哪里定义有关 ​
+
+核心 ​​：它回答的是"这个作用域的嵌套关系是如何确定的"的问题。
+
+## JavaScript 作用域的类型
+
+### 全局作用域(Global Scope)
+
+- 在任何函数外部声明的变量拥有全局作用域，变量全局有效
+- 全局变量可以在 JavaScript 程序的任何位置访问
+- 浏览器中，全局作用域是 window 对象
+
+```js
+var globalVar = '我是全局变量';
+
+function showGlobal() {
+  console.log(globalVar); // 可以访问
+}
+
+showGlobal();
+console.log(globalVar); // 可以访问
+```
+
+### 函数作用域(Function Scope)
+
+- 在函数内部声明的变量拥有函数作用域，变量只在函数内部起作用
+- 这些变量只能在函数内部访问
+- 函数执行完毕后，函数作用域中的变量会被销毁
+
+```js
+function myFunction() {
+  var functionVar = '我是函数变量';
+  console.log(functionVar); // 可以访问
+}
+
+myFunction();
+console.log(functionVar); // 报错: functionVar is not defined
+```
+
+### 块级作用域(Block Scope)
+
+- ES6 引入的 let 和 const 声明的变量具有块级作用域,但是 var 变量没有块级作用域
+- 块级作用域由{}界定，如 if 语句、for 循环等
+- 在块外部无法访问块内声明的变量
+
+```js
+if (true) {
+  var blockVar = '块级'; // 用 var 声明
+  const PI = 3.14; // 用 const 声明
+  console.log(blockVar); // 可以访问（正常）
+}
+
+console.log(blockVar); // 可以访问（var 穿透了块级作用域）
+console.log(PI); // 报错：PI is not defined（const 遵守块级作用域）
+```
+
+## ​var 变量的作用域问题
+
+### ​var 变量的作用域
+
+变量不存在块级作用域 ​​，**var 只有函数作用域和全局作用域**。在 if/for 等代码块中声明的 var 变量，会 穿透到外部作用域 ​
+
+```js
+if (true) {
+  var blockVar = '块级'; // 用 var 声明
+  console.log(blockVar); // 可以访问（正常）
+}
+
+console.log(blockVar); // 可以访问（var 穿透了块级作用域）
+```
+
+### ​var 变量提升
+
+var 声明的变量有变量提升，会提升到所在作用域的顶部
+
+```js
+function demo() {
+  console.log(blockVar); // 可以访问,var会提示
+  var blockVar = '块级'; // 用 var 声明
+}
+```
+
+## let/const 变量的作用域问题
+
+### let/const 变量的作用域
+
+let/const 声明的变量具有**块级作用域、函数作用域和全局作用域**，在 {} 内部声明的变量，​​ 只能在 {} 内部访问 ​​。
+
+```js
+if (true) {
+  const PI = 3.14; // 用 const 声明
+  console.log(blockVar); // 可以访问（正常）
+}
+
+console.log(PI); // 报错：PI is not defined（const 遵守块级作用域）
+```
+
+### 暂时性死区（Temporal Dead Zone，TDZ）
+
+在变量声明之前，该变量虽然已经存在于作用域中，但无法被访问的这段时间 ​​。如果尝试在声明前访问这些变量，JavaScript 会抛出 ReferenceError 错误。
+
+```js
+{
+  console.log(d); // ReferenceError: Cannot access 'd' before initialization
+  let d = 40;
+}
+function foo(x = y, y = 2) {
+  console.log(x, y);
+}
+foo(); // ReferenceError: Cannot access 'y' before initialization
+```
+
+## 作用域链(Scope Chain)
+
+JavaScript 使用作用域链来查找变量：
+
+- 当访问一个变量时，首先在当前作用域查找
+- 如果找不到，则向上一级作用域查找
+- 直到全局作用域，如果全局作用域也没有，则报错
+
+```js
+var globalVar = '全局';
+
+function outer() {
+  var outerVar = '外部';
+
+  function inner() {
+    var innerVar = '内部';
+    console.log(innerVar); // 访问内部变量
+    console.log(outerVar); // 访问外部变量
+    console.log(globalVar); // 访问全局变量
+  }
+
+  inner();
+}
+
+outer();
+```

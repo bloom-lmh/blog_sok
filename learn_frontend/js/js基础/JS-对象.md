@@ -192,7 +192,7 @@ delete x  // 没有写完整删除失败
 delete globalThis.x 删除成功返回true
 ```
 
-## 测试属性是否存在
+## :star:测试属性是否存在
 
 - `in` 操作符:使用 in 操作符可以判断某对象是否含某属性（包括继承的属性）
 - `hasOwnProperty` 方法:检测是否含有自有属性
