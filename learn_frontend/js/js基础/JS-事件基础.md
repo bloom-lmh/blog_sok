@@ -268,30 +268,39 @@ target.onclick = function () {
 - 有些浏览器会将事件对象做为事件处理程序的参数传递
 
 事件对象常用属性如下：
-|属性|说明|
-| ---- | ---- |
-|type|事件类型|
-|target|事件目标对象，冒泡方式时父级对象可以通过该属性找到在哪个子元素上最终执行事件|
-|currentTarget|当前执行事件的对象|
-|timeStamp|事件发生的时间|
-|x|相对窗口的 X 坐标|
-|y|相对窗口的 Y 坐标|
-|clientX|相对窗口的 X 坐标|
-|clientY|相对窗口的 Y 坐标|
-|screenX|相对计算机屏幕的 X 坐标|
-|screenY|相对计算机屏幕的 Y 坐标|
-|pageX|相对于文档的 X 坐标|
-|pageY|相对于文档的 Y 坐标|
-|offsetX|相对于事件对象的 X 坐标|
-|offsetY|相对于事件对象的 Y 坐标|
-|layerX|相对于父级定位的 X 坐标|
-|layerY|相对于父级定位的 Y 坐标|
-|path|冒泡的路径|
-|altKey|是否按了 alt 键|
-|shiftKey|是否按了 shift 键|
-|metaKey|是否按了媒体键|
-|window.pageXOffset|文档参考窗口水平滚动的距离|
-|window.pageYOffset|文档参考窗口垂直滚动的距离|
+
+| 属性           | 说明                                                                         | 补充说明                         |
+| -------------- | ---------------------------------------------------------------------------- | -------------------------------- |
+| type           | 事件类型（如："click"、"mousedown"等）                                       | 只读属性                         |
+| target         | 触发事件的原始目标对象（事件冒泡的起点）                                     | 不会随冒泡过程改变               |
+| currentTarget  | 当前正在处理事件的 DOM 元素                                                  | 在事件冒泡过程中会变化           |
+| timeStamp      | 事件发生的时间戳（单位：毫秒）                                               | 从页面加载开始计算               |
+| x              | 同 clientX，相对视口的 X 坐标                                                | 非标准属性，建议使用 clientX     |
+| y              | 同 clientY，相对视口的 Y 坐标                                                | 非标准属性，建议使用 clientY     |
+| clientX        | 相对浏览器视口左上角的 X 坐标（不包含滚动距离）                              | 不受页面滚动影响                 |
+| clientY        | 相对浏览器视口左上角的 Y 坐标（不包含滚动距离）                              | 不受页面滚动影响                 |
+| screenX        | 相对物理屏幕左上角的 X 坐标                                                  | 多显示器环境下可能有负值         |
+| screenY        | 相对物理屏幕左上角的 Y 坐标                                                  | 多显示器环境下可能有负值         |
+| pageX          | 相对完整文档左上角的 X 坐标（包含滚动距离）                                  | pageX = clientX + window.scrollX |
+| pageY          | 相对完整文档左上角的 Y 坐标（包含滚动距离）                                  | pageY = clientY + window.scrollY |
+| offsetX        | 相对目标元素 padding edge 的 X 坐标                                          | 受目标元素的 padding 影响        |
+| offsetY        | 相对目标元素 padding edge 的 Y 坐标                                          | 受目标元素的 padding 影响        |
+| layerX         | 相对最近定位祖先元素的 X 坐标（非标准属性）                                  | 不同浏览器实现可能不同           |
+| layerY         | 相对最近定位祖先元素的 Y 坐标（非标准属性）                                  | 不同浏览器实现可能不同           |
+| path           | 事件冒泡路径（从 target 到 window 的 DOM 节点数组）                          | 非标准属性，但被广泛支持         |
+| composedPath() | 标准方法，返回事件冒泡路径                                                   | 替代 path 的标准方法             |
+| altKey         | 事件触发时 Alt 键是否被按下                                                  | 布尔值                           |
+| ctrlKey        | 事件触发时 Ctrl 键是否被按下                                                 | 布尔值                           |
+| shiftKey       | 事件触发时 Shift 键是否被按下                                                | 布尔值                           |
+| metaKey        | 事件触发时 Meta 键是否被按下（Mac 上是 Command 键，Windows 上是 Windows 键） | 布尔值                           |
+| button         | 鼠标按键标识（0=左键，1=中键，2=右键）                                       | 仅鼠标事件                       |
+| buttons        | 鼠标按键状态（位掩码：1=左键，2=右键，4=中键）                               | 表示所有按键的按下状态           |
+| detail         | 点击次数（如：dblclick 事件为 2）                                            | 仅鼠标事件                       |
+| relatedTarget  | 相关元素（如：mouseover 时的离开元素，mouseout 时的进入元素）                | 部分鼠标事件可用                 |
+| movementX      | 上次事件后鼠标水平移动距离                                                   | 仅 mousemove 事件                |
+| movementY      | 上次事件后鼠标垂直移动距离                                                   | 仅 mousemove 事件                |
+| pageXOffset    | window.pageXOffset 是 window.scrollX 的别名，表示文档水平滚动距离            | 建议使用 window.scrollX          |
+| pageYOffset    | window.pageYOffset 是 window.scrollY 的别名，表示文档垂直滚动距离            | 建议使用 window.scrollY          |
 
 ## 事件传播
 

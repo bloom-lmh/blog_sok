@@ -55,6 +55,11 @@ let arr = Array.from(["a","b","c"].function(item){
 arr// => ["a1","b1","c1"]
 ```
 
+::: tip 小技巧
+可以传入一个类数组对象
+`Array.from({length:3},(item,index)=>{})`
+:::
+
 ## 添加数组元素
 
 ### 向数组末尾添加元素-push

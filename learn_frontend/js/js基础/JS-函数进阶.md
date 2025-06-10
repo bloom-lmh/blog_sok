@@ -198,3 +198,5 @@ const memoizedFib = memoizeByClosure(fibonacci);
 console.log(memoizedFib(10)); // 计算并返回55
 console.log(memoizedFib(10)); // 直接从缓存返回55
 ```
+
+## 闭包解决 for 循环的问题

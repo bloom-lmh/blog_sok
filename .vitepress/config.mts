@@ -19,7 +19,7 @@ export default defineConfig({
           },
           {
             text: 'Javascript',
-            link: '/learn_frontend/js/js基础/js中的数据类型',
+            link: '/learn_frontend/js/js基础/JS-数据类型',
           },
           {
             text: 'React',

@@ -1,42 +1,48 @@
-# BOM-window
+# BOM-windows
 
 [[toc]]
 
-BOM 是浏览器对象模型，就是将浏览器看成一个对象，提供操作浏览器的方法。其中一个核心对象是 window，它表示浏览器的一个实例，同时又是全局对象。
-因此全局作用域中声明的变量函数都会变成 window 对象的属性和方法。同时其上还有一个 document 属性代表文档对象
+## 尺寸
 
-## 视口与文档
+以下是分开整理的表格，分别展示 **窗口尺寸**、**屏幕尺寸** 和 **文档尺寸** 的获取方法：
 
-### 视图与文档所包含的区域
+### 屏幕尺寸
 
-- 视口尺寸不包括浏览器工具条、菜单、标签、状态栏等，当你打开控制台后，视口尺寸就相应变小了
-- 文档区域就是整个 HTML 文档
+![屏幕](https://bloom-lmh.website/images/20250607221202825.png)
 
-![视图与文档所包含的区域](https://s3.bmp.ovh/imgs/2025/05/22/6c182a21c0e668b6.png)
+| **属性/方法**                       | **描述**                                   | **是否受多屏影响**   | **示例**                          |
+| ----------------------------------- | ------------------------------------------ | -------------------- | --------------------------------- |
+| `screen.width` / `screen.height`    | 获取显示器的物理分辨率（单位为设备像素）。 | ✅（多屏可能为负值） | `console.log(screen.width);`      |
+| `screen.availWidth` / `availHeight` | 获取屏幕可用区域（排除任务栏等系统 UI）。  | ✅                   | `console.log(screen.availWidth);` |
 
-### 视口与文档中的定位
+### 窗口尺寸
 
-- fixed 使用视口定位
-- position
-  - 若为 relative：则元素会相对于没给它设置 position 属性时的位置进行定位
-  - 若为 absolute：则相对于文档或最近的包含它的定位元素进行定位，后者产生的坐标系是容器坐标，与视图坐标和窗口坐标相区别
+![窗口](https://bloom-lmh.website/images/20250607221340454.png)
 
-### 视口与文档坐标
-
-- 文档坐标在页面滚动时不发生改变
-- 视口坐标的操作需要考虑滚动条的位置
-
-![视口与文档坐标系](https://s3.bmp.ovh/imgs/2025/05/22/a740b7cd2cd9c67b.png)
-
-## 尺寸与坐标
+| **属性/方法**                       | **描述**                                                    | **是否包含滚动条** | **示例**                          |
+| ----------------------------------- | ----------------------------------------------------------- | ------------------ | --------------------------------- |
+| `window.outerWidth` / `outerHeight` | 获取整个浏览器窗口的尺寸（包括地址栏、工具栏等浏览器 UI）。 | ✅                 | `console.log(window.outerWidth);` |
 
 ### 视口尺寸
+
+![视口](https://bloom-lmh.website/images/20250607221040348.png)
 
 视口坐标需要知道滚动条位置才可以进行计算，有以下几种方式获取滚动位置
 | 属性 | 含义 | 包含内容 |
 |------------------------|------------|--------|
 | `window.innerWidth` | 视口尺寸 | 视口宽度，包括滚动条（不常用） |
 | `document.documentElement.clientWidth` |视口尺寸|视口宽度不包含滚动条 |
+
+### 文档尺寸
+
+![视图与文档所包含的区域](https://s3.bmp.ovh/imgs/2025/05/22/6c182a21c0e668b6.png)
+
+| **属性/方法**                          | **描述**                                                                 | **是否包含滚动区域** | **是否包含边框/内边距** | **是否包含滚动条** |
+| -------------------------------------- | ------------------------------------------------------------------------ | -------------------- | ----------------------- | ------------------ |
+| `document.documentElement.scrollWidth` | 获取文档根元素（`<html>`）的实际内容宽度（包括超出视口的部分）。         | ✅                   | ❌                      | ❌                 |
+| `document.documentElement.clientWidth` | 获取视口可见宽度（不包括滚动条，但受 `box-sizing` 影响）。               | ❌                   | ✅（仅内容+内边距）     | ❌                 |
+| `document.documentElement.offsetWidth` | 获取文档根元素的布局宽度（包括内容+内边距+边框+垂直滚动条）。            | ❌（仅当前布局宽度） | ✅                      | ✅                 |
+| `document.body.scrollWidth`            | 获取 `<body>` 元素的实际内容宽度（历史遗留方法，可能受样式影响不准确）。 | ✅                   | ❌                      | ❌                 |
 
 ### 元素尺寸
 
@@ -49,7 +55,13 @@ BOM 是浏览器对象模型，就是将浏览器看成一个对象，提供操�
 | `element.scrollWidth`    | 内容尺寸 | content + padding + 溢出部分 + scrollbar            |
 | `element.clientLeft/top` | 边框尺寸 | boder-left/top （若滚动条在左侧则包含滚动条宽度）   |
 
-### 元素的相对坐标
+::: tip 文档尺寸
+可以看到文档就是最大的元素 documentElement ，文档尺寸就是用上面的方法来获取的
+:::
+
+## 坐标
+
+### 元素坐标
 
 | 属性                      | 描述                                                                                      | 计算基准                          |
 | ------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------- |
@@ -57,33 +69,14 @@ BOM 是浏览器对象模型，就是将浏览器看成一个对象，提供操�
 | `element.offsetLeft`      | 元素相对于祖先元素的 X 轴坐标                                                             | 基于 `offsetParent` 的定位        |
 | `element.offsetTop`       | 元素相对于祖先元素的 Y 轴坐标                                                             | 同上，注意祖先的 `transform` 影响 |
 
-### 元素的滚动坐标
+### 坐标点元素
 
-| 属性/方法            | 类型 | 备注                 |
-| -------------------- | ---- | -------------------- |
-| `element.scrollLeft` | 属性 | 水平滚动条已滚动距离 |
-| `element.scrollTop`  | 属性 | 垂直滚动条已滚动距离 |
+- element.elementsFromPoint 返回指定坐标点上的元素集合
+- element.elementFromPoint 返回指定坐标点最底层的元素
 
-## 相对元素
+:::code-group
 
-根据图片中的信息，整理成 Markdown 表格如下：
-
-| **属性/方法**              | **说明**                                           | **特殊情况**                               |
-| -------------------------- | -------------------------------------------------- | ------------------------------------------ |
-| `element.getClientRects()` | 返回行级元素每行尺寸和位置组成的数组               | -                                          |
-| `element.offsetParent`     | 返回拥有定位属性的父级，或`body`/`td`/`th`/`table` | 对于隐藏元素、`body`或`html`元素返回`null` |
-
-## 相关 API 总结
-
-![元素尺寸坐标信息](https://s3.bmp.ovh/imgs/2025/05/22/dd926dd0be047aca.png)
-
-## 坐标点元素
-
-### 坐标点元素集合
-
-element.elementsFromPoint 返回指定坐标点上的元素集合
-
-```html
+```html [element.elementsFromPoint]
 <style>
   div {
     width: 200px;
@@ -97,17 +90,7 @@ element.elementsFromPoint 返回指定坐标点上的元素集合
 </script>
 ```
 
-返回结果为
-
-```html
-0: div 1: body 2: html
-```
-
-### 坐标点底层元素
-
-element.elementFromPoint 返回指定坐标点最底层的元素
-
-```html
+```html [element.elementFromPoint ]
 <style>
   div {
     width: 200px;
@@ -121,7 +104,16 @@ element.elementFromPoint 返回指定坐标点最底层的元素
 </script>
 ```
 
-## 滚动控制
+:::
+
+## 滚动
+
+### 元素滚动距离
+
+| 属性/方法            | 类型 | 备注                 |
+| -------------------- | ---- | -------------------- |
+| `element.scrollLeft` | 属性 | 水平滚动条已滚动距离 |
+| `element.scrollTop`  | 属性 | 垂直滚动条已滚动距离 |
 
 ### scrollBy
 
@@ -209,21 +201,14 @@ alignToTop（旧版 - 布尔值）
 </script>
 ```
 
-## 导航控制
+## 相对元素
 
-`window.open()`既可以导航到一个特定的 urL,也可以打开一个新的浏览器窗口
-如果`window.open()`传递了第二个参数，且该参数是已有窗口或者框架的名称，那么就会在目标窗口加载第一个参数指定的 URL
-window.open()会返回新窗口的引用，也就是新窗口的 window 对象
+| **属性/方法**              | **说明**                                           | **特殊情况**                               |
+| -------------------------- | -------------------------------------------------- | ------------------------------------------ |
+| `element.getClientRects()` | 返回行级元素每行尺寸和位置组成的数组               | -                                          |
+| `element.offsetParent`     | 返回拥有定位属性的父级，或`body`/`td`/`th`/`table` | 对于隐藏元素、`body`或`html`元素返回`null` |
 
-```js
-const myWin = window.open('htttp://www.vue3js.cn','topFrame')
-==> < a href=" " target="topFrame"></ a>
-```
-
-`window.close()`仅用于通过`window.open()`打开的窗口
-新创建的 window 对象有一个 opener 属性，该属性指向打开他的原始窗口对象
-
-## 常用事件
+## 相关事件
 
 Window 对象代表浏览器窗口，提供了许多有用的事件。以下是常见的 window 事件及其用途：
 
@@ -274,73 +259,21 @@ window.addEventListener('scroll', () => {
 });
 ```
 
-### 焦点 & 可见性事件
+## 鼠标事件中的坐标
 
-| 事件               | 触发时机                       | 示例用途                 |
-| ------------------ | ------------------------------ | ------------------------ |
-| `focus`            | 窗口获得焦点                   | 恢复动画、继续音视频播放 |
-| `blur`             | 窗口失去焦点                   | 暂停动画、节省资源       |
-| `visibilitychange` | 页面可见性变化（如切换标签页） | 暂停后台任务、节省电量   |
-
-示例代码：
-
-```javascript
-window.addEventListener('focus', () => {
-  console.log('窗口获得焦点');
-});
-
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) {
-    console.log('页面不可见');
-  } else {
-    console.log('页面可见');
-  }
-});
-```
-
-#### 键盘 & 鼠标事件
-
-| 事件        | 触发时机     | 示例用途               |
-| ----------- | ------------ | ---------------------- |
-| `keydown`   | 按下键盘按键 | 快捷键操作、表单控制   |
-| `keyup`     | 释放键盘按键 | 松开按键时的操作       |
-| `click`     | 鼠标点击     | 交互元素响应           |
-| `mousemove` | 鼠标移动     | 拖拽效果、鼠标跟随元素 |
-
-示例代码：
-
-```javascript
-window.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    console.log('按下了 ESC 键');
-  }
-});
-
-window.addEventListener('click', e => {
-  console.log(`点击位置：(${e.clientX}, ${e.clientY})`);
-});
-```
-
-### 其他实用事件
-
-| 事件               | 触发时机                      | 示例用途                  |
-| ------------------ | ----------------------------- | ------------------------- |
-| `hashchange`       | URL 的哈希部分变化            | 单页面应用（SPA）路由更新 |
-| `online`/`offline` | 网络连接状态变化              | 提示用户网络状态          |
-| `message`          | 接收到跨窗口消息（如 iframe） | 跨窗口通信                |
-
-示例代码
-
-```javascript
-window.addEventListener('hashchange', () => {
-  console.log('URL 哈希变化：', window.location.hash);
-});
-
-window.addEventListener('online', () => {
-  console.log('网络已连接');
-});
-
-window.addEventListener('message', e => {
-  console.log('收到消息：', e.data);
-});
-```
+| 属性               | 说明                                          | 备注                            |
+| ------------------ | --------------------------------------------- | ------------------------------- |
+| x                  | 同 clientX，相对视口的 X 坐标（现代浏览器）   | 是 clientX 的别名               |
+| y                  | 同 clientY，相对视口的 Y 坐标（现代浏览器）   | 是 clientY 的别名               |
+| clientX            | 相对浏览器视口左上角的 X 坐标                 | 不随页面滚动改变                |
+| clientY            | 相对浏览器视口左上角的 Y 坐标                 | 不随页面滚动改变                |
+| screenX            | 相对物理屏幕左上角的 X 坐标                   | 多显示器环境下可能有负值        |
+| screenY            | 相对物理屏幕左上角的 Y 坐标                   | 多显示器环境下可能有负值        |
+| pageX              | 相对完整文档左上角的 X 坐标                   | 等于 clientX + 当前水平滚动距离 |
+| pageY              | 相对完整文档左上角的 Y 坐标                   | 等于 clientY + 当前垂直滚动距离 |
+| offsetX            | 相对事件目标元素(content box)左上角的 X 坐标  | 受目标元素的 padding 影响       |
+| offsetY            | 相对事件目标元素(content box)左上角的 Y 坐标  | 受目标元素的 padding 影响       |
+| layerX             | 相对最近定位祖先元素或文档的 X 坐标（非标准） | 行为不一致，不建议使用          |
+| layerY             | 相对最近定位祖先元素或文档的 Y 坐标（非标准） | 行为不一致，不建议使用          |
+| window.pageXOffset | 文档水平滚动的像素数（别名：window.scrollX）  | 只读属性                        |
+| window.pageYOffset | 文档垂直滚动的像素数（别名：window.scrollY）  | 只读属性                        |

@@ -178,7 +178,7 @@ Object.defineProperty(window, 'customGlobal', {
   value: 'can be deleted',
   configurable: false,
 });
-console.log(delete customGlobal); // 在非严格模式下返回 false,严格模式
+console.log(delete customGlobal); // 在非严格模式下返回 false,严格模式会报错
 
 // 非主动定义的全局属性删除时会报错
 var globalVar = 'value';
@@ -194,8 +194,8 @@ delete globalThis.x 删除成功返回true
 
 ## :star:测试属性是否存在
 
-- `in` 操作符:使用 in 操作符可以判断某对象是否含某属性（包括继承的属性）
-- `hasOwnProperty` 方法:检测是否含有自有属性
+- `in` 操作符:使用 in 操作符可以判断某对象是否含某属性（包括继承的属性，且无论是否可以枚举）
+- `hasOwnProperty` 方法:检测是否含有自有属性（且无论是否可枚举）
 - `propertyIsEnumerable` 方法:检测是否含有可枚举（`enumerable:true`）的自有属性,是对`hasOwnProperty `方法的细化
 - 使用属性访问检测:与 in 类似，但是不具有
 
@@ -314,7 +314,7 @@ o.x; // => 3 后面对象属性会覆盖前面同名属性
 - `NaN`, `Infinity`和`-Infinity`会被序列化为 null。
 - 日期对象会被序列化为 ISO 格式的日期字符串，但`JSON.parse()`会保持其字符串形式，不会恢复原始的日期对象。
 - 函数、`RegExp`、`Symbol`和`Error`对象以及`undefined` 值不能被序列化或恢复。
-- `JSON.stringify()`只序列化对象的可枚举自有属性。如果属性值无法序列化，则该属性会从输出的字符串中删除。
+- `JSON.stringify()`只序列化对象的可枚举自有可枚举属性。如果属性值无法序列化，则该属性会从输出的字符串中删除。
 
 ### 序列化和解析函数的第二个参数
 
