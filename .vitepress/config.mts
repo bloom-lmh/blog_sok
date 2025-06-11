@@ -3,8 +3,8 @@ import { defineConfig } from 'vitepress';
 import { buildSideBar } from './utils/sideBarGenerator';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'BLOOM',
-  description: 'My personal little website',
+  title: 'SOK',
+  description: 'Seasons on the Keyboard',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: 'BLOOM_LMH'
-  text: 'Programming learning'
-  tagline: 嘟嘟嘟
+  name: 'SOK'
+  text: 'Seasons on the Keyboard'
+  tagline: 写在键盘里的四季
   actions:
     - theme: brand
       text: Markdown Examples
