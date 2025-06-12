@@ -5,11 +5,11 @@ import { buildSideBar } from './utils/sideBarGenerator';
 export default defineConfig({
   title: 'SOK',
   description: 'Seasons on the Keyboard',
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-
       {
         text: '前端知识',
         items: [
@@ -41,7 +41,6 @@ export default defineConfig({
           },
         ],
       },
-
       {
         text: '算法',
         items: [
@@ -52,6 +51,19 @@ export default defineConfig({
           {
             text: '数据结构问题',
             link: '/learn_algorithms/数据结构',
+          },
+        ],
+      },
+      {
+        text: '四季',
+        items: [
+          {
+            text: '一些音乐',
+            link: '/share_music/life',
+          },
+          {
+            text: '过去的点点滴滴',
+            link: '/share_music/life',
           },
         ],
       },

@@ -6,6 +6,9 @@ hero:
   name: 'SOK'
   text: 'Seasons on the Keyboard'
   tagline: 写在键盘里的四季
+  image:
+    src: /logo.png
+    alt: logo
   actions:
     - theme: brand
       text: Markdown Examples
@@ -16,7 +19,7 @@ hero:
 
 features:
   - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: a
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature C
