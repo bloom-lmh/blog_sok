@@ -78,9 +78,13 @@ export default defineConfig({
             { text: '关于浮动', link: '/learn_frontend/css/css基础/关于浮动' },
             { text: 'BFC机制', link: '/learn_frontend/css/css基础/BFC机制' },
             { text: '元素居中方法', link: '/learn_frontend/css/css基础/元素居中的方法' },
-            { text: 'Gird', link: '/learn_frontend/css/css基础/Grid' },
             { text: '布局', link: '/learn_frontend/css/css基础/布局' },
             { text: '响应式设计', link: '/learn_frontend/css/css基础/响应式设计' },
+            { text: '选择器', link: '/learn_frontend/css/css基础/选择器' },
+            { text: 'CSS3-变换', link: '/learn_frontend/css/css基础/CSS3-变换' },
+            { text: 'CSS3-过渡', link: '/learn_frontend/css/css基础/CSS3-过渡' },
+            { text: 'CSS3-动画', link: '/learn_frontend/css/css基础/CSS3-动画' },
+            { text: 'CSS3-网格布局Gird', link: '/learn_frontend/css/css基础/CSS3-网格布局Grid' },
           ],
         },
         {
@@ -237,6 +241,34 @@ export default defineConfig({
             {
               text: 'updateContainer深度优先搜索构建Fiber树',
               link: '/learn_frontend/react/react源码-18.1.0/updateContainer深度优先搜索构建Fiber树',
+            },
+          ],
+        },
+      ],
+      '/learn_sofrwareArchitecture/designPattern/': [
+        {
+          text: '设计模式基础',
+          items: [
+            {
+              text: '设计模式工具UML',
+              link: '/learn_sofrwareArchitecture/designPattern/designPattern基础/设计模式工具UML',
+            },
+            {
+              text: '设计模式七大原则',
+              link: '/learn_sofrwareArchitecture/designPattern/designPattern基础/设计模式七大原则',
+            },
+          ],
+        },
+        {
+          text: '23种设计模式-创建型',
+          items: [
+            {
+              text: '简单工厂模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-创建型/简单工厂模式',
+            },
+            {
+              text: '工厂方法模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-创建型/工厂方法模式',
             },
           ],
         },
