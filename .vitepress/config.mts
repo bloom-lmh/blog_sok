@@ -259,12 +259,20 @@ export default defineConfig({
           text: '23种设计模式-创建型',
           items: [
             {
+              text: '总结创建型模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-创建型/总结创建型模式',
+            },
+            {
               text: '简单工厂模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-创建型/简单工厂模式',
             },
             {
               text: '工厂方法模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-创建型/工厂方法模式',
+            },
+            {
+              text: '抽象工厂方法模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-创建型/抽象工厂方法模式',
             },
           ],
         },
