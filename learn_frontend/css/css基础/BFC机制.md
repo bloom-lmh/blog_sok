@@ -34,7 +34,7 @@ BFC 目的是形成一个相对于外界完全独立的空间，让内部的子�
 ### 解决浮动导致父元素塌陷
 
 当父元素中子元素采用浮动时，浮动元素将不会参与高度计算导致父元素塌陷，如图所示：
-![浮动导致父元素塌陷](https://s3.bmp.ovh/imgs/2025/05/09/a015b228c4848cd0.png)
+![浮动导致父元素塌陷](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152057407.png)
 其解决方案为将父元素变为 BFC 区域，则此时父元素触发 BFC 后，可以包裹住内部浮动子元素，避免高度塌陷。
 :::code-group
 
@@ -79,12 +79,12 @@ BFC 目的是形成一个相对于外界完全独立的空间，让内部的子�
 
 :::
 下面为解决后的效果：
-![BFC解决浮动元素塌陷](https://s3.bmp.ovh/imgs/2025/05/09/a1e9ceaeb0b1b4ea.png)
+![BFC解决浮动元素塌陷](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152112786.png)
 
 ### 解决 margin 合并问题
 
 当 BFC 中两个块级元素都采用了 margin，那么两个块级连接处的 margin 将会塌陷，如图所示：
-![margin 塌陷](https://s3.bmp.ovh/imgs/2025/05/09/264fc9d01b576f42.png)
+![margin 塌陷](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152136460.png)
 解决方案为将一个元素外套一个元素，并触发这个元素为 BFC 区域，这时候由于 BFC 区域与外界不想关联，margin 并不会重合
 :::code-group
 
@@ -125,7 +125,7 @@ BFC 目的是形成一个相对于外界完全独立的空间，让内部的子�
 
 :::
 解决后的效果图:
-![解决margin塌陷](https://s3.bmp.ovh/imgs/2025/05/09/b2636b0467ad1c6d.png)
+![解决margin塌陷](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152206867.png)
 
 ### 解决浮动元素与非浮动元素重叠的问题
 
@@ -133,7 +133,7 @@ BFC 目的是形成一个相对于外界完全独立的空间，让内部的子�
 
 解决方案也很简单，就是将 main 元素采用 bfc 机制，浮动元素无法与 BFC 区域重叠，因为 BFC 元素与外界隔离
 如下所示：
-![浮动元素与非浮动元素重叠](https://s3.bmp.ovh/imgs/2025/05/09/f86d65427c226777.png)
+![浮动元素与非浮动元素重叠](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152225335.png)
 :::code-group
 
 ```html [浮动元素与非浮动元素重叠]
@@ -179,8 +179,7 @@ BFC 目的是形成一个相对于外界完全独立的空间，让内部的子�
 
 :::
 解决后的效果如图所示:
-![浮动元素与非浮动元素不重叠](https://s3.bmp.ovh/imgs/2025/05/09/97c8704fdbea4490.png)
-
+![浮动元素与非浮动元素不重叠](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152242596.png)
 ::: tip 浮动的一些规则
 
 - 普通块级元素的内容会避开浮动元素，但盒子默认被覆盖。

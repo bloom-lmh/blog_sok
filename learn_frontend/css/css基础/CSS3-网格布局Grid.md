@@ -14,7 +14,7 @@
 
 <!-- ![网格轨道](https://s3.bmp.ovh/imgs/2025/05/31/9e6c7d2fb9834123.png) -->
 
-![网格轨道](https://bloom-lmh.website/images/20250601151938768.png)
+![网格轨道](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152445119.png)
 
 ### 显示指定网格容器划分行/列轨道数及其所划分行/列轨道高度/宽度-grid-template-[columns/rows] | grid-template
 
@@ -37,7 +37,7 @@
 
 <!-- ![指定网格容器划分行/列轨道数及其行/列轨道高度/宽度](https://s3.bmp.ovh/imgs/2025/05/31/12bf4c18a99c9f40.png) -->
 
-![指定网格容器划分行/列轨道数及其行/列轨道高度/宽度](https://bloom-lmh.website/images/20250601152047869.png)
+![指定网格容器划分行/列轨道数及其行/列轨道高度/宽度](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152456120.png)
 
 ### :star:隐式指定行/列轨道的默认高度/宽度-grid-auto-[columns/rows]
 
@@ -95,21 +95,15 @@
 | `space-between` | 剩余空间均匀分配到轨道**之间**（首尾贴边） | 剩余空间均匀分配到轨道**之间**（首尾贴边） |
 | `space-evenly` | 剩余空间**完全均匀**分配（包括首尾） | 剩余空间**完全均匀**分配（包括首尾） |
 
-<!-- ![对齐方式1](https://s3.bmp.ovh/imgs/2025/06/01/d98cff8e9a1f0468.png) -->
+![对齐方式1](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152511609.png)
 
-![对齐方式1](https://bloom-lmh.website/images/20250601152112895.png)
-
-<!-- ![对齐方式2](https://s3.bmp.ovh/imgs/2025/06/01/896d900fdad103a3.png) -->
-
-![对齐方式2](https://bloom-lmh.website/images/20250601152127083.png)
+![对齐方式2](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152523370.png)
 
 ## 轨道间隙（Track Gap）​​
 
 每个网格轨道之间可以有间隙
 
-<!-- ![行列间距](https://s3.bmp.ovh/imgs/2025/05/31/c6277dc7bbb031c9.png) -->
-
-![行列间距](https://bloom-lmh.website/images/20250601152208453.png)
+![行列间距](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152536760.png)
 
 ### 指定列轨道之间的间距-column-gap | grid-column-gap（废弃）
 
@@ -266,7 +260,7 @@ grid-template-columns: 100px auto 200px; /* 固定 + 自适应 + 固定 */
 
 <!-- ![网格线](https://s3.bmp.ovh/imgs/2025/05/31/9dc59e07a799bfb3.png) -->
 
-![网格线](https://bloom-lmh.website/images/20250601151856345.png)
+![网格线](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152551260.png)
 
 ## 网格项目/元素（Grid Item）
 
@@ -325,7 +319,7 @@ grid-template-columns: 100px auto 200px; /* 固定 + 自适应 + 固定 */
 
 <!-- ![网格项目](https://s3.bmp.ovh/imgs/2025/05/31/47e1e6ee8019650a.png) -->
 
-![网格项目](https://bloom-lmh.website/images/20250601151627720.png)
+![网格项目](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152601822.png)
 
 ### 控制网格项目填充顺序-grid-auto-flow
 
@@ -361,8 +355,8 @@ grid-template-columns: 100px auto 200px; /* 固定 + 自适应 + 固定 */
 <!-- ![列优先填充](https://s3.bmp.ovh/imgs/2025/05/31/dc0cd894f7499a8e.png)
 ![行优先填充](https://s3.bmp.ovh/imgs/2025/05/31/c6435ed56ffbbebd.png) -->
 
-![列优先填充](https://bloom-lmh.website/images/20250601151413253.png)
-![行优先填充](https://bloom-lmh.website/images/20250601151011235.png)
+![列优先填充](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152613895.png)
+![行优先填充](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152622944.png)
 ::: tip 补充
 在实际应用中，我们可能想尽可能填满空白，这个时候可以设置 grid-auto-flow: row dense，表示尽可能填满表格。
 :::
@@ -376,7 +370,7 @@ grid-template-columns: 100px auto 200px; /* 固定 + 自适应 + 固定 */
 
 比如如下所示：
 
-![网格项目](https://bloom-lmh.website/images/20250601150736079.png)
+![网格项目](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152633381.png)
 
 ```html {5,16,21,25}
 <style>
@@ -472,7 +466,7 @@ grid-template-columns: 100px auto 200px; /* 固定 + 自适应 + 固定 */
 </div>
 ```
 
-![网格元素命名](https://bloom-lmh.website/images/20250601150556002.png)
+![网格元素命名](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152646158.png)
 :::tip 补充
 `.` 号表示没有名称的网格项。比如如下
 
@@ -532,20 +526,15 @@ grid-template-columns: 100px auto 200px; /* 固定 + 自适应 + 固定 */
 
 1. start：对齐单元格的起始边缘
 
-![start：对齐单元格的起始边缘图](https://bloom-lmh.website/images/20250601153750945.png)
+![start：对齐单元格的起始边缘图](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152700291.png)
 
 2. end：对齐单元格的结束边缘
 
-![end：对齐单元格的结束边缘图](https://bloom-lmh.website/images/20250601153830854.png)
+![end：对齐单元格的结束边缘图](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152715039.png) 3. center：单元格内部居中
 
-3. center：单元格内部居中
+![center：单元格内部居中图](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152728170.png) 4. stretch：拉伸，占满单元格的整个宽度（默认值）
 
-![center：单元格内部居中图](https://bloom-lmh.website/images/20250601153845716.png)
-
-4. stretch：拉伸，占满单元格的整个宽度（默认值）
-
-![stretch：拉伸，占满单元格的整个宽度（默认值）图](https://bloom-lmh.website/images/20250601153904075.png)
-
+![stretch：拉伸，占满单元格的整个宽度（默认值）图](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152738481.png)
 ::: tip 与 justify-content 的区别
 justify-items 仅作用于单元格内部，不影响网格轨道（grid track）的尺寸。
 而 justify-content 作用域网格容器内部
@@ -596,7 +585,7 @@ fr 等分单位，可以将容器的可用空间分成想要的多个等分空�
 }
 ```
 
-![等分单位-fr](https://bloom-lmh.website/images/17389592bf7e44dd~tplv-t2oaga2asx-jj-mark_3024_0_0_0_q75.awebp)
+![等分单位-fr](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/17389592bf7e44dd~tplv-t2oaga2asx-jj-mark_3024_0_0_0_q75.awebp)
 
 ### repeat + auto-fit 实现自动加列
 
@@ -613,7 +602,7 @@ fr 等分单位，可以将容器的可用空间分成想要的多个等分空�
 }
 ```
 
-![auto-fill/fit](https://bloom-lmh.website/images/grid2.awebp)
+![auto-fill/fit](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/grid2.awebp)
 
 ### repeat+auto-fit+minmax 去掉右侧空白
 
@@ -629,7 +618,7 @@ fr 等分单位，可以将容器的可用空间分成想要的多个等分空�
 }
 ```
 
-![repeat+auto-fit+minmax 去掉右侧空白图](https://bloom-lmh.website/images/grid3.awebp)
+![repeat+auto-fit+minmax 去掉右侧空白图](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/grid3.awebp)
 
 ::: tip 如何理解呢？
 假设容器宽度为 900px，结果 ​：4 列，每列宽度 (900 - 60)/4 = 210px（符合 ≥200px）。
@@ -645,7 +634,7 @@ fr 等分单位，可以将容器的可用空间分成想要的多个等分空�
 }
 ```
 
-![repeat+auto-fit+minmax-span-dense 解决空缺问题1](https://bloom-lmh.website/images/grid4.awebp)
+![repeat+auto-fit+minmax-span-dense 解决空缺问题1](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/grid4.awebp)
 不对，怎么右侧又有空白了？原来是有一些长度太长了，放不下，这个时候就到我们的 dense 关键字出场了。grid-auto-flow: row dense 表示尽可能填充，而不留空白，代码以及效果如下所示：
 
 ```css
@@ -663,7 +652,7 @@ fr 等分单位，可以将容器的可用空间分成想要的多个等分空�
 }
 ```
 
-![repeat+auto-fit+minmax-span-dense 解决空缺问题2](https://bloom-lmh.website/images/grid5.awebp)
+![repeat+auto-fit+minmax-span-dense 解决空缺问题2](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/grid5.awebp)
 
 ## 瀑布流布局实现
 

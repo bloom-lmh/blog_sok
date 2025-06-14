@@ -125,12 +125,8 @@ export default defineConfig({
               link: '/learn_frontend/js/js基础/JS-函数进阶',
             },
             {
-              text: 'JS-类',
-              link: '/learn_frontend/js/js基础/JS-类',
-            },
-            {
-              text: 'JS-基于原型链的继承',
-              link: '/learn_frontend/js/js基础/JS-基于原型链的继承',
+              text: 'JS-原型链',
+              link: '/learn_frontend/js/js基础/JS-原型链',
             },
             {
               text: 'JS-标准库',

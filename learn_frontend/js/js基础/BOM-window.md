@@ -8,25 +8,22 @@
 
 ### 屏幕尺寸
 
-![屏幕](https://bloom-lmh.website/images/20250607221202825.png)
-
-| **属性/方法**                       | **描述**                                   | **是否受多屏影响**   | **示例**                          |
+![屏幕](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614150818189.png)
+| **属性/方法** | **描述** | **是否受多屏影响** | **示例** |
 | ----------------------------------- | ------------------------------------------ | -------------------- | --------------------------------- |
-| `screen.width` / `screen.height`    | 获取显示器的物理分辨率（单位为设备像素）。 | ✅（多屏可能为负值） | `console.log(screen.width);`      |
-| `screen.availWidth` / `availHeight` | 获取屏幕可用区域（排除任务栏等系统 UI）。  | ✅                   | `console.log(screen.availWidth);` |
+| `screen.width` / `screen.height` | 获取显示器的物理分辨率（单位为设备像素）。 | ✅（多屏可能为负值） | `console.log(screen.width);` |
+| `screen.availWidth` / `availHeight` | 获取屏幕可用区域（排除任务栏等系统 UI）。 | ✅ | `console.log(screen.availWidth);` |
 
 ### 窗口尺寸
 
-![窗口](https://bloom-lmh.website/images/20250607221340454.png)
-
-| **属性/方法**                       | **描述**                                                    | **是否包含滚动条** | **示例**                          |
+![窗口](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614150839751.png)
+| **属性/方法** | **描述** | **是否包含滚动条** | **示例** |
 | ----------------------------------- | ----------------------------------------------------------- | ------------------ | --------------------------------- |
-| `window.outerWidth` / `outerHeight` | 获取整个浏览器窗口的尺寸（包括地址栏、工具栏等浏览器 UI）。 | ✅                 | `console.log(window.outerWidth);` |
+| `window.outerWidth` / `outerHeight` | 获取整个浏览器窗口的尺寸（包括地址栏、工具栏等浏览器 UI）。 | ✅ | `console.log(window.outerWidth);` |
 
 ### 视口尺寸
 
-![视口](https://bloom-lmh.website/images/20250607221040348.png)
-
+![视口](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614150854952.png)
 视口坐标需要知道滚动条位置才可以进行计算，有以下几种方式获取滚动位置
 | 属性 | 含义 | 包含内容 |
 |------------------------|------------|--------|
@@ -35,14 +32,13 @@
 
 ### 文档尺寸
 
-![视图与文档所包含的区域](https://s3.bmp.ovh/imgs/2025/05/22/6c182a21c0e668b6.png)
-
-| **属性/方法**                          | **描述**                                                                 | **是否包含滚动区域** | **是否包含边框/内边距** | **是否包含滚动条** |
+![视图与文档所包含的区域](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614150918166.png)
+| **属性/方法** | **描述** | **是否包含滚动区域** | **是否包含边框/内边距** | **是否包含滚动条** |
 | -------------------------------------- | ------------------------------------------------------------------------ | -------------------- | ----------------------- | ------------------ |
-| `document.documentElement.scrollWidth` | 获取文档根元素（`<html>`）的实际内容宽度（包括超出视口的部分）。         | ✅                   | ❌                      | ❌                 |
-| `document.documentElement.clientWidth` | 获取视口可见宽度（不包括滚动条，但受 `box-sizing` 影响）。               | ❌                   | ✅（仅内容+内边距）     | ❌                 |
-| `document.documentElement.offsetWidth` | 获取文档根元素的布局宽度（包括内容+内边距+边框+垂直滚动条）。            | ❌（仅当前布局宽度） | ✅                      | ✅                 |
-| `document.body.scrollWidth`            | 获取 `<body>` 元素的实际内容宽度（历史遗留方法，可能受样式影响不准确）。 | ✅                   | ❌                      | ❌                 |
+| `document.documentElement.scrollWidth` | 获取文档根元素（`<html>`）的实际内容宽度（包括超出视口的部分）。 | ✅ | ❌ | ❌ |
+| `document.documentElement.clientWidth` | 获取视口可见宽度（不包括滚动条，但受 `box-sizing` 影响）。 | ❌ | ✅（仅内容+内边距） | ❌ |
+| `document.documentElement.offsetWidth` | 获取文档根元素的布局宽度（包括内容+内边距+边框+垂直滚动条）。 | ❌（仅当前布局宽度） | ✅ | ✅ |
+| `document.body.scrollWidth` | 获取 `<body>` 元素的实际内容宽度（历史遗留方法，可能受样式影响不准确）。 | ✅ | ❌ | ❌ |
 
 ### 元素尺寸
 

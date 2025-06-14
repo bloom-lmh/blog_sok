@@ -407,7 +407,7 @@ const fragment = document.createDocumentFragment();
 | afterbegin  | 元素内部前面 |
 | beforeend   | 元素内部后面 |
 
-![位置图片](https://s3.bmp.ovh/imgs/2025/05/17/8d27d66b22446a6d.png)
+![位置图片](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614150943641.png)
 
 ## 克隆节点
 

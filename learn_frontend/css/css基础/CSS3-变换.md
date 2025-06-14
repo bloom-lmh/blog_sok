@@ -9,7 +9,7 @@ CSS3 变换可以对元素进行移动、缩放、转动、拉长或拉伸。
 
 CSS3 中如何确定旋转的方向是否为正向呢？
 这里可以有左手法则，就是大拇指执行要围绕旋转的轴，其它四个手指的握住指向的方向就是旋转的正方向
-![旋转的方向](https://bloom-lmh.website/images/20250612200727386.png)
+![旋转的方向](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152323005.png)
 
 ## 基本变换-transform
 
@@ -117,8 +117,7 @@ transform-origin 用于设置元素变换的基点位置。也就是设置变换
 | **y-axis** | `top` \| `center` \| `bottom` \| `<length>` \| `<percentage>` | `50%`  | 垂直方向基准点：<br>`top=0%`，` center=50%``bottom=100% `          |
 | **z-axis** | `<length>` \| `<percentage>`                                  | `0`    | Z 轴偏移量（仅 3D 变换有效）：<br>正值为靠近观察者，负值远离观察者 |
 
-![变换基本点](https://bloom-lmh.website/images/20250612155809041.png)
-
+![变换基本点](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152336609.png)
 如果一个矩形，要想绕着底边中点圆心转动，实现步骤如下：
 
 ```css
@@ -126,9 +125,8 @@ transform-style: preserve-3d; /* 启用3D空间 */
 transform-origin: 50% 100%; /* 底边中点 */
 ```
 
-![底边中点](https://bloom-lmh.website/images/20250612160440144.png)
-
-![示例图](https://bloom-lmh.website/images/20250612160656206.png)
+![底边中点](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152345677.png)
+![示例图](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152356081.png)
 
 ## 变换顺序-transform-order
 
@@ -176,7 +174,7 @@ transform-origin: 50% 100%; /* 底边中点 */
 </div>
 ```
 
-![透视属性](https://bloom-lmh.website/images/20250612203911481.png)
+![透视属性](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152408111.png)
 ::: tip 透视叠加
 perspective 如果设置在父元素上，子元素都会呈现近大远小的特点
 如果子元素和父元素都设置了透视的值那么子元素的透视会叠加
@@ -244,9 +242,9 @@ perspective 如果设置在父元素上，子元素都会呈现近大远小的�
 </div>
 ```
 
-![变换组合](https://bloom-lmh.website/images/20250612202339988.png)
+![变换组合](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152419488.png)
 
 ## 背对元素的可见性-backface-visibility
 
-![视点](https://bloom-lmh.website/images/20250612204137569.png)
+![视点](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152429114.png)
 当元素背对视点的时候可以将元素隐藏

@@ -304,12 +304,12 @@ target.onclick = function () {
 
 ## 事件传播
 
-![事件传播](https://bloom-lmh.website/images/Snipaste_2025-06-02_20-54-07.png)
+![事件传播](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614151101593.png)
 
 ### 事件捕获
 
 事件捕获是由外到内的。在事件捕获阶段，事件会从 DOM 树的最外层开始，依次经过目标节点的各个父节点，并触发父节点上的事件，直至到达事件的目标节点。如下图。
-![事件捕获](https://bloom-lmh.website/images/image.gif)
+![事件捕获](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/eventCapture.gif?q-sign-algorithm=sha1&q-ak=AKIDG7dM7xVvnKcIHUCQ2C4qfUVIvQVkwAyv7hyxjPZgrrbq0ewzwUJ-Ca6VfQynf8l_&q-sign-time=1749885284;1749888884&q-key-time=1749885284;1749888884&q-header-list=host&q-url-param-list=ci-process&q-signature=17ab7943bb2700ec9a7ca81a33754b1dc1330a15&x-cos-security-token=lTfMPcrocYJlOjyrbBZroXXM8MMxi6ya6716f5612464051443a0930bf2937712qiAdGEajRRB4MtwLLjiAYGvihFSTpV5Mb5gWpTjs3I4l7qO3mV3uurBerp7hxDM8EBMyz81bzxbq04yQrdwxd-P3FIQa1iahmy2ZHEHncK9f-3z4pMi-MqjUu-xZJ3Mj1TzrsDID2TTnxjQiYKSpIDZD73ql54hTdOZTts6KaGZRBNjaLn8dp51CFWxxNyk5hUQvU5mSb2eM9dN9o3mLaJlATGZWhe9lFpZjbeLikxQznTIdHYFKTx_L6JZW1t2TNa6Y93qmy8L-zdwR9ESlUw&ci-process=originImage)
 
 ```html
 <script>
@@ -364,7 +364,7 @@ target.onclick = function () {
 - event.currentTarget == this 即当前执行事件的对象
 
 上面我们说了事件捕获，事件冒泡和事件捕获是完全相反的。事件冒泡是由内到外的，它是从目标节点开始，沿父节点依次向上，并触发父节点上的事件，直至文档根节点，就像水底的气泡一样，会一直向上。如下图。
-![事件冒泡](https://bloom-lmh.website/images/事件冒泡.gif)
+![事件冒泡](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1.gif?q-sign-algorithm=sha1&q-ak=AKIDc345QVG7rD3kN5CBfYrBWIJO8qN1ysiqHtd1ICUPci40ZABHg8BSOng0SkMxqp2C&q-sign-time=1749885178;1749888778&q-key-time=1749885178;1749888778&q-header-list=host&q-url-param-list=ci-process&q-signature=368122fd4c2d375462facd9a23d10990819eebd5&x-cos-security-token=mbp8HqeLlCbnhPwqfOEPI2fwXdXoJiaac1d51ecc4dd66cb97d9cd60c9642a5b0ItS39C52JXMQfbo706iC_A4R0aLQaa7vZKaMqNyBzbqINdO6IiBAVeagG6JM-3IRi1fXFO_iv2Kp_DUzp_03eATar0S4g9sjDK37U2hA_-j7sDgekFJyihh-O_S-ZuRd2ZdVg8hkYHmLH5xxenvXZoHd9DyFgvvu5G4Br4wJitQNK-WcQwAp-spyCoPUoKe8xr_8qWafC9GobB6VZUHRKPAhOkzMNXO3xjUHKBtVS54ocH-NCqKUpPyaUZGV2V1E6bU1J4NG1Pp4Wnc6WEIaGQ&ci-process=originImage)
 
 ```html
 <script>
@@ -409,6 +409,10 @@ target.onclick = function () {
   );
 </script>
 ```
+
+::: tip 事件委托
+利用事件冒泡可以实现事件委托，即将事件绑定到父元素上，然后由父元素来管理子元素的事件。这样可以减少内存占用，提高性能。
+:::
 
 ## 事件取消
 

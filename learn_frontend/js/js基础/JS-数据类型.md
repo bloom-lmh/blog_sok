@@ -408,7 +408,7 @@ console.log(a); //10
 ```
 
 a 的值为一个基本类型，是存储在栈中，将 a 的值赋给 b，虽然两个变量的值相等，但是两个变量保存了两个不同的内存地址
-![基本数据类型](https://s3.bmp.ovh/imgs/2025/05/10/b84922e17021c32c.png)
+![基本数据类型](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614151537775.png)
 
 ### 引用数据类型存储在堆中
 
@@ -424,4 +424,4 @@ console.log(obj1.name); // xx
 obj1 是一个引用类型，在赋值操作过程汇总，实际是将堆内存对象在栈内存的引用地址复制了一份给
 了 obj2,实际上他们共同指向了同一个堆内存对象，所以更改 obj2 会对 0bj1 产生影响
 下图演示这个引用类型赋值过程
-![引用数据类型](https://s3.bmp.ovh/imgs/2025/05/10/64c76744282b877d.png)
+![引用数据类型](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614151603852.png)

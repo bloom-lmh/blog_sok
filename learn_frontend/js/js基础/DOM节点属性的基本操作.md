@@ -6,20 +6,19 @@
 
 ### 节点关系的一些属性
 
-![文档结构](https://s3.bmp.ovh/imgs/2025/05/12/edbd2525cc4abc5c.png)
-
-| 节点属性                 | 是否忽略文档/注释节点 | 详细说明                                                      |
+![文档结构](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614151007534.png)
+| 节点属性 | 是否忽略文档/注释节点 | 详细说明 |
 | ------------------------ | --------------------- | ------------------------------------------------------------- |
-| `parentElement`          | ✅ 忽略               | 只返回 Element 类型的父节点，文档/注释节点的父元素会返回 null |
-| `children`               | ✅ 忽略               | 只包含子元素节点，过滤掉文本/注释节点                         |
-| `childElementCount`      | ✅ 忽略               | 只统计子元素数量，等价于 children.length                      |
-| `firstElementChild`      | ✅ 忽略               | 只返回第一个子元素节点                                        |
-| `lastElementChild`       | ✅ 忽略               | 只返回最后一个子元素节点                                      |
-| `previousElementSibling` | ✅ 忽略               | 只返回前一个元素兄弟节点                                      |
-| `nextElementSibling`     | ✅ 忽略               | 只返回后一个元素兄弟节点                                      |
-| `contains`               | ❌ 不忽略             | 会检查所有类型的后代节点（包括文档/注释）                     |
-| `parentNode`             | ❌ 不忽略             | 返回任何类型的父节点（包括文档/注释节点的父节点）             |
-| `childNodes`             | ❌ 不忽略             | 包含所有类型的子节点（包括文本/注释节点）                     |
+| `parentElement` | ✅ 忽略 | 只返回 Element 类型的父节点，文档/注释节点的父元素会返回 null |
+| `children` | ✅ 忽略 | 只包含子元素节点，过滤掉文本/注释节点 |
+| `childElementCount` | ✅ 忽略 | 只统计子元素数量，等价于 children.length |
+| `firstElementChild` | ✅ 忽略 | 只返回第一个子元素节点 |
+| `lastElementChild` | ✅ 忽略 | 只返回最后一个子元素节点 |
+| `previousElementSibling` | ✅ 忽略 | 只返回前一个元素兄弟节点 |
+| `nextElementSibling` | ✅ 忽略 | 只返回后一个元素兄弟节点 |
+| `contains` | ❌ 不忽略 | 会检查所有类型的后代节点（包括文档/注释） |
+| `parentNode` | ❌ 不忽略 | 返回任何类型的父节点（包括文档/注释节点的父节点） |
+| `childNodes` | ❌ 不忽略 | 包含所有类型的子节点（包括文本/注释节点） |
 
 ::: tip 总结
 一般不带 Element 的都不会忽略

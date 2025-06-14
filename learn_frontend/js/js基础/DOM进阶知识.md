@@ -600,7 +600,7 @@ customElements.define('my-button', MyButton);
 3. 影子 DOM
 
 我们就能封装自己的 web 组件了
-![SearchBox](https://s3.bmp.ovh/imgs/2025/05/18/1bc9ea722fe5088c.png)
+![SearchBox](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614151030614.png)
 
 ```js
 class SearchBox extends HTMLElement {
