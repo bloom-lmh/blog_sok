@@ -1,18 +1,71 @@
 # JS-模块化
 
-模块就是有良好封装性的对外只暴露特定接口的功能的复用单元，所以模块有以下特点
+[[toc]]
 
-- 要相互独立不能互相干扰
-- 要暴露接口
-- 有初始化逻辑
+::: tip
+模块就是有良好封装性的对外只暴露特定接口的复用功能单元，所以模块有以下特点
+
+- 要相互独立不能互相干扰（变量方法名冲突）
+- 要有良好的封装性同时暴露必要接口
+- 内部有初始化逻辑和相关配置(可无)
+
+:::
+
+## 基于类和对象的模块化
+
+类和对象实现的是弱模块化
+
+- 相互独立：对象与对象，类与类中变量方法相互独立互不干扰
+- 封装性：对象和类（ES6 之前的）不能保证封装性，它们内部的属性和方法可以被外界任意访问（弱模块化的原因）
+- 暴露接口：可以满足对外提供接口
+- 初始化逻辑和相关配置：：可以在对象类中设置初始化逻辑
+
+```js
+// 比如Math全局对象就是若模块化的应用，Math对象中就封装了很多数学相关的函数和方法
+// 模拟一下Math
+let Math = {
+  _self:"私有变量"
+  floor: function () {},
+  ceil: function () {},
+};
+Math.floor();
+
+class Person{
+  name:12
+}
+Person.name // 12
+```
+
+在 ES6 后类可实现强模块化，这要归公于私有字段`#`的出现提供了良好的封装性
+
+```js
+// counter.js
+export class Counter {
+  #count = 0; // 私有字段
+  #log() {
+    // 私有方法
+    console.log('内部日志:', this.#count);
+  }
+  increment() {
+    this.#count++;
+    this.#log();
+  }
+}
+
+// 使用时
+const counter = new Counter();
+counter.increment(); // 正常工作
+counter.#count; // 报错！私有成员不可访问
+counter.#log(); // 报错！
+```
 
 ## 基于 IIFE 和闭包的模块化
 
 立即执行函数结合闭包刚好能够满足模块的要求
 
-- var 变量受限于函数作用域，让其不会有变量污染，使得各个函数就像模块一样互不干扰
-- 立即执行函数能够初始化一些配置，满足初始化要求
-- 闭包让导出函数能够访问定义时所在作用域变量，而这些变量无法通过外界访问，保证了封装性的同时又暴露出了接口
+- 相互独立：var 变量受限于函数作用域，让其不会有变量污染，使得各个函数就像模块一样互不干扰
+- 封装性和对外保留接口：闭包让导出函数能够访问定义时所在作用域变量，而这些变量无法通过外界访问，保证了封装性的同时又暴露出了接口
+- 初始化逻辑和相关配置：立即执行函数能够初始化一些配置，满足初始化要求
 
 所以利用立即执行函数和闭包能够很好的实现模块化
 
@@ -32,6 +85,299 @@ console.log(counter.dec()); // 0
 console.log(counter.count); // undefined 无法获取count 良好的封装性
 ```
 
+## 基于 CommonJs 的 模块化
+
+Node 实现了 CommonJs 规范的模块化
+
+- 封装性：在 Node 中，每个文件都是一个拥有私有命名空间的独立模块。在一个文件中定义的常量，变量，函数和类对该文件而言都是私有的，除非该文件会导出它们。
+- 暴露接口：每个模块可以导出一些值，被模块导出的值只有被另一个模块显式导入后才会在该模块中可见
+- 相互独立：文件与文件相互独立互不干扰
+- 初始化逻辑和相关配置：文件内部可以初始化一些逻辑和相关配置
+
+### Node 的导出
+
+::: code-group
+
+```js [导出单个值]
+// 方法一：直接赋值给 module.exports
+module.exports = function () {
+  console.log('导出一个函数');
+};
+
+// 方法二：先定义再赋值
+const myFunction = () => {
+  console.log('导出一个函数');
+};
+module.exports = myFunction;
+```
+
+```js [导出多个值]
+// 方法一：逐个添加到 exports 对象
+exports.func1 = function () {
+  console.log('函数1');
+};
+
+exports.func2 = function () {
+  console.log('函数2');
+};
+
+// 方法二：一次性赋值给 module.exports
+module.exports = {
+  func1: () => console.log('函数1'),
+  func2: () => console.log('函数2'),
+  constant: '某个常量',
+};
+```
+
+:::
+
+### Node 的导入
+
+```js
+// 导入整个模块
+const myModule = require('./myModule');
+
+// 导入特定功能（解构赋值）
+const { func1, func2 } = require('./myModule');
+
+// 导入内置模块
+const fs = require('fs');
+const http = require('http');
+```
+
+::: tip Node 导入的一些小细节
+
+- 可以使用非限定符或路径符，非限定符代表内置模块或外部模块，路径符代码自身写的模块
+  :::
+
 ## ES6 模块化
 
-## CommonJs 模块化
+### 模块和脚本的区别
+
+其模块化理念和 Node 一致，一个文件就是一个模块。但是要注意模块和脚本的区别
+
+- 在脚本中，顶级声明的变量、函数和类会进入所有脚本共享的全局上下文
+- 模块中，每个文件都有私有上下文，且模块中的代码自动进入严格模式
+
+:::tip ES6 模块的严格模式更加严格
+ES6 模块甚至比严格模式还要更严格：在严格模式下，在作为函数调用的函数中 this 是 undefined.而在模块中，即便在顶级代码中 this 也是 undefined （相对而言，浏览器和 Node 中的脚本都将 this 设置为全局对象）。
+:::
+
+### ES6 模块化导出
+
+::: code-group
+
+```js [命名导出]
+// 方式1: 声明时直接导出
+export const name = '张三';
+export function sayHello() {
+  console.log('你好!');
+}
+export class Person {}
+
+// 方式2: 先声明后导出
+const age = 30;
+const city = '北京';
+function privateFunc() {}
+
+export { age, city }; // 只导出部分变量
+
+// 方式3：导出时重命名
+export { layout as calculateLayout, render as renderLayout };
+```
+
+```js [默认导出]
+// 每个模块只能有一个默认导出
+export default function() {
+  console.log('我是默认导出');
+}
+
+// 或者
+const myClass = class {};
+export default myClass;
+```
+
+:::
+
+### ES6 模块化导入
+
+::: code-group
+
+```js [接受命名导出值]
+// 方式一：命名导出值分别给mean, stddev常量，命名导出和导入常量名要相同
+import { mean, stddev } from '/stats.js';
+
+// 方式二：当命名导出过多时可以使用*接受所有的命名导出并赋给一个对象，命名导出值作为这个对象的属性
+import * as stats from './stats.js';
+// stats.mean()
+// stats.stdded()
+```
+
+```js [接受默认导出值]
+// 使用BttSet常量接受默认导出
+import BttSet from './bitset.js';
+```
+
+```js [同时接受命名导出和默认导出]
+// 方式一： 默认导出给了Histogran常量 ，命名导出分别给mean, stddev常量
+import Histogram, { mean, stddev } fron "./hlstogran-stats.js";
+// 方式二 与上面相同
+import { default as Histogran, mean, stddev } from 'histogram-stats.js';
+```
+
+```js [导入导出时重命名]
+// 如果两个模块使用相同的名字导出了两个不同的值，而你希望同时导入这两个值，那必须在导入时对其中一个或这两个进行重命名。
+import { render as renderInage } from './Inageutlls.js';
+import { render as renderUI } from './ui.js';
+```
+
+:::
+
+::: tip 导入的一些小细节
+
+- 导入与函数声明类似，会被"提升"到顶部，因此所有导入的值在模块代码运行时都是可用的,这些接受导出值的标识符都会被提升到导入模块顶部，行为类似常量
+- 不允许使用非限定符作为要导入的模块名，只能使用路径名
+- 一个模块要么使用多个命名导出，要么使用一个默认导出尽量不要同时出现两个
+- 命名导出和导入名字要对应，而默认导出不需要
+
+:::
+
+### 导入再导出
+
+为了方便不同模块能够一行代码导入，可以对分散的模块使用再导出，比如下面的代码就很臃肿需要从不同的代码路径导入不同的模块和方法
+
+```js
+// 下面会导致导入从不同路径导入多个模块,书写臃肿
+import { fn1 } from './a/b/fn1.js';
+import { fn2 } from './a/b/c/fn2.js';
+```
+
+通过再导出可以实现从一个路径导入全部想要的模块,比如我只需要定义一个导出文件
+`index.js`
+
+```js
+// 方式一
+import { fn1 } from './a/b/fn1.js';
+import { fn2 } from './a/b/c/fn2.js';
+export { fn1, fn2 };
+```
+
+这样我就可以只从一个 index 文件中导入所有的方法了
+
+```js
+import { fn1, fn2 } from 'index.js';
+```
+
+当然再导出的方式有很多
+
+1. 命名导出再导出为命名导出
+
+::: code-group
+
+```js [先导入再导出]
+// 方式一:上面已经演示过，先导入再导出
+import { fn1 } from './a/b/fn1.js';
+import { fn2 } from './a/b/c/fn2.js';
+export { fn1, fn2 };
+```
+
+```js [直接再导出]
+// 方式二：直接再导出
+export { fn1 } from './a/b/fn1.js';
+export { fn2 } from './a/b/c/fn2.js';
+```
+
+```js [导出另一个模块的所有命名值]
+// 方式三：导出另一个模块的所有命名值
+export * from './stats/nean.js';
+export * from './stats/stddev.js';
+```
+
+```js [导出时重命名]
+// 方式四：导出时重命名
+export { mean, mean as average }  from "./stats/nean.js";
+export { stddev } from '•./stats/stddev.js";
+```
+
+:::
+
+2. 默认导出再导出为命名导出
+
+可以把模块的默认导出变为命名导出
+
+```js
+// 默认导出变成了命名导出
+export { default as mean } from './stats/nean.js';
+export { default as stddev } from './stats/stddev.js';
+```
+
+3. 命名导出再导出为默认导出
+
+可以把模块的一个命名导出当为默认导出再导出
+
+```js
+//从./stats, js中导入nean()函数
+//并将其作为当前模块的默认导出
+export { mean as default } from ' ./stats.js';
+```
+
+4. 默认导出再导出为默认导出
+
+原来模块的默认导出可以继续作为默认导出再导出
+
+```js
+//这个average, js模块只是再导出了 ./stats/mean.js的默认导出
+export { default } from /stats/nean.js"
+```
+
+### 导入没有导出模块
+
+当一个模块没有导出时也可以导入比如如下所示
+
+```js
+import './analytics.js';
+```
+
+这样的模块会在被首次导入时运行一次（之后再导入时则什么也不做）。可以利用这个性质初始化一些配置
+
+### 在网页中使用 JS 模块
+
+如果想在浏览器中以原生方式使用 import 指令，必须通过`<script type="module"＞`标签告诉浏览器你的代码是一个模块。这个标签是模块的入口。
+同时位于行内`<script type="module">`标签中的代码也是是一个 ES6 模块。
+
+```html
+<!-- 方式一 -->
+<script type="module" src="./module.js"></script>
+<!-- 方式二 -->
+<script type="module">
+  import { func } from './module.js'; // 模块代码...
+</script>
+```
+
+带有 type="module"属性的脚本会像带有 defer 属性的脚本一样被加载和执行。
+同时它增加了跨源加载的限制，即只能从包含模块的 HTML 文档所在的域加载模块，除非服务器添加了适当的 CORS 头部允许跨源加载。
+
+```js
+<!-- 位于 http://localhost:8080/index.html -->
+<script type="module">
+  // 尝试从不同源加载 - 会失败
+  import { helper } from 'https://another-domain.com/module.js';
+</script>
+```
+
+node 对 ES6 模块化的支持依赖文件名，所以可以使用.ejs 来明确是使用了 ES6 模块化。浏览器中也可以使用.ejs 但是要配置 Web 服务器以跟.js 文件相同的 MIME 类型来发送它们
+
+### 使用 import() 动态导入
+
+动态导入是 ES2020 引入的一项重要特性，它允许你在运行时按需加载 JavaScript 模块，而不是在编译时静态导入所有依赖。
+
+```js
+async function loadModule() {
+  try {
+    const module = await import('./module.js');
+    // 使用模块
+  } catch (err) {
+    // 处理错误
+  }
+}
+```
