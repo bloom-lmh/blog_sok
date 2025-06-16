@@ -8,7 +8,7 @@ export default defineConfig({
 
   themeConfig: {
     outline: {
-      level: [2, 3], // 只显示 H2 和 H3
+      level: 'deep', // 只显示 H2 和 H3
       label: '目录',
     },
     // https://vitepress.dev/reference/default-theme-config
@@ -81,6 +81,7 @@ export default defineConfig({
             { text: '盒模型', link: '/learn_frontend/css/css基础/盒模型' },
             { text: '关于浮动', link: '/learn_frontend/css/css基础/关于浮动' },
             { text: '文本', link: '/learn_frontend/css/css基础/文本' },
+            { text: '背景', link: '/learn_frontend/css/css基础/背景' },
             { text: 'BFC机制', link: '/learn_frontend/css/css基础/BFC机制' },
             { text: '元素居中方法', link: '/learn_frontend/css/css基础/元素居中的方法' },
             { text: '布局', link: '/learn_frontend/css/css基础/布局' },
