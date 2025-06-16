@@ -7,6 +7,10 @@ export default defineConfig({
   description: 'Seasons on the Keyboard',
 
   themeConfig: {
+    outline: {
+      level: [2, 3], // 只显示 H2 和 H3
+      label: '目录',
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
@@ -76,14 +80,14 @@ export default defineConfig({
           items: [
             { text: '盒模型', link: '/learn_frontend/css/css基础/盒模型' },
             { text: '关于浮动', link: '/learn_frontend/css/css基础/关于浮动' },
+            { text: '文本', link: '/learn_frontend/css/css基础/文本' },
             { text: 'BFC机制', link: '/learn_frontend/css/css基础/BFC机制' },
             { text: '元素居中方法', link: '/learn_frontend/css/css基础/元素居中的方法' },
             { text: '布局', link: '/learn_frontend/css/css基础/布局' },
             { text: '响应式设计', link: '/learn_frontend/css/css基础/响应式设计' },
             { text: '选择器', link: '/learn_frontend/css/css基础/选择器' },
             { text: 'CSS3-变换', link: '/learn_frontend/css/css基础/CSS3-变换' },
-            { text: 'CSS3-过渡', link: '/learn_frontend/css/css基础/CSS3-过渡' },
-            { text: 'CSS3-动画', link: '/learn_frontend/css/css基础/CSS3-动画' },
+            { text: 'CSS3-过渡和动画', link: '/learn_frontend/css/css基础/CSS3-过渡和动画' },
             { text: 'CSS3-网格布局Gird', link: '/learn_frontend/css/css基础/CSS3-网格布局Grid' },
           ],
         },
