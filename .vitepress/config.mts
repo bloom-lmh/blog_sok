@@ -88,6 +88,7 @@ export default defineConfig({
             { text: '响应式设计', link: '/learn_frontend/css/css基础/响应式设计' },
             { text: '选择器', link: '/learn_frontend/css/css基础/选择器' },
             { text: 'CSS3-变换', link: '/learn_frontend/css/css基础/CSS3-变换' },
+            { text: 'CSS3-渐变', link: '/learn_frontend/css/css基础/CSS3-渐变' },
             { text: 'CSS3-过渡和动画', link: '/learn_frontend/css/css基础/CSS3-过渡和动画' },
             { text: 'CSS3-网格布局Gird', link: '/learn_frontend/css/css基础/CSS3-网格布局Grid' },
           ],
@@ -278,6 +279,15 @@ export default defineConfig({
             {
               text: '抽象工厂方法模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-创建型/抽象工厂方法模式',
+            },
+          ],
+        },
+        {
+          text: '23种设计模式-行为型',
+          items: [
+            {
+              text: '命令模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/命令模式',
             },
           ],
         },
