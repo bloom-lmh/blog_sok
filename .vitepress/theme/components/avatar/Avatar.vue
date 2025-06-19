@@ -1,16 +1,10 @@
-<script setup>
-import DefaultTheme from 'vitepress/theme';
-const { Layout } = DefaultTheme;
-import { Avatar } from './index';
-</script>
-
 <template>
   <!-- 此处将渲染 markdown 内容 -->
-  <Layout>
-    <template #home-hero-image>
-      <Avatar />
-    </template>
-  </Layout>
+  <div class="hero-image-wapper">
+    <div class="hero-image">
+      <img src="@/logo.png" alt="" />
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -21,10 +15,16 @@ import { Avatar } from './index';
   justify-content: center;
   align-items: center;
 
+  &:hover {
+    .hero-image > img {
+      transition: transform 1s linear;
+      transform: scale(1.2);
+    }
+  }
   .hero-image {
     border-radius: 50%;
+    overflow: hidden;
     box-shadow: #f5f5f5 0px 0px 80px 0px;
-    background: url('@/logo.png') center/contain no-repeat;
   }
   @media (min-width: 960px) {
     .hero-image {

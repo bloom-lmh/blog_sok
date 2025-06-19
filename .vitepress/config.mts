@@ -100,108 +100,163 @@ export default defineConfig({
       ],
       '/learn_frontend/js/': [
         {
-          text: 'js基础',
+          text: '语法基础',
           items: [
-            { text: 'JS-数据类型', link: '/learn_frontend/js/js基础/JS-数据类型' },
-            { text: 'JS-类型转换', link: '/learn_frontend/js/js基础/JS-类型转换' },
-            { text: 'JS-表达式与操作符', link: '/learn_frontend/js/js基础/JS-表达式与操作符' },
-
+            { text: '数据类型', link: '/learn_frontend/javascript/语法基础/JS-数据类型' },
+            { text: '类型转换', link: '/learn_frontend/javascript/语法基础/JS-类型转换' },
             {
-              text: 'JS-作用域问题',
-              link: '/learn_frontend/js/js基础/JS-作用域问题',
+              text: '表达式与操作符',
+              link: '/learn_frontend/javascript/语法基础/JS-表达式与操作符',
             },
             {
-              text: 'JS-对象',
-              link: '/learn_frontend/js/js基础/JS-对象',
-            },
-            {
-              text: 'JS-数组基础',
-              link: '/learn_frontend/js/js基础/JS-数组基础',
-            },
-            {
-              text: 'JS-数组进阶',
-              link: '/learn_frontend/js/js基础/JS-数组进阶',
-            },
-            {
-              text: 'JS-函数基础',
-              link: '/learn_frontend/js/js基础/JS-函数基础',
-            },
-            {
-              text: 'JS-函数进阶',
-              link: '/learn_frontend/js/js基础/JS-函数进阶',
-            },
-            {
-              text: 'JS-原型链',
-              link: '/learn_frontend/js/js基础/JS-原型链',
-            },
-            {
-              text: 'JS-标准库',
-              link: '/learn_frontend/js/js基础/JS-标准库',
-            },
-            {
-              text: 'JS-正则表达式',
-              link: '/learn_frontend/js/js基础/JS-正则表达式',
-            },
-            {
-              text: 'JS-模块化',
-              link: '/learn_frontend/js/js基础/JS-模块化',
-            },
-            { text: 'JS-事件基础', link: '/learn_frontend/js/js基础/JS-事件基础' },
-            { text: 'JS-事件循环', link: '/learn_frontend/js/js基础/JS-事件循环' },
-            {
-              text: 'JS-执行上下文this',
-              link: '/learn_frontend/js/js基础/JS-执行上下文this',
-            },
-            {
-              text: 'JS-元编程',
-              link: '/learn_frontend/js/js基础/JS-元编程',
-            },
-
-            {
-              text: 'JS-防抖节流',
-              link: '/learn_frontend/js/js基础/JS-防抖节流',
-            },
-            { text: 'DOM节点的基本操作', link: '/learn_frontend/js/js基础/DOM节点的基本操作' },
-            {
-              text: 'DOM节点属性的基本操作',
-              link: '/learn_frontend/js/js基础/DOM节点属性的基本操作',
-            },
-            {
-              text: 'DOM元素内容的基本操作',
-              link: '/learn_frontend/js/js基础/DOM元素内容的基本操作',
-            },
-            {
-              text: 'DOM节点样式的基本操作',
-              link: '/learn_frontend/js/js基础/DOM节点样式的基本操作',
-            },
-            { text: 'DOM进阶知识', link: '/learn_frontend/js/js基础/DOM进阶知识' },
-            { text: 'BOM-window', link: '/learn_frontend/js/js基础/BOM-window' },
-            { text: 'BOM-location', link: '/learn_frontend/js/js基础/BOM-location' },
-            { text: 'BOM-history', link: '/learn_frontend/js/js基础/BOM-history' },
-            {
-              text: 'BOM-location与history的相互作用',
-              link: '/learn_frontend/js/js基础/BOM-location与history的相互作用',
-            },
-            {
-              text: 'ES6-ES13新特性',
-              link: '/learn_frontend/js/js基础/ES6-ES13新特性',
-            },
-            {
-              text: 'Promise',
-              link: '/learn_frontend/js/js基础/Promise',
+              text: '作用域问题',
+              link: '/learn_frontend/javascript/js基础/JS-作用域问题',
             },
           ],
         },
         {
-          text: 'js项目',
+          text: '面向对象',
+          items: [
+            {
+              text: '对象',
+              link: '/learn_frontend/javascript/面向对象/JS-对象',
+            },
+            {
+              text: '数组基础',
+              link: '/learn_frontend/javascript/面向对象/JS-数组基础',
+            },
+            {
+              text: '数组进阶',
+              link: '/learn_frontend/javascript/面向对象/JS-数组进阶',
+            },
+            {
+              text: '函数基础',
+              link: '/learn_frontend/javascript/面向对象/JS-函数基础',
+            },
+            {
+              text: '函数进阶',
+              link: '/learn_frontend/javascript/面向对象/JS-函数进阶',
+            },
+            {
+              text: '原型链',
+              link: '/learn_frontend/javascript/面向对象/JS-原型链',
+            },
+            {
+              text: '元编程',
+              link: '/learn_frontend/javascript/面向对象/JS-元编程',
+            },
+          ],
+        },
+        {
+          text: '标准库',
+          items: [
+            {
+              text: '标准库',
+              link: '/learn_frontend/javascript/标准库/标准库',
+            },
+            {
+              text: '正则表达式',
+              link: '/learn_frontend/javascript/标准库/正则表达式',
+            },
+          ],
+        },
+        {
+          text: '事件',
+          items: [
+            { text: '事件基础', link: '/learn_frontend/javascript/事件/事件基础' },
+            { text: '事件循环', link: '/learn_frontend/javascript/事件/事件循环' },
+          ],
+        },
+        {
+          text: '异步编程',
+          items: [
+            {
+              text: '异步编程基础',
+              link: '/learn_frontend/javascript/异步编程/异步编程基础',
+            },
+            {
+              text: 'Promise',
+              link: '/learn_frontend/javascript/异步编程/Promise',
+            },
+          ],
+        },
+        {
+          text: '模块化',
+          items: [
+            {
+              text: '模块化',
+              link: '/learn_frontend/javascript/模块化/JS-模块化',
+            },
+          ],
+        },
+        {
+          text: 'DOM',
+          items: [
+            { text: 'DOM节点的基本操作', link: '/learn_frontend/javascript/DOM/节点的基本操作' },
+            {
+              text: 'DOM节点属性的基本操作',
+              link: '/learn_frontend/javascript/DOM/节点属性的基本操作',
+            },
+            {
+              text: 'DOM元素内容的基本操作',
+              link: '/learn_frontend/javascript/DOM/元素内容的基本操作',
+            },
+            {
+              text: 'DOM节点样式的基本操作',
+              link: '/learn_frontend/javascript/DOM/节点样式的基本操作',
+            },
+            { text: 'DOM进阶知识', link: '/learn_frontend/javascript/DOM/进阶知识' },
+          ],
+        },
+        {
+          text: 'BOM',
+          items: [
+            { text: 'window', link: '/learn_frontend/javascript/BOM/window' },
+            { text: 'location', link: '/learn_frontend/javascript/BOM/location' },
+            { text: 'history', link: '/learn_frontend/javascript/BOM/history' },
+            {
+              text: 'location与history的相互作用',
+              link: '/learn_frontend/javascript/BOM/location与history的相互作用',
+            },
+          ],
+        },
+        {
+          text: 'ES6-ES13',
+          items: [
+            {
+              text: 'ES6新特性',
+              link: '/learn_frontend/javascript/ES6-ES13新特性/ES6新特性',
+            },
+          ],
+        },
+        {
+          text: '面试题',
+          items: [
+            {
+              text: '几种编程方式',
+              link: '/learn_frontend/javascript/面试题/几种编程方式',
+            },
+            {
+              text: '执行上下文this',
+              link: '/learn_frontend/javascript/面试题/执行上下文this',
+            },
+            {
+              text: '防抖节流',
+              link: '/learn_frontend/javascript/面试题/防抖节流',
+            },
+          ],
+        },
+
+        {
+          text: '小案例',
           items: [
             {
               text: '实现轮播图的两种方式',
-              link: '/learn_frontend/js/js项目/实现轮播图',
+              link: '/learn_frontend/js/小案例/实现轮播图',
             },
             {
               text: '实现SPA路由',
-              link: '/learn_frontend/js/js项目/实现SPA路由',
+              link: '/learn_frontend/js/小案例/实现SPA路由',
             },
           ],
         },

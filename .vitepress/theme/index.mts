@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme';
 import './style/custom.scss';
 import Layout from './components/Layout.vue';
 import Life from './pages/Life.vue';
+// 导出主题对象Theme ，VitePress 总会使用自定义主题对象
 export default {
   ...DefaultTheme,
   NotFound: () => '404', // <- this is a Vue 3 functional component
