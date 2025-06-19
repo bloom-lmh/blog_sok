@@ -23,7 +23,7 @@ export default defineConfig({
           },
           {
             text: 'Javascript',
-            link: '/learn_frontend/js/js基础/JS-数据类型',
+            link: '/learn_frontend/javascript/语法基础/数据类型',
           },
           {
             text: 'React',
@@ -98,19 +98,19 @@ export default defineConfig({
           items: [],
         },
       ],
-      '/learn_frontend/js/': [
+      '/learn_frontend/javascript/': [
         {
           text: '语法基础',
           items: [
-            { text: '数据类型', link: '/learn_frontend/javascript/语法基础/JS-数据类型' },
-            { text: '类型转换', link: '/learn_frontend/javascript/语法基础/JS-类型转换' },
+            { text: '数据类型', link: '/learn_frontend/javascript/语法基础/数据类型' },
+            { text: '类型转换', link: '/learn_frontend/javascript/语法基础/类型转换' },
             {
               text: '表达式与操作符',
-              link: '/learn_frontend/javascript/语法基础/JS-表达式与操作符',
+              link: '/learn_frontend/javascript/语法基础/表达式与操作符',
             },
             {
               text: '作用域问题',
-              link: '/learn_frontend/javascript/js基础/JS-作用域问题',
+              link: '/learn_frontend/javascript/语法基础/作用域问题',
             },
           ],
         },
@@ -119,31 +119,31 @@ export default defineConfig({
           items: [
             {
               text: '对象',
-              link: '/learn_frontend/javascript/面向对象/JS-对象',
+              link: '/learn_frontend/javascript/面向对象/对象',
             },
             {
               text: '数组基础',
-              link: '/learn_frontend/javascript/面向对象/JS-数组基础',
+              link: '/learn_frontend/javascript/面向对象/数组基础',
             },
             {
               text: '数组进阶',
-              link: '/learn_frontend/javascript/面向对象/JS-数组进阶',
+              link: '/learn_frontend/javascript/面向对象/数组进阶',
             },
             {
               text: '函数基础',
-              link: '/learn_frontend/javascript/面向对象/JS-函数基础',
+              link: '/learn_frontend/javascript/面向对象/函数基础',
             },
             {
               text: '函数进阶',
-              link: '/learn_frontend/javascript/面向对象/JS-函数进阶',
+              link: '/learn_frontend/javascript/面向对象/函数进阶',
             },
             {
               text: '原型链',
-              link: '/learn_frontend/javascript/面向对象/JS-原型链',
+              link: '/learn_frontend/javascript/面向对象/原型链',
             },
             {
               text: '元编程',
-              link: '/learn_frontend/javascript/面向对象/JS-元编程',
+              link: '/learn_frontend/javascript/面向对象/元编程',
             },
           ],
         },
@@ -185,27 +185,27 @@ export default defineConfig({
           items: [
             {
               text: '模块化',
-              link: '/learn_frontend/javascript/模块化/JS-模块化',
+              link: '/learn_frontend/javascript/模块化/模块化',
             },
           ],
         },
         {
           text: 'DOM',
           items: [
-            { text: 'DOM节点的基本操作', link: '/learn_frontend/javascript/DOM/节点的基本操作' },
+            { text: '节点的基本操作', link: '/learn_frontend/javascript/DOM/节点的基本操作' },
             {
-              text: 'DOM节点属性的基本操作',
+              text: '节点属性的基本操作',
               link: '/learn_frontend/javascript/DOM/节点属性的基本操作',
             },
             {
-              text: 'DOM元素内容的基本操作',
+              text: '元素内容的基本操作',
               link: '/learn_frontend/javascript/DOM/元素内容的基本操作',
             },
             {
-              text: 'DOM节点样式的基本操作',
+              text: '节点样式的基本操作',
               link: '/learn_frontend/javascript/DOM/节点样式的基本操作',
             },
-            { text: 'DOM进阶知识', link: '/learn_frontend/javascript/DOM/进阶知识' },
+            { text: '进阶知识', link: '/learn_frontend/javascript/DOM/进阶知识' },
           ],
         },
         {
