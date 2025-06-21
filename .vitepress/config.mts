@@ -171,12 +171,12 @@ export default defineConfig({
           text: '异步编程',
           items: [
             {
-              text: '异步编程基础',
-              link: '/learn_frontend/javascript/异步编程/异步编程基础',
+              text: '基于回调的异步编程技术',
+              link: '/learn_frontend/javascript/异步编程/基于回调的异步编程技术',
             },
             {
-              text: 'Promise',
-              link: '/learn_frontend/javascript/异步编程/Promise',
+              text: '基于期约链的异步编程技术',
+              link: '/learn_frontend/javascript/异步编程/基于期约链的异步编程技术',
             },
           ],
         },
