@@ -27,7 +27,7 @@ export default defineConfig({
           },
           {
             text: 'Vue3',
-            link: '/learn_frontend/vue3/vue3基础/vue简介',
+            link: '/learn_frontend/vue3/vue3基础/起步/简介',
           },
           {
             text: 'React',
@@ -267,10 +267,19 @@ export default defineConfig({
       ],
       '/learn_frontend/vue3/': [
         {
-          text: 'vue3基础',
+          text: '起步',
           items: [
-            { text: 'vue简介', link: '/learn_frontend/vue3/vue3基础/vue简介' },
-            { text: 'vue应用实例', link: '/learn_frontend/vue3/vue3基础/vue应用实例' },
+            { text: '简介', link: '/learn_frontend/vue3/vue3基础/起步/简介' },
+            { text: '选项式和组合式', link: '/learn_frontend/vue3/vue3基础/起步/选项式和组合式' },
+            { text: '应用实例', link: '/learn_frontend/vue3/vue3基础/起步/应用实例' },
+          ],
+        },
+        {
+          text: '响应式',
+          items: [
+            { text: 'ref和reactive', link: '/learn_frontend/vue3/vue3基础/响应式/ref和reactive' },
+            { text: '计算属性', link: '/learn_frontend/vue3/vue3基础/响应式/计算属性' },
+            { text: '监听器', link: '/learn_frontend/vue3/vue3基础/响应式/监听器' },
           ],
         },
       ],
