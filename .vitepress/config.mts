@@ -26,6 +26,10 @@ export default defineConfig({
             link: '/learn_frontend/javascript/语法基础/数据类型',
           },
           {
+            text: 'Vue3',
+            link: '/learn_frontend/vue3/vue3基础/vue简介',
+          },
+          {
             text: 'React',
             link: '/learn_frontend/react/react基础/jsx',
           },
@@ -258,6 +262,15 @@ export default defineConfig({
               text: '实现SPA路由',
               link: '/learn_frontend/js/小案例/实现SPA路由',
             },
+          ],
+        },
+      ],
+      '/learn_frontend/vue3/': [
+        {
+          text: 'vue3基础',
+          items: [
+            { text: 'vue简介', link: '/learn_frontend/vue3/vue3基础/vue简介' },
+            { text: 'vue应用实例', link: '/learn_frontend/vue3/vue3基础/vue应用实例' },
           ],
         },
       ],
