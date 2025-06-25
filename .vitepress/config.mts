@@ -275,12 +275,40 @@ export default defineConfig({
           ],
         },
         {
+          text: '模板语法',
+          items: [],
+        },
+        {
+          text: '指令',
+          items: [],
+        },
+        {
+          text: '控制样式',
+          items: [],
+        },
+        {
+          text: '组件',
+          items: [],
+        },
+        {
+          text: '生命周期',
+          items: [],
+        },
+        {
           text: '响应式',
           items: [
             { text: 'ref和reactive', link: '/learn_frontend/vue3/vue3基础/响应式/ref和reactive' },
             { text: '计算属性', link: '/learn_frontend/vue3/vue3基础/响应式/计算属性' },
             { text: '监听器', link: '/learn_frontend/vue3/vue3基础/响应式/监听器' },
           ],
+        },
+        {
+          text: '路由',
+          items: [],
+        },
+        {
+          text: '插件',
+          items: [],
         },
       ],
       '/learn_frontend/react/': [
