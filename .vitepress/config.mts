@@ -1,6 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'vitepress';
 import { buildSideBar } from './utils/sideBarGenerator';
+import { text } from 'stream/consumers';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'SOK',
@@ -208,6 +209,15 @@ export default defineConfig({
               link: '/learn_frontend/javascript/面向对象/元编程',
             },
           ],
+        },
+        {
+          text: '迭代器生成器',
+          items: [
+            {
+              text: '迭代器生成器',
+              link: '/learn_frontend/javascript/迭代器生成器/',
+            }
+          ]
         },
         {
           text: '标准库',
