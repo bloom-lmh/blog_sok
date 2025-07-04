@@ -36,8 +36,8 @@ export default defineConfig({
           },
 
           {
-            text: '浏览器',
-            link: '/learn_frontend/browser/browser基础/浏览器渲染流程',
+            text: 'Browser',
+            link: '/learn_frontend/browser/browser基础/浏览器渲染原理',
           },
         ],
       },
@@ -60,19 +60,6 @@ export default defineConfig({
           {
             text: '数据结构问题',
             link: '/learn_algorithms/数据结构',
-          },
-        ],
-      },
-      {
-        text: '四季',
-        items: [
-          {
-            text: '一些音乐',
-            link: '/share_music/life',
-          },
-          {
-            text: '过去的点点滴滴',
-            link: '/share_music/life',
           },
         ],
       },
@@ -216,8 +203,8 @@ export default defineConfig({
             {
               text: '迭代器生成器',
               link: '/learn_frontend/javascript/迭代器生成器/',
-            }
-          ]
+            },
+          ],
         },
         {
           text: '标准库',
@@ -237,6 +224,7 @@ export default defineConfig({
           items: [
             { text: '事件基础', link: '/learn_frontend/javascript/事件/事件基础' },
             { text: '事件循环', link: '/learn_frontend/javascript/事件/事件循环' },
+            { text: '新事件循环', link: '/learn_frontend/javascript/事件/新事件循环' },
           ],
         },
         {
@@ -298,6 +286,15 @@ export default defineConfig({
             {
               text: 'ES6新特性',
               link: '/learn_frontend/javascript/ES6-ES13新特性/ES6新特性',
+            },
+          ],
+        },
+        {
+          text: '内存管理',
+          items: [
+            {
+              text: '垃圾回收机制',
+              link: '/learn_frontend/javascript/内存管理/垃圾回收机制',
             },
           ],
         },
@@ -416,6 +413,21 @@ export default defineConfig({
             {
               text: 'updateContainer深度优先搜索构建Fiber树',
               link: '/learn_frontend/react/react源码-18.1.0/updateContainer深度优先搜索构建Fiber树',
+            },
+          ],
+        },
+      ],
+      '/learn_frontend/browser/': [
+        {
+          text: '浏览器基础',
+          items: [
+            {
+              text: '浏览器渲染原理',
+              link: '/learn_frontend/browser/browser基础/浏览器渲染原理',
+            },
+            {
+              text: '重排和重绘',
+              link: '/learn_frontend/browser/browser基础/重排和重绘',
             },
           ],
         },
