@@ -242,8 +242,8 @@ export default defineConfig({
               link: '/learn_frontend/javascript/标准库/Error类',
             },
             {
-              text: 'JSON序列化与解析',
-              link: '/learn_frontend/javascript/标准库/JSON序列化与解析',
+              text: 'JSON 序列化与解析',
+              link: '/learn_frontend/javascript/标准库/JSON 序列化与解析',
             },
             {
               text: 'URL API',
