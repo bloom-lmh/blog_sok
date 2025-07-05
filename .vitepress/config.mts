@@ -34,7 +34,6 @@ export default defineConfig({
             text: 'React',
             link: '/learn_frontend/react/react基础/jsx',
           },
-
           {
             text: 'Browser',
             link: '/learn_frontend/browser/browser基础/浏览器渲染原理',
@@ -47,6 +46,19 @@ export default defineConfig({
           {
             text: 'DesignPattern',
             link: '/learn_sofrwareArchitecture/designPattern/designPattern基础/设计模式七大原则',
+          },
+        ],
+      },
+      {
+        text: '408',
+        items: [
+          {
+            text: '数据结构',
+            link: '/learn_408/数据结构/线性结构/顺序表',
+          },
+          {
+            text: '计算机网络',
+            link: '/learn_408/计算机网络/计算机网络知识',
           },
         ],
       },
@@ -210,12 +222,36 @@ export default defineConfig({
           text: '标准库',
           items: [
             {
-              text: '标准库',
-              link: '/learn_frontend/javascript/标准库/标准库',
+              text: '映射与集合',
+              link: '/learn_frontend/javascript/标准库/映射与集合',
+            },
+            {
+              text: '定型数组',
+              link: '/learn_frontend/javascript/标准库/定型数组',
             },
             {
               text: '正则表达式',
               link: '/learn_frontend/javascript/标准库/正则表达式',
+            },
+            {
+              text: '日期与时间',
+              link: '/learn_frontend/javascript/标准库/日期与时间',
+            },
+            {
+              text: 'Error类',
+              link: '/learn_frontend/javascript/标准库/Error类',
+            },
+            {
+              text: 'JSON序列化与解析',
+              link: '/learn_frontend/javascript/标准库/JSON序列化与解析',
+            },
+            {
+              text: 'URL API',
+              link: '/learn_frontend/javascript/标准库/URL API',
+            },
+            {
+              text: '定时器',
+              link: '/learn_frontend/javascript/标准库/定时器',
             },
           ],
         },
@@ -473,6 +509,21 @@ export default defineConfig({
             {
               text: '命令模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/命令模式',
+            },
+          ],
+        },
+      ],
+      '/learn_408/数据结构/': [
+        {
+          text: '线性结构',
+          items: [
+            {
+              text: '线性表',
+              link: '/learn_408/数据结构/线性结构/线性表',
+            },
+            {
+              text: '顺序表',
+              link: '/learn_408/数据结构/线性结构/顺序表',
             },
           ],
         },
