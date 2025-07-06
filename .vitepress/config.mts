@@ -252,12 +252,16 @@ export default defineConfig({
               link: '/learn_frontend/javascript/标准库/JSON 序列化与解析',
             },
             {
-              text: 'URL API',
-              link: '/learn_frontend/javascript/标准库/URL API',
+              text: '字符串相关操作',
+              link: '/learn_frontend/javascript/标准库/字符串相关操作',
             },
             {
-              text: '定时器',
-              link: '/learn_frontend/javascript/标准库/定时器',
+              text: 'Math API',
+              link: '/learn_frontend/javascript/标准库/Math API',
+            },
+            {
+              text: 'URL API',
+              link: '/learn_frontend/javascript/标准库/URL API',
             },
           ],
         },
@@ -320,6 +324,8 @@ export default defineConfig({
               text: 'location与history的相互作用',
               link: '/learn_frontend/javascript/BOM/location与history的相互作用',
             },
+            { text: 'screen', link: '/learn_frontend/javascript/BOM/screen' },
+            { text: 'navigator', link: '/learn_frontend/javascript/BOM/navigator' },
           ],
         },
         {
