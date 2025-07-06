@@ -83,6 +83,7 @@ export default defineConfig({
           text: '盒模型及其样式设置',
           items: [
             { text: '盒模型', link: '/learn_frontend/css/css基础/盒模型及其样式设置/盒模型' },
+            { text: '包含块', link: '/learn_frontend/css/css基础/盒模型及其样式设置/包含块' },
             {
               text: '边框和轮廓',
               link: '/learn_frontend/css/css基础/盒模型及其样式设置/边框和轮廓',
@@ -90,6 +91,10 @@ export default defineConfig({
             {
               text: '溢出效果',
               link: '/learn_frontend/css/css基础/盒模型及其样式设置/溢出效果',
+            },
+            {
+              text: '元素隐藏的几种方式',
+              link: '/learn_frontend/css/css基础/盒模型及其样式设置/元素隐藏的几种方式',
             },
           ],
         },
@@ -125,6 +130,7 @@ export default defineConfig({
           text: '定位和布局',
           items: [
             { text: '关于浮动', link: '/learn_frontend/css/css基础/定位和布局/关于浮动' },
+            { text: '定位', link: '/learn_frontend/css/css基础/定位和布局/定位' },
             { text: 'BFC机制', link: '/learn_frontend/css/css基础/定位和布局/BFC机制' },
 
             { text: '元素居中方法', link: '/learn_frontend/css/css基础/定位和布局/元素居中的方法' },
@@ -214,7 +220,7 @@ export default defineConfig({
           items: [
             {
               text: '迭代器生成器',
-              link: '/learn_frontend/javascript/迭代器生成器/',
+              link: '/learn_frontend/javascript/迭代器生成器/迭代器生成器',
             },
           ],
         },
