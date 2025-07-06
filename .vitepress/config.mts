@@ -387,7 +387,10 @@ export default defineConfig({
         },
         {
           text: '指令',
-          items: [],
+          items: [
+            { text: '指令基本概念', link: '/learn_frontend/vue3/vue3基础/指令/指令基本概念' },
+            { text: '内置指令', link: '/learn_frontend/vue3/vue3基础/指令/内置指令' },
+          ],
         },
         {
           text: '控制样式',
@@ -515,6 +518,10 @@ export default defineConfig({
             {
               text: '命令模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/命令模式',
+            },
+            {
+              text: '迭代器模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/迭代器模式',
             },
           ],
         },
