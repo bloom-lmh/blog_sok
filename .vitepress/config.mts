@@ -263,6 +263,10 @@ export default defineConfig({
               text: 'URL API',
               link: '/learn_frontend/javascript/标准库/URL API',
             },
+            {
+              text: '定时器',
+              link: '/learn_frontend/javascript/标准库/定时器',
+            },
           ],
         },
         {
@@ -274,7 +278,7 @@ export default defineConfig({
           ],
         },
         {
-          text: '异步编程',
+          text: '网络与异步编程',
           items: [
             {
               text: '基于回调的异步编程技术',
@@ -283,6 +287,27 @@ export default defineConfig({
             {
               text: '基于期约链的异步编程技术',
               link: '/learn_frontend/javascript/异步编程/基于期约链的异步编程技术',
+            },
+            {
+              text: '手写Promise',
+              link: '/learn_frontend/javascript/异步编程/手写Promise',
+            },
+            {
+              text: 'fetch',
+              link: '/learn_frontend/javascript/异步编程/fetch',
+            },
+          ],
+        },
+        {
+          text: '存储',
+          items: [
+            {
+              text: 'cookie',
+              link: '/learn_frontend/javascript/存储/cookie',
+            },
+            {
+              text: 'localStorage和sessionStorage',
+              link: '/learn_frontend/javascript/存储/localStorage和sessionStorage',
             },
           ],
         },
@@ -347,6 +372,15 @@ export default defineConfig({
           ],
         },
         {
+          text: '多线程',
+          items: [
+            {
+              text: 'Web Worker',
+              link: '/learn_frontend/javascript/多线程/Web Worker',
+            },
+          ],
+        },
+        {
           text: '面试题',
           items: [
             {
@@ -360,6 +394,18 @@ export default defineConfig({
             {
               text: '防抖节流',
               link: '/learn_frontend/javascript/面试题/防抖节流',
+            },
+            {
+              text: 'new操作符',
+              link: '/learn_frontend/javascript/面试题/new操作符',
+            },
+            {
+              text: '深拷贝和浅拷贝',
+              link: '/learn_frontend/javascript/面试题/深拷贝和浅拷贝',
+            },
+            {
+              text: '检测对象类型',
+              link: '/learn_frontend/javascript/面试题/检测对象类型',
             },
           ],
         },

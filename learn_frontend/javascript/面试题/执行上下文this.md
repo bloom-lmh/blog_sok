@@ -412,4 +412,55 @@ proxy.method(); // 调用时 this 指向 proxy 而非 target
 
 ## 箭头函数调用时
 
-箭头函数本的 this 是从定义他们的上下文继承的，而不会根据调用它们的对象来动态设置
+箭头函数的 this 是从定义他们的上下文中继承的，而不会根据调用它们的对象来动态设置
+
+比如这个防抖函数
+
+```html {13,21,23}
+<div>
+  <input type="text" class="search" />
+</div>
+<script>
+  // 防抖函数
+  function debounce(fn, delay = 500) {
+    let timer;
+    return function (...args) {
+      const context = this; // 获取当前调用的 this
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        // 从父级上下文中继承 this
+        console.log(this);
+        fn.apply(context, args); // 使用当前调用的 this
+      }, delay);
+    };
+  }
+  const handleSearch = debounce(() => {
+    console.log('我输入了,触发搜索');
+  }, 1000);
+  // handleSearch函数中的this是input元素
+  document.querySelector('.search').addEventListener('input', handleSearch);
+  // handleSearch函数中的this是window
+  document.querySelector('.search').addEventListener('input', () => {
+    handleSearch();
+  });
+</script>
+```
+
+## 事件回调函数中的 this
+
+绑定事件的回调函数时
+
+- 如果不使用箭头函数则是触发事件的元素对象
+- 如果使用箭头函数则继承父级上下文的 this（window）
+
+```html
+<button id="btn">按钮</button>
+<script>
+  btn.addEventListener('click', function () {
+    console.log(this); // btn元素
+  });
+  btn.addEventListener('click', () => {
+    console.log(this); // window
+  });
+</script>
+```
