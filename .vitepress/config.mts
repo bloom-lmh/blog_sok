@@ -587,6 +587,10 @@ export default defineConfig({
               text: '迭代器模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/迭代器模式',
             },
+            {
+              text: '职责链模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/职责链模式',
+            },
           ],
         },
       ],
