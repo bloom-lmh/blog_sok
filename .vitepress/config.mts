@@ -58,20 +58,7 @@ export default defineConfig({
           },
           {
             text: '计算机网络',
-            link: '/learn_408/计算机网络/计算机网络知识',
-          },
-        ],
-      },
-      {
-        text: '算法',
-        items: [
-          {
-            text: '经验技巧',
-            link: '/learn_algorithms/经验技巧/经验技巧',
-          },
-          {
-            text: '数据结构问题',
-            link: '/learn_algorithms/数据结构',
+            link: '/learn_408/计算机网络/应用层/DNS解析',
           },
         ],
       },
@@ -215,15 +202,7 @@ export default defineConfig({
             },
           ],
         },
-        {
-          text: '迭代器生成器',
-          items: [
-            {
-              text: '迭代器生成器',
-              link: '/learn_frontend/javascript/迭代器生成器/迭代器生成器',
-            },
-          ],
-        },
+
         {
           text: '标准库',
           items: [
@@ -282,19 +261,32 @@ export default defineConfig({
           items: [
             {
               text: '基于回调的异步编程技术',
-              link: '/learn_frontend/javascript/异步编程/基于回调的异步编程技术',
+              link: '/learn_frontend/javascript/网络与异步编程/基于回调的异步编程技术',
             },
             {
               text: '基于期约链的异步编程技术',
-              link: '/learn_frontend/javascript/异步编程/基于期约链的异步编程技术',
+              link: '/learn_frontend/javascript/网络与异步编程/基于期约链的异步编程技术',
             },
             {
               text: '手写Promise',
-              link: '/learn_frontend/javascript/异步编程/手写Promise',
+              link: '/learn_frontend/javascript/网络与异步编程/手写Promise',
             },
             {
               text: 'fetch',
-              link: '/learn_frontend/javascript/异步编程/fetch',
+              link: '/learn_frontend/javascript/网络与异步编程/fetch',
+            },
+            {
+              text: 'Web攻击方式',
+              link: '/learn_frontend/javascript/网络与异步编程/Web攻击方式',
+            },
+          ],
+        },
+        {
+          text: '迭代器生成器',
+          items: [
+            {
+              text: '迭代器生成器',
+              link: '/learn_frontend/javascript/迭代器生成器/迭代器生成器',
             },
           ],
         },
@@ -302,12 +294,16 @@ export default defineConfig({
           text: '存储',
           items: [
             {
+              text: 'localStorage和sessionStorage',
+              link: '/learn_frontend/javascript/存储/localStorage和sessionStorage',
+            },
+            {
               text: 'cookie',
               link: '/learn_frontend/javascript/存储/cookie',
             },
             {
-              text: 'localStorage和sessionStorage',
-              link: '/learn_frontend/javascript/存储/localStorage和sessionStorage',
+              text: 'IndexedDB',
+              link: '/learn_frontend/javascript/存储/IndexedDB',
             },
           ],
         },
@@ -384,12 +380,16 @@ export default defineConfig({
           text: '面试题',
           items: [
             {
-              text: '几种编程方式',
-              link: '/learn_frontend/javascript/面试题/几种编程方式',
+              text: '编程风格',
+              link: '/learn_frontend/javascript/面试题/编程风格',
             },
             {
-              text: '执行上下文this',
-              link: '/learn_frontend/javascript/面试题/执行上下文this',
+              text: 'this',
+              link: '/learn_frontend/javascript/面试题/this',
+            },
+            {
+              text: '执行上下文',
+              link: '/learn_frontend/javascript/面试题/执行上下文',
             },
             {
               text: '防抖节流',
@@ -404,8 +404,12 @@ export default defineConfig({
               link: '/learn_frontend/javascript/面试题/深拷贝和浅拷贝',
             },
             {
-              text: '检测对象类型',
-              link: '/learn_frontend/javascript/面试题/检测对象类型',
+              text: '类型检测',
+              link: '/learn_frontend/javascript/面试题/类型检测',
+            },
+            {
+              text: '多种继承方式',
+              link: '/learn_frontend/javascript/面试题/多种继承方式',
             },
           ],
         },
@@ -572,6 +576,14 @@ export default defineConfig({
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/命令模式',
             },
             {
+              text: '观察者模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/观察者模式',
+            },
+            {
+              text: '发布订阅模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/发布订阅模式',
+            },
+            {
               text: '迭代器模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/迭代器模式',
             },
@@ -591,6 +603,36 @@ export default defineConfig({
               link: '/learn_408/数据结构/线性结构/顺序表',
             },
           ],
+        },
+      ],
+      '/learn_408/计算机网络/': [
+        {
+          text: '物理层',
+          items: [],
+        },
+        {
+          text: '数据链路层',
+          items: [],
+        },
+        {
+          text: '网络层',
+          items: [],
+        },
+        {
+          text: '传输层',
+          items: [],
+        },
+        {
+          text: '会话层',
+          items: [],
+        },
+        {
+          text: '表示层',
+          items: [],
+        },
+        {
+          text: '应用层',
+          items: [],
         },
       ],
     } /* buildSideBar([

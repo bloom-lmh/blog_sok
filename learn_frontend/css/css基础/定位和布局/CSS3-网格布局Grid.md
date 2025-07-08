@@ -6,7 +6,17 @@
 
 ## 网格容器（Grid Container）
 
-所谓的网格容器就是通过 display: grid 或 display: inline-grid 定义的容器
+所谓的网格容器就是应用了 `display: grid` 或 `display: inline-grid` 样式的元素，元素的子元素就是网格项目。
+
+| 属性         | **display: grid**      | **display: inline-grid**             |
+| ------------ | ---------------------- | ------------------------------------ |
+| 外部表现     | 块级元素（独占一行）   | 行内块元素（与其他行内元素共处一行） |
+| 宽度行为     | 默认撑满父容器宽度     | 宽度由内容决定（类似 inline-block）  |
+| 典型应用场景 | 全屏布局、页面主体结构 | 行内复杂组件（如导航菜单、图标排列） |
+
+::: tip BFC 机制
+设为 Grid 布局的元素，会应用 grid 布局规则，子元素的`float`、`clear`和`vertical-align`属性将失效
+:::
 
 ## 网格轨道（Grid Track）
 
