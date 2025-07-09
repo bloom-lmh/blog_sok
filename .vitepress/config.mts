@@ -20,7 +20,7 @@ export default defineConfig({
         items: [
           {
             text: 'CSS',
-            link: '/learn_frontend/css/css基础/盒模型及其样式设置/盒模型',
+            link: '/learn_frontend/css/盒模型及其样式设置/盒模型',
           },
           {
             text: 'Javascript',
@@ -65,92 +65,102 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/learn_frontend/css/css基础/': [
+      '/learn_frontend/css/': [
         {
           text: '盒模型及其样式设置',
           items: [
-            { text: '盒模型', link: '/learn_frontend/css/css基础/盒模型及其样式设置/盒模型' },
-            { text: '包含块', link: '/learn_frontend/css/css基础/盒模型及其样式设置/包含块' },
+            { text: '盒模型', link: '/learn_frontend/css/盒模型及其样式设置/盒模型' },
+            { text: '包含块', link: '/learn_frontend/css/盒模型及其样式设置/包含块' },
             {
               text: '边框和轮廓',
-              link: '/learn_frontend/css/css基础/盒模型及其样式设置/边框和轮廓',
+              link: '/learn_frontend/css/盒模型及其样式设置/边框和轮廓',
             },
             {
               text: '溢出效果',
-              link: '/learn_frontend/css/css基础/盒模型及其样式设置/溢出效果',
+              link: '/learn_frontend/css/盒模型及其样式设置/溢出效果',
             },
             {
               text: '元素隐藏的几种方式',
-              link: '/learn_frontend/css/css基础/盒模型及其样式设置/元素隐藏的几种方式',
+              link: '/learn_frontend/css/盒模型及其样式设置/元素隐藏的几种方式',
             },
           ],
         },
         {
           text: '文本字体',
           items: [
-            { text: '文本字体', link: '/learn_frontend/css/css基础/文本字体/文本字体' },
+            { text: '文本字体', link: '/learn_frontend/css/文本字体/文本字体' },
             {
               text: '字体图标引入方式',
-              link: '/learn_frontend/css/css基础/文本字体/字体图标引入方式',
+              link: '/learn_frontend/css/文本字体/字体图标引入方式',
             },
           ],
         },
         {
           text: '背景和图片',
           items: [
-            { text: '背景', link: '/learn_frontend/css/css基础/背景和图片/背景' },
-            { text: 'CSS3-图片', link: '/learn_frontend/css/css基础/背景和图片/CSS3-图片' },
-            { text: 'CSS3-渐变', link: '/learn_frontend/css/css基础/背景和图片/CSS3-渐变' },
+            { text: '背景', link: '/learn_frontend/css/背景和图片/背景' },
+            { text: 'CSS3-图片', link: '/learn_frontend/css/背景和图片/CSS3-图片' },
+            { text: 'CSS3-渐变', link: '/learn_frontend/css/背景和图片/CSS3-渐变' },
           ],
         },
         {
           text: '变换和动画',
           items: [
-            { text: 'CSS3-变换', link: '/learn_frontend/css/css基础/变换和动画/CSS3-变换' },
+            { text: 'CSS3-变换', link: '/learn_frontend/css/变换和动画/CSS3-变换' },
             {
               text: 'CSS3-过渡和动画',
-              link: '/learn_frontend/css/css基础/变换和动画/CSS3-过渡和动画',
+              link: '/learn_frontend/css/变换和动画/CSS3-过渡和动画',
             },
           ],
         },
         {
           text: '定位和布局',
           items: [
-            { text: '关于浮动', link: '/learn_frontend/css/css基础/定位和布局/关于浮动' },
-            { text: '定位', link: '/learn_frontend/css/css基础/定位和布局/定位' },
-            { text: 'BFC机制', link: '/learn_frontend/css/css基础/定位和布局/BFC机制' },
+            { text: '关于浮动', link: '/learn_frontend/css/定位和布局/关于浮动' },
+            { text: '定位', link: '/learn_frontend/css/定位和布局/定位' },
+            { text: 'BFC机制', link: '/learn_frontend/css/定位和布局/BFC机制' },
 
-            { text: '元素居中方法', link: '/learn_frontend/css/css基础/定位和布局/元素居中的方法' },
+            { text: '元素居中方法', link: '/learn_frontend/css/定位和布局/元素居中的方法' },
 
             {
               text: 'CSS3-弹性布局Flex',
-              link: '/learn_frontend/css/css基础/定位和布局/CSS3-弹性布局Flex',
+              link: '/learn_frontend/css/定位和布局/CSS3-弹性布局Flex',
             },
             {
               text: 'CSS3-网格布局Gird',
-              link: '/learn_frontend/css/css基础/定位和布局/CSS3-网格布局Grid',
+              link: '/learn_frontend/css/定位和布局/CSS3-网格布局Grid',
             },
-            { text: '常见布局方案', link: '/learn_frontend/css/css基础/定位和布局/常见布局方案' },
+            { text: '常见布局方案', link: '/learn_frontend/css/定位和布局/常见布局方案' },
           ],
         },
         {
           text: '响应式',
           items: [
-            { text: '响应式设计', link: '/learn_frontend/css/css基础/响应式/响应式设计' },
-            { text: 'CSS3-媒体查询', link: '/learn_frontend/css/css基础/响应式/CSS3-媒体查询' },
+            { text: '响应式设计', link: '/learn_frontend/css/响应式/响应式设计' },
+            { text: 'CSS3-媒体查询', link: '/learn_frontend/css/响应式/CSS3-媒体查询' },
           ],
         },
         {
           text: '元素选择',
-          items: [{ text: '选择器', link: '/learn_frontend/css/css基础/元素选择/选择器' }],
+          items: [{ text: '选择器', link: '/learn_frontend/css/元素选择/选择器' }],
         },
         {
           text: '变量',
           items: [],
         },
         {
-          text: 'css项目',
-          items: [],
+          text: '面试题',
+          items: [
+            { text: '设备像素', link: '/learn_frontend/css/面试题/设备像素' },
+            { text: 'em和rem等的区别', link: '/learn_frontend/css/面试题/em和rem等的区别' },
+          ],
+        },
+        {
+          text: '小案例',
+          items: [
+            { text: '视差滚动', link: '/learn_frontend/css/面试题/视差滚动' },
+            { text: '画一个三角形', link: '/learn_frontend/css/面试题/画一个三角形' },
+          ],
         },
       ],
       '/learn_frontend/javascript/': [
@@ -377,20 +387,30 @@ export default defineConfig({
           ],
         },
         {
+          text: '执行上下文',
+          items: [
+            {
+              text: 'ES3执行上下文',
+              link: '/learn_frontend/javascript/执行上下文/ES3执行上下文',
+            },
+            {
+              text: 'ES5执行上下文',
+              link: '/learn_frontend/javascript/执行上下文/ES5执行上下文',
+            },
+            {
+              text: 'this',
+              link: '/learn_frontend/javascript/执行上下文/this',
+            },
+          ],
+        },
+        {
           text: '面试题',
           items: [
             {
               text: '编程风格',
               link: '/learn_frontend/javascript/面试题/编程风格',
             },
-            {
-              text: 'this',
-              link: '/learn_frontend/javascript/面试题/this',
-            },
-            {
-              text: '执行上下文',
-              link: '/learn_frontend/javascript/面试题/执行上下文',
-            },
+
             {
               text: '防抖节流',
               link: '/learn_frontend/javascript/面试题/防抖节流',
