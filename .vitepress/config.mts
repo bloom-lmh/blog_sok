@@ -62,6 +62,7 @@ export default defineConfig({
           },
         ],
       },
+      { text: '学习计划', link: '/learn_plan/2025年学习计划' },
     ],
 
     sidebar: {
@@ -146,7 +147,7 @@ export default defineConfig({
         },
         {
           text: '变量',
-          items: [],
+          items: [{ text: '变量', link: '/learn_frontend/css/变量/变量' }],
         },
         {
           text: '面试题',
@@ -610,6 +611,10 @@ export default defineConfig({
             {
               text: '职责链模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/职责链模式',
+            },
+            {
+              text: '策略模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/策略模式',
             },
           ],
         },
