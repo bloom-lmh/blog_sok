@@ -58,7 +58,7 @@ export default defineConfig({
           },
           {
             text: '计算机网络',
-            link: '/learn_408/计算机网络/应用层/DNS解析',
+            link: '/learn_408/计算机网络/应用层/HTTP和HTTPS',
           },
         ],
       },
@@ -285,10 +285,6 @@ export default defineConfig({
             {
               text: 'fetch',
               link: '/learn_frontend/javascript/网络与异步编程/fetch',
-            },
-            {
-              text: 'Web攻击方式',
-              link: '/learn_frontend/javascript/网络与异步编程/Web攻击方式',
             },
           ],
         },
@@ -590,6 +586,15 @@ export default defineConfig({
           ],
         },
         {
+          text: '23种设计模式-结构型',
+          items: [
+            {
+              text: '装饰器模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-结构型/装饰器模式',
+            },
+          ],
+        },
+        {
           text: '23种设计模式-行为型',
           items: [
             {
@@ -631,6 +636,10 @@ export default defineConfig({
               text: '顺序表',
               link: '/learn_408/数据结构/线性结构/顺序表',
             },
+            {
+              text: '链表',
+              link: '/learn_408/数据结构/线性结构/链表',
+            },
           ],
         },
       ],
@@ -661,7 +670,20 @@ export default defineConfig({
         },
         {
           text: '应用层',
-          items: [],
+          items: [
+            { text: 'HTTP和HTTPS', link: '/learn_408/计算机网络/应用层/HTTP和HTTPS' },
+            { text: 'DNS解析与优化', link: '/learn_408/计算机网络/应用层/DNS解析与优化' },
+            { text: 'RESTful API', link: '/learn_408/计算机网络/应用层/RESTful API' },
+            { text: '跨域的解决方案', link: '/learn_408/计算机网络/应用层/跨域的解决方案' },
+            {
+              text: 'GET和POST请求的区别',
+              link: '/learn_408/计算机网络/应用层/GET和POST请求的区别',
+            },
+            { text: 'XSS跨站脚本攻击', link: '/learn_408/计算机网络/应用层/XSS跨站脚本攻击' },
+            { text: 'CSRF跨站请求伪造', link: '/learn_408/计算机网络/应用层/CSRF跨站请求伪造' },
+            { text: 'SQL注入攻击', link: '/learn_408/计算机网络/应用层/SQL注入攻击' },
+            { text: '防盗链机制', link: '/learn_408/计算机网络/应用层/防盗链机制' },
+          ],
         },
       ],
     } /* buildSideBar([
