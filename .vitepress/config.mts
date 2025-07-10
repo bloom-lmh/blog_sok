@@ -8,6 +8,20 @@ export default defineConfig({
   description: 'Seasons on the Keyboard',
 
   themeConfig: {
+    search: {
+      provider: 'algolia',
+      options: {
+        appId: 'E1M1DBXSMY', // 你的 Application ID
+        apiKey: '489b36fc1ce7eaba0361f617c87fc1fa', // 你的Search API Key
+        indexName: 'blog_sok', // 你的indexName,
+        searchParameters: {
+          hitsPerPage: 10,
+          attributesToRetrieve: ['title', 'content', 'heading'],
+          attributesToHighlight: ['title', 'content'],
+        },
+      },
+    },
+
     outline: {
       level: 'deep', // 只显示 H2 和 H3
       label: '目录',
@@ -686,13 +700,7 @@ export default defineConfig({
           ],
         },
       ],
-    } /* buildSideBar([
-      '/learn_frontend/css/',
-      '/learn_frontend/react',
-      '/learn_frontend/js/',
-      '/learn_sofrwareArchitecture/designPattern/',
-      '/learn_algorithms/',
-    ]), */,
+    },
     socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
   },
   markdown: {
