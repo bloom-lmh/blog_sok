@@ -567,6 +567,10 @@ export default defineConfig({
               text: '设计模式七大原则',
               link: '/learn_sofrwareArchitecture/designPattern/designPattern基础/设计模式七大原则',
             },
+            {
+              text: '23种设计模式概述',
+              link: '/learn_sofrwareArchitecture/designPattern/designPattern基础/23种设计模式概述',
+            },
           ],
         },
         {
@@ -593,6 +597,10 @@ export default defineConfig({
         {
           text: '23种设计模式-结构型',
           items: [
+            {
+              text: '代理模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-结构型/代理模式',
+            },
             {
               text: '装饰器模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-结构型/装饰器模式',
