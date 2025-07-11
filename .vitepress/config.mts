@@ -8,20 +8,7 @@ export default defineConfig({
   description: 'Seasons on the Keyboard',
 
   themeConfig: {
-    search: {
-      provider: 'algolia',
-      options: {
-        appId: 'E1M1DBXSMY', // 你的 Application ID
-        apiKey: '489b36fc1ce7eaba0361f617c87fc1fa', // 你的Search API Key
-        indexName: 'blog_sok', // 你的indexName,
-        searchParameters: {
-          hitsPerPage: 10,
-          attributesToRetrieve: ['title', 'content', 'heading'],
-          attributesToHighlight: ['title', 'content'],
-        },
-      },
-    },
-
+    search: { provider: 'local' },
     outline: {
       level: 'deep', // 只显示 H2 和 H3
       label: '目录',
@@ -72,7 +59,7 @@ export default defineConfig({
           },
           {
             text: '计算机网络',
-            link: '/learn_408/计算机网络/应用层/HTTP和HTTPS',
+            link: '/learn_408/计算机网络/面试题/XSS跨站脚本攻击',
           },
         ],
       },
@@ -187,10 +174,6 @@ export default defineConfig({
             {
               text: '表达式与操作符',
               link: '/learn_frontend/javascript/语法基础/表达式与操作符',
-            },
-            {
-              text: '作用域问题',
-              link: '/learn_frontend/javascript/语法基础/作用域问题',
             },
           ],
         },
@@ -409,8 +392,12 @@ export default defineConfig({
               link: '/learn_frontend/javascript/执行上下文/ES5执行上下文',
             },
             {
-              text: 'this',
-              link: '/learn_frontend/javascript/执行上下文/this',
+              text: '作用域问题',
+              link: '/learn_frontend/javascript/执行上下文/作用域问题',
+            },
+            {
+              text: 'ThisBinding',
+              link: '/learn_frontend/javascript/执行上下文/ThisBinding',
             },
           ],
         },
@@ -441,6 +428,10 @@ export default defineConfig({
             {
               text: '多种继承方式',
               link: '/learn_frontend/javascript/面试题/多种继承方式',
+            },
+            {
+              text: 'ThisBinding的一些场景',
+              link: '/learn_frontend/javascript/面试题/ThisBinding的一些场景',
             },
           ],
         },
@@ -659,44 +650,202 @@ export default defineConfig({
       ],
       '/learn_408/计算机网络/': [
         {
+          text: '面试题',
+          items: [
+            { text: 'HTTP和HTTPS', link: '/learn_408/计算机网络/面试题/HTTP和HTTPS' },
+            { text: 'DNS解析与优化', link: '/learn_408/计算机网络/面试题/DNS解析与优化' },
+            { text: 'RESTful API', link: '/learn_408/计算机网络/面试题/RESTful API' },
+            { text: '跨域的解决方案', link: '/learn_408/计算机网络/面试题/跨域的解决方案' },
+            {
+              text: 'GET和POST请求的区别',
+              link: '/learn_408/计算机网络/面试题/GET和POST请求的区别',
+            },
+            { text: 'XSS跨站脚本攻击', link: '/learn_408/计算机网络/面试题/XSS跨站脚本攻击' },
+            { text: 'CSRF跨站请求伪造', link: '/learn_408/计算机网络/面试题/CSRF跨站请求伪造' },
+            { text: 'SQL注入攻击', link: '/learn_408/计算机网络/面试题/SQL注入攻击' },
+            { text: '防盗链机制', link: '/learn_408/计算机网络/面试题/防盗链机制' },
+          ],
+        },
+        {
           text: '物理层',
-          items: [],
+          items: [
+            {
+              text: '基本概念',
+              link: '/learn_408/计算机网络/物理层/基本概念',
+            },
+            {
+              text: '传输介质',
+              link: '/learn_408/计算机网络/物理层/传输介质',
+            },
+            {
+              text: '核心设备',
+              link: '/learn_408/计算机网络/物理层/核心设备',
+            },
+            {
+              text: '核心协议',
+              link: '/learn_408/计算机网络/物理层/核心协议',
+            },
+
+            {
+              text: '协议数据单元',
+              link: '/learn_408/计算机网络/物理层/协议数据单元',
+            },
+          ],
         },
         {
           text: '数据链路层',
-          items: [],
+          items: [
+            {
+              text: '基本概念',
+              link: '/learn_408/计算机网络/数据链路层/基本概念',
+            },
+            {
+              text: '传输介质',
+              link: '/learn_408/计算机网络/数据链路层/传输介质',
+            },
+            {
+              text: '核心设备',
+              link: '/learn_408/计算机网络/数据链路层/核心设备',
+            },
+            {
+              text: '核心协议',
+              link: '/learn_408/计算机网络/数据链路层/核心协议',
+            },
+
+            {
+              text: '协议数据单元',
+              link: '/learn_408/计算机网络/数据链路层/协议数据单元',
+            },
+          ],
         },
         {
           text: '网络层',
-          items: [],
+          items: [
+            {
+              text: '基本概念',
+              link: '/learn_408/计算机网络/网络层/基本概念',
+            },
+            {
+              text: '传输介质',
+              link: '/learn_408/计算机网络/网络层/传输介质',
+            },
+            {
+              text: '核心设备',
+              link: '/learn_408/计算机网络/网络层/核心设备',
+            },
+            {
+              text: '核心协议',
+              link: '/learn_408/计算机网络/网络层/核心协议',
+            },
+
+            {
+              text: '协议数据单元',
+              link: '/learn_408/计算机网络/网络层/协议数据单元',
+            },
+          ],
         },
         {
           text: '传输层',
-          items: [],
+          items: [
+            {
+              text: '基本概念',
+              link: '/learn_408/计算机网络/传输层/基本概念',
+            },
+            {
+              text: '传输介质',
+              link: '/learn_408/计算机网络/传输层/传输介质',
+            },
+            {
+              text: '核心设备',
+              link: '/learn_408/计算机网络/传输层/核心设备',
+            },
+            {
+              text: '核心协议',
+              link: '/learn_408/计算机网络/传输层/核心协议',
+            },
+
+            {
+              text: '协议数据单元',
+              link: '/learn_408/计算机网络/传输层/协议数据单元',
+            },
+          ],
         },
         {
           text: '会话层',
-          items: [],
+          items: [
+            {
+              text: '基本概念',
+              link: '/learn_408/计算机网络/会话层/基本概念',
+            },
+            {
+              text: '传输介质',
+              link: '/learn_408/计算机网络/会话层/传输介质',
+            },
+            {
+              text: '核心设备',
+              link: '/learn_408/计算机网络/会话层/核心设备',
+            },
+            {
+              text: '核心协议',
+              link: '/learn_408/计算机网络/会话层/核心协议',
+            },
+
+            {
+              text: '协议数据单元',
+              link: '/learn_408/计算机网络/会话层/协议数据单元',
+            },
+          ],
         },
         {
           text: '表示层',
-          items: [],
+          items: [
+            {
+              text: '基本概念',
+              link: '/learn_408/计算机网络/表示层/基本概念',
+            },
+            {
+              text: '传输介质',
+              link: '/learn_408/计算机网络/表示层/传输介质',
+            },
+            {
+              text: '核心设备',
+              link: '/learn_408/计算机网络/表示层/核心设备',
+            },
+            {
+              text: '核心协议',
+              link: '/learn_408/计算机网络/表示层/核心协议',
+            },
+
+            {
+              text: '协议数据单元',
+              link: '/learn_408/计算机网络/表示层/协议数据单元',
+            },
+          ],
         },
         {
           text: '应用层',
           items: [
-            { text: 'HTTP和HTTPS', link: '/learn_408/计算机网络/应用层/HTTP和HTTPS' },
-            { text: 'DNS解析与优化', link: '/learn_408/计算机网络/应用层/DNS解析与优化' },
-            { text: 'RESTful API', link: '/learn_408/计算机网络/应用层/RESTful API' },
-            { text: '跨域的解决方案', link: '/learn_408/计算机网络/应用层/跨域的解决方案' },
             {
-              text: 'GET和POST请求的区别',
-              link: '/learn_408/计算机网络/应用层/GET和POST请求的区别',
+              text: '基本概念',
+              link: '/learn_408/计算机网络/应用层/基本概念',
             },
-            { text: 'XSS跨站脚本攻击', link: '/learn_408/计算机网络/应用层/XSS跨站脚本攻击' },
-            { text: 'CSRF跨站请求伪造', link: '/learn_408/计算机网络/应用层/CSRF跨站请求伪造' },
-            { text: 'SQL注入攻击', link: '/learn_408/计算机网络/应用层/SQL注入攻击' },
-            { text: '防盗链机制', link: '/learn_408/计算机网络/应用层/防盗链机制' },
+            {
+              text: '传输介质',
+              link: '/learn_408/计算机网络/应用层/传输介质',
+            },
+            {
+              text: '核心设备',
+              link: '/learn_408/计算机网络/应用层/核心设备',
+            },
+            {
+              text: '核心协议',
+              link: '/learn_408/计算机网络/应用层/核心协议',
+            },
+
+            {
+              text: '协议数据单元',
+              link: '/learn_408/计算机网络/应用层/协议数据单元',
+            },
           ],
         },
       ],

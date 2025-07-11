@@ -1,4 +1,4 @@
-# Js-this
+# ThisBinding
 
 [[toc]]
 
