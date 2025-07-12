@@ -205,6 +205,14 @@ export default defineConfig({
               link: '/learn_frontend/javascript/面向对象/原型链',
             },
             {
+              text: '多种继承方式',
+              link: '/learn_frontend/javascript/面向对象/多种继承方式',
+            },
+            {
+              text: '类的本质',
+              link: '/learn_frontend/javascript/面向对象/类的本质',
+            },
+            {
               text: '元编程',
               link: '/learn_frontend/javascript/面向对象/元编程',
             },
@@ -425,10 +433,7 @@ export default defineConfig({
               text: '类型检测',
               link: '/learn_frontend/javascript/面试题/类型检测',
             },
-            {
-              text: '多种继承方式',
-              link: '/learn_frontend/javascript/面试题/多种继承方式',
-            },
+
             {
               text: 'ThisBinding的一些场景',
               link: '/learn_frontend/javascript/面试题/ThisBinding的一些场景',
