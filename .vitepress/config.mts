@@ -70,9 +70,13 @@ export default defineConfig({
       '/learn_frontend/css/': [
         {
           text: '盒模型及其样式设置',
+          collapsed: true,
           items: [
             { text: '盒模型', link: '/learn_frontend/css/盒模型及其样式设置/盒模型' },
-            { text: '包含块', link: '/learn_frontend/css/盒模型及其样式设置/包含块' },
+            {
+              text: '包含块',
+              link: '/learn_frontend/css/盒模型及其样式设置/包含块',
+            },
             {
               text: '边框和轮廓',
               link: '/learn_frontend/css/盒模型及其样式设置/边框和轮廓',
@@ -89,6 +93,7 @@ export default defineConfig({
         },
         {
           text: '文本字体',
+          collapsed: true,
           items: [
             { text: '文本字体', link: '/learn_frontend/css/文本字体/文本字体' },
             {
@@ -99,6 +104,7 @@ export default defineConfig({
         },
         {
           text: '背景和图片',
+          collapsed: true,
           items: [
             { text: '背景', link: '/learn_frontend/css/背景和图片/背景' },
             { text: 'CSS3-图片', link: '/learn_frontend/css/背景和图片/CSS3-图片' },
@@ -107,6 +113,7 @@ export default defineConfig({
         },
         {
           text: '变换和动画',
+          collapsed: true,
           items: [
             { text: 'CSS3-变换', link: '/learn_frontend/css/变换和动画/CSS3-变换' },
             {
@@ -117,6 +124,7 @@ export default defineConfig({
         },
         {
           text: '定位和布局',
+          collapsed: true,
           items: [
             { text: '关于浮动', link: '/learn_frontend/css/定位和布局/关于浮动' },
             { text: '定位', link: '/learn_frontend/css/定位和布局/定位' },
@@ -137,6 +145,7 @@ export default defineConfig({
         },
         {
           text: '响应式',
+          collapsed: true,
           items: [
             { text: '响应式设计', link: '/learn_frontend/css/响应式/响应式设计' },
             { text: 'CSS3-媒体查询', link: '/learn_frontend/css/响应式/CSS3-媒体查询' },
@@ -144,21 +153,30 @@ export default defineConfig({
         },
         {
           text: '元素选择',
+          collapsed: true,
           items: [{ text: '选择器', link: '/learn_frontend/css/元素选择/选择器' }],
         },
         {
           text: '变量',
+          collapsed: true,
           items: [{ text: '变量', link: '/learn_frontend/css/变量/变量' }],
         },
         {
           text: '面试题',
+          collapsed: true,
           items: [
             { text: '设备像素', link: '/learn_frontend/css/面试题/设备像素' },
             { text: 'em和rem等的区别', link: '/learn_frontend/css/面试题/em和rem等的区别' },
+            {
+              text: 'chrome中设置小于12px字体',
+              link: '/learn_frontend/css/面试题/chrome小于12px字体的方式有哪些',
+            },
+            { text: 'css性能优化', link: '/learn_frontend/css/面试题/css性能优化' },
           ],
         },
         {
           text: '小案例',
+          collapsed: true,
           items: [
             { text: '视差滚动', link: '/learn_frontend/css/面试题/视差滚动' },
             { text: '画一个三角形', link: '/learn_frontend/css/面试题/画一个三角形' },
@@ -168,6 +186,7 @@ export default defineConfig({
       '/learn_frontend/javascript/': [
         {
           text: '语法基础',
+          collapsed: true,
           items: [
             { text: '数据类型', link: '/learn_frontend/javascript/语法基础/数据类型' },
             { text: '类型转换', link: '/learn_frontend/javascript/语法基础/类型转换' },
@@ -179,6 +198,7 @@ export default defineConfig({
         },
         {
           text: '面向对象',
+          collapsed: true,
           items: [
             {
               text: '对象',
@@ -221,6 +241,7 @@ export default defineConfig({
 
         {
           text: '标准库',
+          collapsed: true,
           items: [
             {
               text: '映射与集合',
@@ -266,6 +287,7 @@ export default defineConfig({
         },
         {
           text: '事件',
+          collapsed: true,
           items: [
             { text: '事件基础', link: '/learn_frontend/javascript/事件/事件基础' },
             { text: '事件循环', link: '/learn_frontend/javascript/事件/事件循环' },
@@ -274,6 +296,7 @@ export default defineConfig({
         },
         {
           text: '网络与异步编程',
+          collapsed: true,
           items: [
             {
               text: '基于回调的异步编程技术',
@@ -288,13 +311,14 @@ export default defineConfig({
               link: '/learn_frontend/javascript/网络与异步编程/手写Promise',
             },
             {
-              text: 'fetch',
-              link: '/learn_frontend/javascript/网络与异步编程/fetch',
+              text: '使用fetch发送网络请求',
+              link: '/learn_frontend/javascript/网络与异步编程/使用fetch发送网络请求',
             },
           ],
         },
         {
           text: '迭代器生成器',
+          collapsed: true,
           items: [
             {
               text: '迭代器生成器',
@@ -304,6 +328,7 @@ export default defineConfig({
         },
         {
           text: '存储',
+          collapsed: true,
           items: [
             {
               text: 'localStorage和sessionStorage',
@@ -321,6 +346,7 @@ export default defineConfig({
         },
         {
           text: '模块化',
+          collapsed: true,
           items: [
             {
               text: '模块化',
@@ -330,6 +356,7 @@ export default defineConfig({
         },
         {
           text: 'DOM',
+          collapsed: true,
           items: [
             { text: '节点的基本操作', link: '/learn_frontend/javascript/DOM/节点的基本操作' },
             {
@@ -349,6 +376,7 @@ export default defineConfig({
         },
         {
           text: 'BOM',
+          collapsed: true,
           items: [
             { text: 'window', link: '/learn_frontend/javascript/BOM/window' },
             { text: 'location', link: '/learn_frontend/javascript/BOM/location' },
@@ -363,6 +391,7 @@ export default defineConfig({
         },
         {
           text: 'ES6-ES13',
+          collapsed: true,
           items: [
             {
               text: 'ES6新特性',
@@ -372,6 +401,7 @@ export default defineConfig({
         },
         {
           text: '内存管理',
+          collapsed: true,
           items: [
             {
               text: '垃圾回收机制',
@@ -381,6 +411,7 @@ export default defineConfig({
         },
         {
           text: '多线程',
+          collapsed: true,
           items: [
             {
               text: 'Web Worker',
@@ -390,6 +421,7 @@ export default defineConfig({
         },
         {
           text: '执行上下文',
+          collapsed: true,
           items: [
             {
               text: 'ES3执行上下文',
@@ -411,6 +443,7 @@ export default defineConfig({
         },
         {
           text: '面试题',
+          collapsed: true,
           items: [
             {
               text: '编程风格',
@@ -443,6 +476,7 @@ export default defineConfig({
 
         {
           text: '小案例',
+          collapsed: true,
           items: [
             {
               text: '实现轮播图的两种方式',
@@ -458,6 +492,7 @@ export default defineConfig({
       '/learn_frontend/vue3/': [
         {
           text: '起步',
+          collapsed: true,
           items: [
             { text: '简介', link: '/learn_frontend/vue3/vue3基础/起步/简介' },
             { text: '选项式和组合式', link: '/learn_frontend/vue3/vue3基础/起步/选项式和组合式' },
@@ -466,10 +501,12 @@ export default defineConfig({
         },
         {
           text: '模板语法',
+          collapsed: true,
           items: [],
         },
         {
           text: '指令',
+          collapsed: true,
           items: [
             { text: '指令基本概念', link: '/learn_frontend/vue3/vue3基础/指令/指令基本概念' },
             { text: '内置指令', link: '/learn_frontend/vue3/vue3基础/指令/内置指令' },
@@ -477,18 +514,22 @@ export default defineConfig({
         },
         {
           text: '控制样式',
+          collapsed: true,
           items: [],
         },
         {
           text: '组件',
+          collapsed: true,
           items: [],
         },
         {
           text: '生命周期',
+          collapsed: true,
           items: [],
         },
         {
           text: '响应式',
+          collapsed: true,
           items: [
             { text: 'ref和reactive', link: '/learn_frontend/vue3/vue3基础/响应式/ref和reactive' },
             { text: '计算属性', link: '/learn_frontend/vue3/vue3基础/响应式/计算属性' },
@@ -497,16 +538,19 @@ export default defineConfig({
         },
         {
           text: '路由',
+          collapsed: true,
           items: [],
         },
         {
           text: '插件',
+          collapsed: true,
           items: [],
         },
       ],
       '/learn_frontend/react/': [
         {
           text: 'react基础',
+          collapsed: true,
           items: [
             { text: 'Jsx', link: '/learn_frontend/react/react基础/Jsx' },
             { text: '组件通信', link: '/learn_frontend/react/react基础/组件通信' },
@@ -523,6 +567,7 @@ export default defineConfig({
         },
         {
           text: 'react源码',
+          collapsed: true,
           items: [
             {
               text: '创建ReactElement',
@@ -548,6 +593,7 @@ export default defineConfig({
       '/learn_frontend/browser/': [
         {
           text: '浏览器基础',
+          collapsed: true,
           items: [
             {
               text: '浏览器渲染原理',
@@ -563,6 +609,7 @@ export default defineConfig({
       '/learn_sofrwareArchitecture/designPattern/': [
         {
           text: '设计模式基础',
+          collapsed: true,
           items: [
             {
               text: '设计模式工具UML',
@@ -580,6 +627,7 @@ export default defineConfig({
         },
         {
           text: '23种设计模式-创建型',
+          collapsed: true,
           items: [
             {
               text: '总结创建型模式',
@@ -601,6 +649,7 @@ export default defineConfig({
         },
         {
           text: '23种设计模式-结构型',
+          collapsed: true,
           items: [
             {
               text: '代理模式',
@@ -614,6 +663,7 @@ export default defineConfig({
         },
         {
           text: '23种设计模式-行为型',
+          collapsed: true,
           items: [
             {
               text: '命令模式',
@@ -645,6 +695,7 @@ export default defineConfig({
       '/learn_408/数据结构/': [
         {
           text: '线性结构',
+          collapsed: true,
           items: [
             {
               text: '线性表',
@@ -664,6 +715,7 @@ export default defineConfig({
       '/learn_408/计算机网络/': [
         {
           text: '面试题',
+          collapsed: true,
           items: [
             { text: 'HTTP和HTTPS', link: '/learn_408/计算机网络/面试题/HTTP和HTTPS' },
             { text: 'DNS解析与优化', link: '/learn_408/计算机网络/面试题/DNS解析与优化' },
@@ -681,6 +733,7 @@ export default defineConfig({
         },
         {
           text: '物理层',
+          collapsed: true,
           items: [
             {
               text: '基本概念',
@@ -707,6 +760,7 @@ export default defineConfig({
         },
         {
           text: '数据链路层',
+          collapsed: true,
           items: [
             {
               text: '基本概念',
@@ -733,15 +787,13 @@ export default defineConfig({
         },
         {
           text: '网络层',
+          collapsed: true,
           items: [
             {
               text: '基本概念',
               link: '/learn_408/计算机网络/网络层/基本概念',
             },
-            {
-              text: '传输介质',
-              link: '/learn_408/计算机网络/网络层/传输介质',
-            },
+
             {
               text: '核心设备',
               link: '/learn_408/计算机网络/网络层/核心设备',
@@ -759,18 +811,11 @@ export default defineConfig({
         },
         {
           text: '传输层',
+          collapsed: true,
           items: [
             {
               text: '基本概念',
               link: '/learn_408/计算机网络/传输层/基本概念',
-            },
-            {
-              text: '传输介质',
-              link: '/learn_408/计算机网络/传输层/传输介质',
-            },
-            {
-              text: '核心设备',
-              link: '/learn_408/计算机网络/传输层/核心设备',
             },
             {
               text: '核心协议',
@@ -785,18 +830,11 @@ export default defineConfig({
         },
         {
           text: '会话层',
+          collapsed: true,
           items: [
             {
               text: '基本概念',
               link: '/learn_408/计算机网络/会话层/基本概念',
-            },
-            {
-              text: '传输介质',
-              link: '/learn_408/计算机网络/会话层/传输介质',
-            },
-            {
-              text: '核心设备',
-              link: '/learn_408/计算机网络/会话层/核心设备',
             },
             {
               text: '核心协议',
@@ -811,18 +849,11 @@ export default defineConfig({
         },
         {
           text: '表示层',
+          collapsed: true,
           items: [
             {
               text: '基本概念',
               link: '/learn_408/计算机网络/表示层/基本概念',
-            },
-            {
-              text: '传输介质',
-              link: '/learn_408/计算机网络/表示层/传输介质',
-            },
-            {
-              text: '核心设备',
-              link: '/learn_408/计算机网络/表示层/核心设备',
             },
             {
               text: '核心协议',
@@ -837,14 +868,11 @@ export default defineConfig({
         },
         {
           text: '应用层',
+          collapsed: true,
           items: [
             {
               text: '基本概念',
               link: '/learn_408/计算机网络/应用层/基本概念',
-            },
-            {
-              text: '传输介质',
-              link: '/learn_408/计算机网络/应用层/传输介质',
             },
             {
               text: '核心设备',
