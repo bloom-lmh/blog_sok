@@ -717,19 +717,10 @@ export default defineConfig({
           text: '面试题',
           collapsed: true,
           items: [
-            { text: 'TCP和UDP协议', link: '/learn_408/计算机网络/面试题/TCP和UDP协议' },
-            { text: 'HTTP和HTTPS', link: '/learn_408/计算机网络/面试题/HTTP和HTTPS' },
-            { text: 'DNS解析与优化', link: '/learn_408/计算机网络/面试题/DNS解析与优化' },
-            { text: 'RESTful API', link: '/learn_408/计算机网络/面试题/RESTful API' },
-            { text: '跨域的解决方案', link: '/learn_408/计算机网络/面试题/跨域的解决方案' },
-            {
-              text: 'GET和POST请求的区别',
-              link: '/learn_408/计算机网络/面试题/GET和POST请求的区别',
-            },
+
             { text: 'XSS跨站脚本攻击', link: '/learn_408/计算机网络/面试题/XSS跨站脚本攻击' },
             { text: 'CSRF跨站请求伪造', link: '/learn_408/计算机网络/面试题/CSRF跨站请求伪造' },
             { text: 'SQL注入攻击', link: '/learn_408/计算机网络/面试题/SQL注入攻击' },
-            { text: '防盗链机制', link: '/learn_408/计算机网络/面试题/防盗链机制' },
           ],
         },
         {
@@ -819,8 +810,12 @@ export default defineConfig({
               link: '/learn_408/计算机网络/传输层/基本概念',
             },
             {
-              text: '核心协议',
-              link: '/learn_408/计算机网络/传输层/核心协议',
+              text: 'TCP和UDP协议',
+              link: '/learn_408/计算机网络/传输层/TCP和UDP协议',
+            },
+            {
+              text: 'TCP三次握手和四次挥手',
+              link: '/learn_408/计算机网络/传输层/TCP三次握手和四次挥手',
             },
 
             {
@@ -875,15 +870,15 @@ export default defineConfig({
               text: '基本概念',
               link: '/learn_408/计算机网络/应用层/基本概念',
             },
+            { text: 'DNS解析与优化', link: '/learn_408/计算机网络/应用层/DNS解析与优化' },
+            { text: 'HTTP和HTTPS协议', link: '/learn_408/计算机网络/应用层/HTTP和HTTPS协议' },
+            { text: '防盗链机制', link: '/learn_408/计算机网络/应用层/防盗链机制' },
+            { text: 'RESTful API', link: '/learn_408/计算机网络/应用层/RESTful API' },
+            { text: '跨域的解决方案', link: '/learn_408/计算机网络/应用层/跨域的解决方案' },
             {
-              text: '核心设备',
-              link: '/learn_408/计算机网络/应用层/核心设备',
+              text: 'GET和POST请求的区别',
+              link: '/learn_408/计算机网络/面试题/GET和POST请求的区别',
             },
-            {
-              text: '核心协议',
-              link: '/learn_408/计算机网络/应用层/核心协议',
-            },
-
             {
               text: '协议数据单元',
               link: '/learn_408/计算机网络/应用层/协议数据单元',
