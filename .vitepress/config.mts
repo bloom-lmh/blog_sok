@@ -317,12 +317,16 @@ export default defineConfig({
           ],
         },
         {
-          text: '迭代器生成器',
+          text: '迭代器和生成器',
           collapsed: true,
           items: [
             {
-              text: '迭代器生成器',
-              link: '/learn_frontend/javascript/迭代器生成器/迭代器生成器',
+              text: '迭代器和生成器',
+              link: '/learn_frontend/javascript/迭代器生成器/迭代器和生成器',
+            },
+            {
+              text: '异步迭代器和生成器',
+              link: '/learn_frontend/javascript/迭代器生成器/异步迭代器和生成器',
             },
           ],
         },
