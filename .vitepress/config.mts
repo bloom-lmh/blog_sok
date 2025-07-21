@@ -876,17 +876,16 @@ export default defineConfig({
             },
             { text: 'DNS解析与优化', link: '/learn_408/计算机网络/应用层/DNS解析与优化' },
             { text: 'HTTP和HTTPS协议', link: '/learn_408/计算机网络/应用层/HTTP和HTTPS协议' },
-            { text: '防盗链机制', link: '/learn_408/计算机网络/应用层/防盗链机制' },
             { text: 'RESTful API', link: '/learn_408/计算机网络/应用层/RESTful API' },
+            { text: 'HTTP不同请求方式', link: '/learn_408/计算机网络/应用层/HTTP不同请求方式' },
+            { text: 'HTTP请求体与MIME类型', link: '/learn_408/计算机网络/应用层/HTTP请求体与MIME类型' },
+            { text: 'HTTP协议的应用', link: '/learn_408/计算机网络/应用层/HTTP协议的应用' },
             { text: '跨域的解决方案', link: '/learn_408/计算机网络/应用层/跨域的解决方案' },
             {
               text: 'GET和POST请求的区别',
               link: '/learn_408/计算机网络/面试题/GET和POST请求的区别',
             },
-            {
-              text: '协议数据单元',
-              link: '/learn_408/计算机网络/应用层/协议数据单元',
-            },
+
           ],
         },
       ],
