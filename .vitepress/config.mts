@@ -28,6 +28,10 @@ export default defineConfig({
             link: '/learn_frontend/javascript/语法基础/数据类型',
           },
           {
+            text: 'Typescript',
+            link: '/learn_frontend/typescript/起步/基本介绍',
+          },
+          {
             text: 'Vue3',
             link: '/learn_frontend/vue3/vue3基础/起步/简介',
           },
@@ -491,6 +495,75 @@ export default defineConfig({
               link: '/learn_frontend/js/小案例/实现SPA路由',
             },
           ],
+        },
+      ],
+      '/learn_frontend/typescript/': [
+        {
+          text: '起步',
+          collapsed: true,
+          items: [
+            { text: '环境搭建', link: '/learn_frontend/typescript/起步/环境搭建' },
+            { text: '基本介绍', link: '/learn_frontend/typescript/起步/基本介绍' },
+          ],
+        },
+        {
+          "text": "基础类型",
+          "collapsed": true,
+          "items": [
+            { "text": "原始类型", "link": "/learn_frontend/typescript/基础类型/原始类型" },
+            { "text": "特殊类型", "link": "/learn_frontend/typescript/基础类型/特殊类型" },
+            { "text": "字面量类型", "link": "/learn_frontend/typescript/基础类型/字面量类型" },
+            { "text": "对象类型", "link": "/learn_frontend/typescript/基础类型/对象类型" },
+            { "text": "枚举类型", "link": "/learn_frontend/typescript/基础类型/枚举类型" },
+            { "text": "元组类型", "link": "/learn_frontend/typescript/基础类型/元组类型" },
+            { "text": "接口类型", "link": "/learn_frontend/typescript/基础类型/接口类型" },
+            { "text": "Class类型", "link": "/learn_frontend/typescript/基础类型/Class类型" },
+            { "text": "泛型类型", "link": "/learn_frontend/typescript/基础类型/泛型类型" },
+            { "text": "索引类型", "link": "/learn_frontend/typescript/基础类型/索引类型" },
+            { "text": "映射类型", "link": "/learn_frontend/typescript/基础类型/映射类型" },
+            { "text": "类型别名", "link": "/learn_frontend/typescript/基础类型/类型别名" },
+
+          ]
+        },
+        {
+          "text": "类型操作符",
+          "collapsed": true,
+          "items": [
+            { "text": "类型操作符", "link": "/learn_frontend/typescript/类型操作符/类型操作符" }
+          ]
+        },
+
+        {
+          "text": "类型机制",
+          "collapsed": true,
+          "items": [
+            { "text": "类型断言机制", "link": "/learn_frontend/typescript/类型机制/类型断言机制" },
+            { "text": "类型收窄机制", "link": "/learn_frontend/typescript/类型机制/类型收窄机制" },
+            { "text": "类型推断机制", "link": "/learn_frontend/typescript/类型机制/类型推断机制" }
+          ]
+        },
+        {
+          "text": "类型工具",
+          "collapsed": true,
+          "items": [
+            { "text": "类型工具", "link": "/learn_frontend/typescript/类型工具/类型工具" }
+          ]
+        },
+        {
+          "text": "类型兼容性",
+          "collapsed": true,
+          "items": [
+            { "text": "泛型兼容性", "link": "/learn_frontend/typescript/类型兼容性/泛型兼容性" },
+            { "text": "函数兼容性", "link": "/learn_frontend/typescript/类型兼容性/函数兼容性" }
+          ]
+        },
+        {
+          "text": "类型声明文件",
+          "collapsed": true,
+          "items": [
+            { "text": "第三方库类型扩展", "link": "/learn_frontend/typescript/类型声明文件/第三方库类型扩展" },
+            { "text": "类型声明文件定义", "link": "/learn_frontend/typescript/类型声明文件/类型声明文件定义" }
+          ]
         },
       ],
       '/learn_frontend/vue3/': [
