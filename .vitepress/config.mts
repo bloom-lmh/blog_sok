@@ -507,64 +507,67 @@ export default defineConfig({
           ],
         },
         {
-          "text": "基础类型",
+          "text": "常用类型",
           "collapsed": true,
           "items": [
-            { "text": "原始类型", "link": "/learn_frontend/typescript/基础类型/原始类型" },
-            { "text": "特殊类型", "link": "/learn_frontend/typescript/基础类型/特殊类型" },
-            { "text": "字面量类型", "link": "/learn_frontend/typescript/基础类型/字面量类型" },
-            { "text": "对象类型", "link": "/learn_frontend/typescript/基础类型/对象类型" },
-            { "text": "枚举类型", "link": "/learn_frontend/typescript/基础类型/枚举类型" },
-            { "text": "元组类型", "link": "/learn_frontend/typescript/基础类型/元组类型" },
-            { "text": "接口类型", "link": "/learn_frontend/typescript/基础类型/接口类型" },
-            { "text": "Class类型", "link": "/learn_frontend/typescript/基础类型/Class类型" },
-            { "text": "泛型类型", "link": "/learn_frontend/typescript/基础类型/泛型类型" },
-            { "text": "索引类型", "link": "/learn_frontend/typescript/基础类型/索引类型" },
-            { "text": "映射类型", "link": "/learn_frontend/typescript/基础类型/映射类型" },
-            { "text": "类型别名", "link": "/learn_frontend/typescript/基础类型/类型别名" },
+            { "text": "原始类型", "link": "/learn_frontend/typescript/常用类型/原始类型" },
+            { "text": "特殊类型", "link": "/learn_frontend/typescript/常用类型/特殊类型" },
+            { "text": "字面量类型", "link": "/learn_frontend/typescript/常用类型/字面量类型" },
+            { "text": "对象类型", "link": "/learn_frontend/typescript/常用类型/对象类型" },
+            { "text": "枚举类型", "link": "/learn_frontend/typescript/常用类型/枚举类型" },
+            { "text": "元组类型", "link": "/learn_frontend/typescript/常用类型/元组类型" },
+            { "text": "接口类型", "link": "/learn_frontend/typescript/常用类型/接口类型" },
+            { "text": "Class类型", "link": "/learn_frontend/typescript/常用类型/Class类型" },
+            { "text": "泛型类型", "link": "/learn_frontend/typescript/常用类型/泛型类型" },
+            { "text": "索引类型", "link": "/learn_frontend/typescript/常用类型/索引类型" },
+            { "text": "映射类型", "link": "/learn_frontend/typescript/常用类型/映射类型" },
+            { "text": "类型别名", "link": "/learn_frontend/typescript/常用类型/类型别名" },
+            { "text": "联合类型", "link": "/learn_frontend/typescript/常用类型/联合类型" },
+            { "text": "交叉类型", "link": "/learn_frontend/typescript/常用类型/交叉类型" },
 
           ]
         },
-        {
-          "text": "类型操作符",
-          "collapsed": true,
-          "items": [
-            { "text": "类型操作符", "link": "/learn_frontend/typescript/类型操作符/类型操作符" }
-          ]
-        },
-
         {
           "text": "类型机制",
           "collapsed": true,
           "items": [
+            { "text": "类型兼容性机制", "link": "/learn_frontend/typescript/类型机制/类型兼容性机制" },
             { "text": "类型断言机制", "link": "/learn_frontend/typescript/类型机制/类型断言机制" },
-            { "text": "类型收窄机制", "link": "/learn_frontend/typescript/类型机制/类型收窄机制" },
             { "text": "类型推断机制", "link": "/learn_frontend/typescript/类型机制/类型推断机制" }
           ]
         },
         {
-          "text": "类型工具",
+          "text": "工具类型",
           "collapsed": true,
           "items": [
-            { "text": "类型工具", "link": "/learn_frontend/typescript/类型工具/类型工具" }
+            { "text": "类型操作符", "link": "/learn_frontend/typescript/工具类型/类型操作符" },
+            { "text": "常用的工具类型", "link": "/learn_frontend/typescript/工具类型/常用的工具类型" },
+            { "text": "工具类型的底层实现", "link": "/learn_frontend/typescript/工具类型/工具类型的底层实现" }
           ]
         },
         {
-          "text": "类型兼容性",
+          "text": "高级类型",
           "collapsed": true,
           "items": [
-            { "text": "泛型兼容性", "link": "/learn_frontend/typescript/类型兼容性/泛型兼容性" },
-            { "text": "函数兼容性", "link": "/learn_frontend/typescript/类型兼容性/函数兼容性" }
+            { "text": "条件类型", "link": "/learn_frontend/typescript/高级类型/条件类型" },
+            { "text": "推断类型", "link": "/learn_frontend/typescript/高级类型/推断类型" },
           ]
         },
         {
-          "text": "类型声明文件",
+          "text": "装饰器",
+          "collapsed": true,
+          "items": [
+          ]
+        },
+        {
+          "text": "工程化",
           "collapsed": true,
           "items": [
             { "text": "第三方库类型扩展", "link": "/learn_frontend/typescript/类型声明文件/第三方库类型扩展" },
             { "text": "类型声明文件定义", "link": "/learn_frontend/typescript/类型声明文件/类型声明文件定义" }
           ]
         },
+
       ],
       '/learn_frontend/vue3/': [
         {
