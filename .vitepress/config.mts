@@ -557,14 +557,14 @@ export default defineConfig({
           "text": "装饰器",
           "collapsed": true,
           "items": [
+            { "text": "装饰器", "link": "/learn_frontend/typescript/装饰器/装饰器" },
           ]
         },
         {
           "text": "工程化",
           "collapsed": true,
           "items": [
-            { "text": "第三方库类型扩展", "link": "/learn_frontend/typescript/类型声明文件/第三方库类型扩展" },
-            { "text": "类型声明文件定义", "link": "/learn_frontend/typescript/类型声明文件/类型声明文件定义" }
+            { "text": "类型声明文件定义", "link": "/learn_frontend/typescript/工程化/类型声明文件定义" }
           ]
         },
 
