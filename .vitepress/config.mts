@@ -32,6 +32,10 @@ export default defineConfig({
             link: '/learn_frontend/typescript/起步/基本介绍',
           },
           {
+            text: 'Axios',
+            link: '/learn_frontend/axios/axios',
+          },
+          {
             text: 'Vue3',
             link: '/learn_frontend/vue3/vue3基础/起步/简介',
           },
