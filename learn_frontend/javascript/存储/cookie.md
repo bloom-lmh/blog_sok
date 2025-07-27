@@ -81,7 +81,7 @@ res.cookie('sessionID', 'abc123', { httpOnly: true });
 作用：控制跨站请求时是否发送 Cookie
 可选值 ​：
 
-- `Strict` - 完全禁止跨站发送
+- `Strict` - 完全禁止跨站发送，仅仅允许同站请求比如：用户在 `a.com` 浏览，点击链接到 `a.com/page`会发送 cooike
 - `Lax` - 允许部分安全跨站请求（默认值）
 - `None` - 允许跨站发送（必须同时设置 Secure）
 

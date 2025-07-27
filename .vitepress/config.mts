@@ -573,6 +573,46 @@ export default defineConfig({
         },
 
       ],
+      '/learn_frontend/axios/': [
+        {
+          text: '起步',
+          collapsed: true,
+          items: [
+            { text: '环境搭建', link: '/learn_frontend/axios/起步/基本介绍' },
+            { text: '基本介绍', link: '/learn_frontend/axios/起步/发送请求的几种方式' },
+          ],
+        },
+
+        {
+          text: '配置',
+          collapsed: true,
+          items: [
+            { text: '配置方式及其优先级', link: '/learn_frontend/axios/配置/配置方式及其优先级' },
+            { text: '基础配置', link: '/learn_frontend/axios/配置/基础配置' },
+            { text: '数据处理', link: '/learn_frontend/axios/配置/数据处理' },
+            { text: '请求处理', link: '/learn_frontend/axios/配置/请求处理' },
+            { text: '响应处理', link: '/learn_frontend/axios/配置/响应处理' },
+            { text: '进度监控', link: '/learn_frontend/axios/配置/进度监控' },
+            { text: '安全相关', link: '/learn_frontend/axios/配置/安全相关' },
+            { text: '高级网络配置', link: '/learn_frontend/axios/配置/高级网络配置' },
+          ],
+        },
+        {
+          text: '拦截器',
+          collapsed: true,
+          items: [
+            { text: '拦截器', link: '/learn_frontend/axios/拦截器/拦截器' }
+          ],
+        },
+        {
+          text: '序列化',
+          collapsed: true,
+          items: [
+            { text: '发送不同MIME类型的数据', link: '/learn_frontend/axios/序列化/发送不同MIME类型的数据' },
+            { text: '自动序列化机制', link: '/learn_frontend/axios/序列化/自动序列化机制' }
+          ]
+        }
+      ],
       '/learn_frontend/vue3/': [
         {
           text: '起步',
