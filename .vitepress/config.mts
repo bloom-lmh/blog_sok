@@ -33,7 +33,7 @@ export default defineConfig({
           },
           {
             text: 'Axios',
-            link: '/learn_frontend/axios/axios',
+            link: '/learn_frontend/axios/起步/基本介绍',
           },
           {
             text: 'Vue3',
@@ -578,8 +578,8 @@ export default defineConfig({
           text: '起步',
           collapsed: true,
           items: [
-            { text: '环境搭建', link: '/learn_frontend/axios/起步/基本介绍' },
-            { text: '基本介绍', link: '/learn_frontend/axios/起步/发送请求的几种方式' },
+            { text: '基本介绍', link: '/learn_frontend/axios/起步/基本介绍' },
+            { text: '发送请求的几种方式', link: '/learn_frontend/axios/起步/发送请求的几种方式' },
           ],
         },
 
