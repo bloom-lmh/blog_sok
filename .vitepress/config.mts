@@ -240,10 +240,7 @@ export default defineConfig({
               text: '类的本质',
               link: '/learn_frontend/javascript/面向对象/类的本质',
             },
-            {
-              text: '元编程',
-              link: '/learn_frontend/javascript/面向对象/元编程',
-            },
+
           ],
         },
 
@@ -292,6 +289,16 @@ export default defineConfig({
               link: '/learn_frontend/javascript/标准库/定时器',
             },
           ],
+        },
+        {
+          text: '元编程',
+          collapsed: true,
+          items: [
+            {
+              text: '元编程',
+              link: '/learn_frontend/javascript/元编程/元编程',
+            },
+          ]
         },
         {
           text: '事件',
