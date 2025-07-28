@@ -602,6 +602,7 @@ export default defineConfig({
             { text: '进度监控', link: '/learn_frontend/axios/配置/进度监控' },
             { text: '安全相关', link: '/learn_frontend/axios/配置/安全相关' },
             { text: '高级网络配置', link: '/learn_frontend/axios/配置/高级网络配置' },
+            { text: '全部配置概览', link: '/learn_frontend/axios/配置/全部配置概览' },
           ],
         },
         {
@@ -767,6 +768,10 @@ export default defineConfig({
             {
               text: '简单工厂模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-创建型/简单工厂模式',
+            },
+            {
+              text: '单例模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-创建型/单例模式',
             },
             {
               text: '工厂方法模式',
