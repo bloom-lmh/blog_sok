@@ -31,14 +31,7 @@ export default defineConfig({
             text: 'Typescript',
             link: '/learn_frontend/typescript/起步/基本介绍',
           },
-          {
-            text: 'Jest',
-            link: '/learn_frontend/jest/起步/基本介绍',
-          },
-          {
-            text: 'Mock',
-            link: '/learn_frontend/mock/起步/基本介绍',
-          },
+
           {
             text: 'Axios',
             link: '/learn_frontend/axios/起步/基本介绍',
@@ -51,6 +44,11 @@ export default defineConfig({
             text: 'React',
             link: '/learn_frontend/react/react基础/jsx',
           },
+          {
+            text: 'Tools',
+            link: '/learn_frontend/tools/jest/基本介绍',
+          },
+
           {
             text: 'Browser',
             link: '/learn_frontend/browser/browser基础/浏览器渲染原理',
@@ -588,48 +586,38 @@ export default defineConfig({
         },
 
       ],
-      'learn_frontend/jest/': [
+      'learn_frontend/tools/': [
         {
-          text: '起步',
+          text: 'jest测试工具',
           collapsed: true,
           items: [
-            { text: '基本介绍', link: '/learn_frontend/jest/起步/基本介绍' },
-            { text: '命令参数', link: '/learn_frontend/jest/起步/命令参数' },
-            { text: '配置', link: '/learn_frontend/jest/起步/配置' }
+            { text: '基本介绍', link: '/learn_frontend/tools/jest/基本介绍' },
+            { text: '命令参数', link: '/learn_frontend/tools/jest/命令参数' },
+            { text: '配置', link: '/learn_frontend/tools/jest/配置' },
+            { text: '常用匹配器', link: '/learn_frontend/tools/jest/常用匹配器' },
+            { text: '匹配器概览', link: '/learn_frontend/tools/jest/匹配器概览' },
+            { text: '异步代码测试', link: '/learn_frontend/tools/jest/异步代码测试' },
+            { text: '钩子函数', link: '/learn_frontend/tools/jest/钩子函数' },
+            { text: 'Mock函数', link: '/learn_frontend/tools/jest/mock函数' },
+            { text: '最佳实践', link: '/learn_frontend/tools/jest/最佳实践' }
+
           ]
         },
         {
-          text: '匹配器',
+          text: 'msw模拟请求工具',
           collapsed: true,
           items: [
-            { text: '常用匹配器', link: '/learn_frontend/jest/匹配器/常用匹配器' },
-            { text: '匹配器概览', link: '/learn_frontend/jest/匹配器/匹配器概览' }
+
           ]
         },
         {
-          text: '核心概念',
+          text: 'faker请求数据模拟工具',
           collapsed: true,
           items: [
-            { text: '异步代码测试', link: '/learn_frontend/jest/核心概念/异步代码测试' },
-            { text: '钩子函数', link: '/learn_frontend/jest/核心概念/钩子函数' },
-            { text: 'Mock函数', link: '/learn_frontend/jest/核心概念/mock函数' }
+
           ]
         },
-        {
-          text: '指标',
-          collapsed: true,
-          items: [
-            { text: '测试覆盖率', link: '/learn_frontend/jest/指标/测试覆盖率' }
-          ]
-        },
-        {
-          text: '实践',
-          collapsed: true,
-          items: [
-            { text: '实践案例', link: '/learn_frontend/jest/实践/实践案例' },
-            { text: '最佳实践', link: '/learn_frontend/jest/实践/最佳实践' }
-          ]
-        },
+
       ],
       'learn_frontend/mock/': [
         {
