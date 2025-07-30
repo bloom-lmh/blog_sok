@@ -607,7 +607,14 @@ export default defineConfig({
           text: 'msw模拟请求工具',
           collapsed: true,
           items: [
-
+            {
+              text: 'HTTP模拟',
+              items: [
+                { text: '起步', link: '/learn_frontend/tools/msw/模拟HTTP/起步' },
+                { text: '断言谓词', link: '/learn_frontend/tools/msw/模拟HTTP/断言谓词' },
+                { text: '响应解析器', link: '/learn_frontend/tools/msw/模拟HTTP/响应解析器' },
+              ]
+            }
           ]
         },
         {
