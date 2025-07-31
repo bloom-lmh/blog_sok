@@ -46,7 +46,7 @@ export default defineConfig({
           },
           {
             text: 'Tools',
-            link: '/learn_frontend/tools/jest/基本介绍',
+            link: '/learn_frontend/tools/jest/起步/基本介绍',
           },
 
           {
@@ -591,16 +591,29 @@ export default defineConfig({
           text: 'jest测试工具',
           collapsed: true,
           items: [
-            { text: '基本介绍', link: '/learn_frontend/tools/jest/基本介绍' },
-            { text: '命令参数', link: '/learn_frontend/tools/jest/命令参数' },
-            { text: '配置', link: '/learn_frontend/tools/jest/配置' },
-            { text: '常用匹配器', link: '/learn_frontend/tools/jest/常用匹配器' },
-            { text: '匹配器概览', link: '/learn_frontend/tools/jest/匹配器概览' },
-            { text: '异步代码测试', link: '/learn_frontend/tools/jest/异步代码测试' },
-            { text: '钩子函数', link: '/learn_frontend/tools/jest/钩子函数' },
-            { text: 'Mock函数', link: '/learn_frontend/tools/jest/mock函数' },
-            { text: '最佳实践', link: '/learn_frontend/tools/jest/最佳实践' }
-
+            {
+              text: '起步',
+              collapsed: true,
+              items: [{ text: '基本介绍', link: '/learn_frontend/tools/jest/起步/基本介绍' },
+              { text: '命令参数', link: '/learn_frontend/tools/jest/起步/命令参数' },
+              { text: '配置', link: '/learn_frontend/tools/jest/起步/配置' },]
+            },
+            {
+              text: '核心概念',
+              collapsed: true,
+              items: [{ text: '常用匹配器', link: '/learn_frontend/tools/jest/核心概念/常用匹配器' },
+              { text: '匹配器概览', link: '/learn_frontend/tools/jest/核心概念/匹配器概览' },
+              { text: '异步代码测试', link: '/learn_frontend/tools/jest/核心概念/异步代码测试' },
+              { text: '钩子函数', link: '/learn_frontend/tools/jest/核心概念/钩子函数' },
+              { text: 'Mock函数', link: '/learn_frontend/tools/jest/核心概念/mock函数' },]
+            },
+            {
+              text: '实践案例',
+              collapsed: true,
+              items: [
+                { text: '最佳实践', link: '/learn_frontend/tools/jest/实践案例/最佳实践' }
+              ]
+            },
           ]
         },
         {
@@ -614,27 +627,45 @@ export default defineConfig({
                 { text: '断言谓词', link: '/learn_frontend/tools/msw/模拟HTTP/断言谓词' },
                 { text: '响应解析器', link: '/learn_frontend/tools/msw/模拟HTTP/响应解析器' },
               ]
-            }
+            },
+            {
+              text: 'WS模拟',
+              collapsed: true,
+              items: []
+            },
           ]
         },
         {
           text: 'faker请求数据模拟工具',
           collapsed: true,
           items: [
-
+            {
+              text: '起步',
+              collapsed: true,
+              items: [
+                { text: '基本介绍', link: '/learn_frontend/tools/faker/起步/基本介绍' },
+                { text: '使用方法', link: '/learn_frontend/tools/faker/起步/使用方法' },
+              ]
+            },
+            {
+              text: '核心概念',
+              collapsed: true,
+              items: [
+                { text: '本地化', link: '/learn_frontend/tools/faker/核心概念/本地化' },
+                { text: '随机值', link: '/learn_frontend/tools/faker/核心概念/随机值' },
+                { text: '唯一值', link: '/learn_frontend/tools/faker/核心概念/唯一值' },
+              ]
+            },
+            {
+              text: '常用API',
+              collapsed: true,
+              items: [
+                { text: '常用API', link: '/learn_frontend/tools/faker/常用API/常用API' },
+              ]
+            },
           ]
         },
 
-      ],
-      'learn_frontend/mock/': [
-        {
-          text: '起步',
-          collapsed: true,
-          items: [
-            { text: '环境搭建', link: '/learn_frontend/typescript/起步/环境搭建' },
-            { text: '基本介绍', link: '/learn_frontend/typescript/起步/基本介绍' },
-          ],
-        },
       ],
       '/learn_frontend/axios/': [
         {
