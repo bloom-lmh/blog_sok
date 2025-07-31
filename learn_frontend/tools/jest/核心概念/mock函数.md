@@ -107,6 +107,59 @@ test('手动 mock', () => {
 });
 ```
 
+::: warning 注意
+mock 模块后对应模块的所有方法都将使用 mock 模块中的方法,比如我再下面的案例中使用了 mock 模拟`@/utils/envUtils`模块
+::: code-gourp
+
+```js [mock模块]
+// 模拟 EnvUtils 模块，优先于导入的模块
+jest.mock('@/utils/envUtils', () => ({
+  EnvUtils: {
+    isTest: jest.fn(),
+    currentEnv: jest.fn(() => 'test'),
+  },
+}));
+```
+
+```js [真实模块]
+// 环境监测工具
+export class EnvUtils {
+  // 是否是测试环境
+  static isTest(): boolean {
+    // 同时检查 Jest 的全局变量
+    return (
+      process.env.NODE_ENV === 'test' ||
+      typeof jest !== 'undefined' ||
+      process.env.JEST_WORKER_ID !== undefined
+    );
+  }
+  static currentEnv(): string {
+    return process.env.NODE_ENV || 'development';
+  }
+}
+```
+
+:::
+那么所有用到这个模块方法的地方都会使用这个模拟的实现，而不会真的去导入模块。
+比如下面再测试中调用`ApiFactory.clear()`使用的是 mock 模块而不是真实模块的 EnvUtils 类的方法：
+
+```js
+beforeEach(() => {
+  // 每个测试前重置 ApiFactory 的状态
+  ApiFactory.clear();
+  jest.clearAllMocks();
+});
+static clear() {
+  // 使用 mock 模块的 EnvUtils 类
+  if (!EnvUtils.isTest()) {
+    throw new Error(
+      `ApiFactory: clear() can only be used in test environment, not in ${EnvUtils.currentEnv()}`
+    );
+  }
+  this.apiMaps.clear();
+}
+```
+
 ## Spy 函数
 
 ### 监视现有函数
