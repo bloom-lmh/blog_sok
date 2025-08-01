@@ -86,7 +86,10 @@ export default defineConfig({
           text: '盒模型及其样式设置',
           collapsed: true,
           items: [
-            { text: '盒模型', link: '/learn_frontend/css/盒模型及其样式设置/盒模型' },
+            {
+              text: '盒模型',
+              link: '/learn_frontend/css/盒模型及其样式设置/盒模型',
+            },
             {
               text: '包含块',
               link: '/learn_frontend/css/盒模型及其样式设置/包含块',
@@ -121,15 +124,24 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: '背景', link: '/learn_frontend/css/背景和图片/背景' },
-            { text: 'CSS3-图片', link: '/learn_frontend/css/背景和图片/CSS3-图片' },
-            { text: 'CSS3-渐变', link: '/learn_frontend/css/背景和图片/CSS3-渐变' },
+            {
+              text: 'CSS3-图片',
+              link: '/learn_frontend/css/背景和图片/CSS3-图片',
+            },
+            {
+              text: 'CSS3-渐变',
+              link: '/learn_frontend/css/背景和图片/CSS3-渐变',
+            },
           ],
         },
         {
           text: '变换和动画',
           collapsed: true,
           items: [
-            { text: 'CSS3-变换', link: '/learn_frontend/css/变换和动画/CSS3-变换' },
+            {
+              text: 'CSS3-变换',
+              link: '/learn_frontend/css/变换和动画/CSS3-变换',
+            },
             {
               text: 'CSS3-过渡和动画',
               link: '/learn_frontend/css/变换和动画/CSS3-过渡和动画',
@@ -140,11 +152,17 @@ export default defineConfig({
           text: '定位和布局',
           collapsed: true,
           items: [
-            { text: '关于浮动', link: '/learn_frontend/css/定位和布局/关于浮动' },
+            {
+              text: '关于浮动',
+              link: '/learn_frontend/css/定位和布局/关于浮动',
+            },
             { text: '定位', link: '/learn_frontend/css/定位和布局/定位' },
             { text: 'BFC机制', link: '/learn_frontend/css/定位和布局/BFC机制' },
 
-            { text: '元素居中方法', link: '/learn_frontend/css/定位和布局/元素居中的方法' },
+            {
+              text: '元素居中方法',
+              link: '/learn_frontend/css/定位和布局/元素居中的方法',
+            },
 
             {
               text: 'CSS3-弹性布局Flex',
@@ -154,21 +172,32 @@ export default defineConfig({
               text: 'CSS3-网格布局Gird',
               link: '/learn_frontend/css/定位和布局/CSS3-网格布局Grid',
             },
-            { text: '常见布局方案', link: '/learn_frontend/css/定位和布局/常见布局方案' },
+            {
+              text: '常见布局方案',
+              link: '/learn_frontend/css/定位和布局/常见布局方案',
+            },
           ],
         },
         {
           text: '响应式',
           collapsed: true,
           items: [
-            { text: '响应式设计', link: '/learn_frontend/css/响应式/响应式设计' },
-            { text: 'CSS3-媒体查询', link: '/learn_frontend/css/响应式/CSS3-媒体查询' },
+            {
+              text: '响应式设计',
+              link: '/learn_frontend/css/响应式/响应式设计',
+            },
+            {
+              text: 'CSS3-媒体查询',
+              link: '/learn_frontend/css/响应式/CSS3-媒体查询',
+            },
           ],
         },
         {
           text: '元素选择',
           collapsed: true,
-          items: [{ text: '选择器', link: '/learn_frontend/css/元素选择/选择器' }],
+          items: [
+            { text: '选择器', link: '/learn_frontend/css/元素选择/选择器' },
+          ],
         },
         {
           text: '变量',
@@ -180,12 +209,18 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: '设备像素', link: '/learn_frontend/css/面试题/设备像素' },
-            { text: 'em和rem等的区别', link: '/learn_frontend/css/面试题/em和rem等的区别' },
+            {
+              text: 'em和rem等的区别',
+              link: '/learn_frontend/css/面试题/em和rem等的区别',
+            },
             {
               text: 'chrome中设置小于12px字体',
               link: '/learn_frontend/css/面试题/chrome小于12px字体的方式有哪些',
             },
-            { text: 'css性能优化', link: '/learn_frontend/css/面试题/css性能优化' },
+            {
+              text: 'css性能优化',
+              link: '/learn_frontend/css/面试题/css性能优化',
+            },
           ],
         },
         {
@@ -193,7 +228,10 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: '视差滚动', link: '/learn_frontend/css/面试题/视差滚动' },
-            { text: '画一个三角形', link: '/learn_frontend/css/面试题/画一个三角形' },
+            {
+              text: '画一个三角形',
+              link: '/learn_frontend/css/面试题/画一个三角形',
+            },
           ],
         },
       ],
@@ -202,8 +240,14 @@ export default defineConfig({
           text: '语法基础',
           collapsed: true,
           items: [
-            { text: '数据类型', link: '/learn_frontend/javascript/语法基础/数据类型' },
-            { text: '类型转换', link: '/learn_frontend/javascript/语法基础/类型转换' },
+            {
+              text: '数据类型',
+              link: '/learn_frontend/javascript/语法基础/数据类型',
+            },
+            {
+              text: '类型转换',
+              link: '/learn_frontend/javascript/语法基础/类型转换',
+            },
             {
               text: '表达式与操作符',
               link: '/learn_frontend/javascript/语法基础/表达式与操作符',
@@ -246,7 +290,6 @@ export default defineConfig({
               text: '类的本质',
               link: '/learn_frontend/javascript/面向对象/类的本质',
             },
-
           ],
         },
 
@@ -304,15 +347,24 @@ export default defineConfig({
               text: '元编程',
               link: '/learn_frontend/javascript/元编程/元编程',
             },
-          ]
+          ],
         },
         {
           text: '事件',
           collapsed: true,
           items: [
-            { text: '事件基础', link: '/learn_frontend/javascript/事件/事件基础' },
-            { text: '事件循环', link: '/learn_frontend/javascript/事件/事件循环' },
-            { text: '新事件循环', link: '/learn_frontend/javascript/事件/新事件循环' },
+            {
+              text: '事件基础',
+              link: '/learn_frontend/javascript/事件/事件基础',
+            },
+            {
+              text: '事件循环',
+              link: '/learn_frontend/javascript/事件/事件循环',
+            },
+            {
+              text: '新事件循环',
+              link: '/learn_frontend/javascript/事件/新事件循环',
+            },
           ],
         },
         {
@@ -383,7 +435,10 @@ export default defineConfig({
           text: 'DOM',
           collapsed: true,
           items: [
-            { text: '节点的基本操作', link: '/learn_frontend/javascript/DOM/节点的基本操作' },
+            {
+              text: '节点的基本操作',
+              link: '/learn_frontend/javascript/DOM/节点的基本操作',
+            },
             {
               text: '节点属性的基本操作',
               link: '/learn_frontend/javascript/DOM/节点属性的基本操作',
@@ -396,7 +451,10 @@ export default defineConfig({
               text: '节点样式的基本操作',
               link: '/learn_frontend/javascript/DOM/节点样式的基本操作',
             },
-            { text: '进阶知识', link: '/learn_frontend/javascript/DOM/进阶知识' },
+            {
+              text: '进阶知识',
+              link: '/learn_frontend/javascript/DOM/进阶知识',
+            },
           ],
         },
         {
@@ -404,14 +462,20 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: 'window', link: '/learn_frontend/javascript/BOM/window' },
-            { text: 'location', link: '/learn_frontend/javascript/BOM/location' },
+            {
+              text: 'location',
+              link: '/learn_frontend/javascript/BOM/location',
+            },
             { text: 'history', link: '/learn_frontend/javascript/BOM/history' },
             {
               text: 'location与history的相互作用',
               link: '/learn_frontend/javascript/BOM/location与history的相互作用',
             },
             { text: 'screen', link: '/learn_frontend/javascript/BOM/screen' },
-            { text: 'navigator', link: '/learn_frontend/javascript/BOM/navigator' },
+            {
+              text: 'navigator',
+              link: '/learn_frontend/javascript/BOM/navigator',
+            },
           ],
         },
         {
@@ -519,72 +583,148 @@ export default defineConfig({
           text: '起步',
           collapsed: true,
           items: [
-            { text: '环境搭建', link: '/learn_frontend/typescript/起步/环境搭建' },
-            { text: '基本介绍', link: '/learn_frontend/typescript/起步/基本介绍' },
+            {
+              text: '环境搭建',
+              link: '/learn_frontend/typescript/起步/环境搭建',
+            },
+            {
+              text: '基本介绍',
+              link: '/learn_frontend/typescript/起步/基本介绍',
+            },
           ],
         },
         {
-          "text": "常用类型",
-          "collapsed": true,
-          "items": [
-            { "text": "原始类型", "link": "/learn_frontend/typescript/常用类型/原始类型" },
-            { "text": "特殊类型", "link": "/learn_frontend/typescript/常用类型/特殊类型" },
-            { "text": "字面量类型", "link": "/learn_frontend/typescript/常用类型/字面量类型" },
-            { "text": "对象类型", "link": "/learn_frontend/typescript/常用类型/对象类型" },
-            { "text": "枚举类型", "link": "/learn_frontend/typescript/常用类型/枚举类型" },
-            { "text": "元组类型", "link": "/learn_frontend/typescript/常用类型/元组类型" },
-            { "text": "接口类型", "link": "/learn_frontend/typescript/常用类型/接口类型" },
-            { "text": "Class类型", "link": "/learn_frontend/typescript/常用类型/Class类型" },
-            { "text": "泛型类型", "link": "/learn_frontend/typescript/常用类型/泛型类型" },
-            { "text": "索引类型", "link": "/learn_frontend/typescript/常用类型/索引类型" },
-            { "text": "映射类型", "link": "/learn_frontend/typescript/常用类型/映射类型" },
-            { "text": "类型别名", "link": "/learn_frontend/typescript/常用类型/类型别名" },
-            { "text": "联合类型", "link": "/learn_frontend/typescript/常用类型/联合类型" },
-            { "text": "交叉类型", "link": "/learn_frontend/typescript/常用类型/交叉类型" },
-
-          ]
+          text: '常用类型',
+          collapsed: true,
+          items: [
+            {
+              text: '原始类型',
+              link: '/learn_frontend/typescript/常用类型/原始类型',
+            },
+            {
+              text: '特殊类型',
+              link: '/learn_frontend/typescript/常用类型/特殊类型',
+            },
+            {
+              text: '字面量类型',
+              link: '/learn_frontend/typescript/常用类型/字面量类型',
+            },
+            {
+              text: '对象类型',
+              link: '/learn_frontend/typescript/常用类型/对象类型',
+            },
+            {
+              text: '枚举类型',
+              link: '/learn_frontend/typescript/常用类型/枚举类型',
+            },
+            {
+              text: '元组类型',
+              link: '/learn_frontend/typescript/常用类型/元组类型',
+            },
+            {
+              text: '接口类型',
+              link: '/learn_frontend/typescript/常用类型/接口类型',
+            },
+            {
+              text: 'Class类型',
+              link: '/learn_frontend/typescript/常用类型/Class类型',
+            },
+            {
+              text: '泛型类型',
+              link: '/learn_frontend/typescript/常用类型/泛型类型',
+            },
+            {
+              text: '索引类型',
+              link: '/learn_frontend/typescript/常用类型/索引类型',
+            },
+            {
+              text: '映射类型',
+              link: '/learn_frontend/typescript/常用类型/映射类型',
+            },
+            {
+              text: '类型别名',
+              link: '/learn_frontend/typescript/常用类型/类型别名',
+            },
+            {
+              text: '联合类型',
+              link: '/learn_frontend/typescript/常用类型/联合类型',
+            },
+            {
+              text: '交叉类型',
+              link: '/learn_frontend/typescript/常用类型/交叉类型',
+            },
+          ],
         },
         {
-          "text": "类型机制",
-          "collapsed": true,
-          "items": [
-            { "text": "类型兼容性机制", "link": "/learn_frontend/typescript/类型机制/类型兼容性机制" },
-            { "text": "类型断言机制", "link": "/learn_frontend/typescript/类型机制/类型断言机制" },
-            { "text": "类型推断机制", "link": "/learn_frontend/typescript/类型机制/类型推断机制" }
-          ]
+          text: '类型机制',
+          collapsed: true,
+          items: [
+            {
+              text: '类型兼容性机制',
+              link: '/learn_frontend/typescript/类型机制/类型兼容性机制',
+            },
+            {
+              text: '类型断言机制',
+              link: '/learn_frontend/typescript/类型机制/类型断言机制',
+            },
+            {
+              text: '类型推断机制',
+              link: '/learn_frontend/typescript/类型机制/类型推断机制',
+            },
+          ],
         },
         {
-          "text": "工具类型",
-          "collapsed": true,
-          "items": [
-            { "text": "类型操作符", "link": "/learn_frontend/typescript/工具类型/类型操作符" },
-            { "text": "常用的工具类型", "link": "/learn_frontend/typescript/工具类型/常用的工具类型" },
-            { "text": "工具类型的底层实现", "link": "/learn_frontend/typescript/工具类型/工具类型的底层实现" }
-          ]
+          text: '工具类型',
+          collapsed: true,
+          items: [
+            {
+              text: '类型操作符',
+              link: '/learn_frontend/typescript/工具类型/类型操作符',
+            },
+            {
+              text: '常用的工具类型',
+              link: '/learn_frontend/typescript/工具类型/常用的工具类型',
+            },
+            {
+              text: '工具类型的底层实现',
+              link: '/learn_frontend/typescript/工具类型/工具类型的底层实现',
+            },
+          ],
         },
         {
-          "text": "高级类型",
-          "collapsed": true,
-          "items": [
-            { "text": "条件类型", "link": "/learn_frontend/typescript/高级类型/条件类型" },
-            { "text": "推断类型", "link": "/learn_frontend/typescript/高级类型/推断类型" },
-          ]
+          text: '高级类型',
+          collapsed: true,
+          items: [
+            {
+              text: '条件类型',
+              link: '/learn_frontend/typescript/高级类型/条件类型',
+            },
+            {
+              text: '推断类型',
+              link: '/learn_frontend/typescript/高级类型/推断类型',
+            },
+          ],
         },
         {
-          "text": "装饰器",
-          "collapsed": true,
-          "items": [
-            { "text": "装饰器", "link": "/learn_frontend/typescript/装饰器/装饰器" },
-          ]
+          text: '装饰器',
+          collapsed: true,
+          items: [
+            {
+              text: '装饰器',
+              link: '/learn_frontend/typescript/装饰器/装饰器',
+            },
+          ],
         },
         {
-          "text": "工程化",
-          "collapsed": true,
-          "items": [
-            { "text": "类型声明文件定义", "link": "/learn_frontend/typescript/工程化/类型声明文件定义" }
-          ]
+          text: '工程化',
+          collapsed: true,
+          items: [
+            {
+              text: '类型声明文件定义',
+              link: '/learn_frontend/typescript/工程化/类型声明文件定义',
+            },
+          ],
         },
-
       ],
       'learn_frontend/tools/': [
         {
@@ -594,27 +734,55 @@ export default defineConfig({
             {
               text: '起步',
               collapsed: true,
-              items: [{ text: '基本介绍', link: '/learn_frontend/tools/jest/起步/基本介绍' },
-              { text: '命令参数', link: '/learn_frontend/tools/jest/起步/命令参数' },
-              { text: '配置', link: '/learn_frontend/tools/jest/起步/配置' },]
+              items: [
+                {
+                  text: '基本介绍',
+                  link: '/learn_frontend/tools/jest/起步/基本介绍',
+                },
+                {
+                  text: '命令参数',
+                  link: '/learn_frontend/tools/jest/起步/命令参数',
+                },
+                { text: '配置', link: '/learn_frontend/tools/jest/起步/配置' },
+              ],
             },
             {
               text: '核心概念',
               collapsed: true,
-              items: [{ text: '常用匹配器', link: '/learn_frontend/tools/jest/核心概念/常用匹配器' },
-              { text: '匹配器概览', link: '/learn_frontend/tools/jest/核心概念/匹配器概览' },
-              { text: '异步代码测试', link: '/learn_frontend/tools/jest/核心概念/异步代码测试' },
-              { text: '钩子函数', link: '/learn_frontend/tools/jest/核心概念/钩子函数' },
-              { text: 'Mock函数', link: '/learn_frontend/tools/jest/核心概念/mock函数' },]
+              items: [
+                {
+                  text: '常用匹配器',
+                  link: '/learn_frontend/tools/jest/核心概念/常用匹配器',
+                },
+                {
+                  text: '匹配器概览',
+                  link: '/learn_frontend/tools/jest/核心概念/匹配器概览',
+                },
+                {
+                  text: '异步代码测试',
+                  link: '/learn_frontend/tools/jest/核心概念/异步代码测试',
+                },
+                {
+                  text: '钩子函数',
+                  link: '/learn_frontend/tools/jest/核心概念/钩子函数',
+                },
+                {
+                  text: 'Mock函数',
+                  link: '/learn_frontend/tools/jest/核心概念/mock函数',
+                },
+              ],
             },
             {
               text: '实践案例',
               collapsed: true,
               items: [
-                { text: '最佳实践', link: '/learn_frontend/tools/jest/实践案例/最佳实践' }
-              ]
+                {
+                  text: '最佳实践',
+                  link: '/learn_frontend/tools/jest/实践案例/最佳实践',
+                },
+              ],
             },
-          ]
+          ],
         },
         {
           text: 'msw模拟请求工具',
@@ -623,17 +791,26 @@ export default defineConfig({
             {
               text: 'HTTP模拟',
               items: [
-                { text: '起步', link: '/learn_frontend/tools/msw/模拟HTTP/起步' },
-                { text: '断言谓词', link: '/learn_frontend/tools/msw/模拟HTTP/断言谓词' },
-                { text: '响应解析器', link: '/learn_frontend/tools/msw/模拟HTTP/响应解析器' },
-              ]
+                {
+                  text: '起步',
+                  link: '/learn_frontend/tools/msw/模拟HTTP/起步',
+                },
+                {
+                  text: '断言谓词',
+                  link: '/learn_frontend/tools/msw/模拟HTTP/断言谓词',
+                },
+                {
+                  text: '响应解析器',
+                  link: '/learn_frontend/tools/msw/模拟HTTP/响应解析器',
+                },
+              ],
             },
             {
               text: 'WS模拟',
               collapsed: true,
-              items: []
+              items: [],
             },
-          ]
+          ],
         },
         {
           text: 'faker请求数据模拟工具',
@@ -643,29 +820,46 @@ export default defineConfig({
               text: '起步',
               collapsed: true,
               items: [
-                { text: '基本介绍', link: '/learn_frontend/tools/faker/起步/基本介绍' },
-                { text: '使用方法', link: '/learn_frontend/tools/faker/起步/使用方法' },
-              ]
+                {
+                  text: '基本介绍',
+                  link: '/learn_frontend/tools/faker/起步/基本介绍',
+                },
+                {
+                  text: '使用方法',
+                  link: '/learn_frontend/tools/faker/起步/使用方法',
+                },
+              ],
             },
             {
               text: '核心概念',
               collapsed: true,
               items: [
-                { text: '本地化', link: '/learn_frontend/tools/faker/核心概念/本地化' },
-                { text: '随机值', link: '/learn_frontend/tools/faker/核心概念/随机值' },
-                { text: '唯一值', link: '/learn_frontend/tools/faker/核心概念/唯一值' },
-              ]
+                {
+                  text: '本地化',
+                  link: '/learn_frontend/tools/faker/核心概念/本地化',
+                },
+                {
+                  text: '随机值',
+                  link: '/learn_frontend/tools/faker/核心概念/随机值',
+                },
+                {
+                  text: '唯一值',
+                  link: '/learn_frontend/tools/faker/核心概念/唯一值',
+                },
+              ],
             },
             {
               text: '常用API',
               collapsed: true,
               items: [
-                { text: '常用API', link: '/learn_frontend/tools/faker/常用API/常用API' },
-              ]
+                {
+                  text: '常用API',
+                  link: '/learn_frontend/tools/faker/常用API/常用API',
+                },
+              ],
             },
-          ]
+          ],
         },
-
       ],
       '/learn_frontend/axios/': [
         {
@@ -673,7 +867,10 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: '基本介绍', link: '/learn_frontend/axios/起步/基本介绍' },
-            { text: '发送请求的几种方式', link: '/learn_frontend/axios/起步/发送请求的几种方式' },
+            {
+              text: '发送请求的几种方式',
+              link: '/learn_frontend/axios/起步/发送请求的几种方式',
+            },
           ],
         },
 
@@ -681,32 +878,48 @@ export default defineConfig({
           text: '配置',
           collapsed: true,
           items: [
-            { text: '配置方式及其优先级', link: '/learn_frontend/axios/配置/配置方式及其优先级' },
+            {
+              text: '配置方式及其优先级',
+              link: '/learn_frontend/axios/配置/配置方式及其优先级',
+            },
             { text: '基础配置', link: '/learn_frontend/axios/配置/基础配置' },
             { text: '数据处理', link: '/learn_frontend/axios/配置/数据处理' },
             { text: '请求处理', link: '/learn_frontend/axios/配置/请求处理' },
             { text: '响应处理', link: '/learn_frontend/axios/配置/响应处理' },
             { text: '进度监控', link: '/learn_frontend/axios/配置/进度监控' },
             { text: '安全相关', link: '/learn_frontend/axios/配置/安全相关' },
-            { text: '高级网络配置', link: '/learn_frontend/axios/配置/高级网络配置' },
-            { text: '全部配置概览', link: '/learn_frontend/axios/配置/全部配置概览' },
+            {
+              text: '高级网络配置',
+              link: '/learn_frontend/axios/配置/高级网络配置',
+            },
+            { text: '自定义', link: '/learn_frontend/axios/配置/自定义' },
+            {
+              text: '全部配置概览',
+              link: '/learn_frontend/axios/配置/全部配置概览',
+            },
           ],
         },
         {
           text: '拦截器',
           collapsed: true,
           items: [
-            { text: '拦截器', link: '/learn_frontend/axios/拦截器/拦截器' }
+            { text: '拦截器', link: '/learn_frontend/axios/拦截器/拦截器' },
           ],
         },
         {
           text: '序列化',
           collapsed: true,
           items: [
-            { text: '发送不同MIME类型的数据', link: '/learn_frontend/axios/序列化/发送不同MIME类型的数据' },
-            { text: '自动序列化机制', link: '/learn_frontend/axios/序列化/自动序列化机制' }
-          ]
-        }
+            {
+              text: '发送不同MIME类型的数据',
+              link: '/learn_frontend/axios/序列化/发送不同MIME类型的数据',
+            },
+            {
+              text: '自动序列化机制',
+              link: '/learn_frontend/axios/序列化/自动序列化机制',
+            },
+          ],
+        },
       ],
       '/learn_frontend/vue3/': [
         {
@@ -714,8 +927,14 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: '简介', link: '/learn_frontend/vue3/vue3基础/起步/简介' },
-            { text: '选项式和组合式', link: '/learn_frontend/vue3/vue3基础/起步/选项式和组合式' },
-            { text: '应用实例', link: '/learn_frontend/vue3/vue3基础/起步/应用实例' },
+            {
+              text: '选项式和组合式',
+              link: '/learn_frontend/vue3/vue3基础/起步/选项式和组合式',
+            },
+            {
+              text: '应用实例',
+              link: '/learn_frontend/vue3/vue3基础/起步/应用实例',
+            },
           ],
         },
         {
@@ -727,8 +946,14 @@ export default defineConfig({
           text: '指令',
           collapsed: true,
           items: [
-            { text: '指令基本概念', link: '/learn_frontend/vue3/vue3基础/指令/指令基本概念' },
-            { text: '内置指令', link: '/learn_frontend/vue3/vue3基础/指令/内置指令' },
+            {
+              text: '指令基本概念',
+              link: '/learn_frontend/vue3/vue3基础/指令/指令基本概念',
+            },
+            {
+              text: '内置指令',
+              link: '/learn_frontend/vue3/vue3基础/指令/内置指令',
+            },
           ],
         },
         {
@@ -750,9 +975,18 @@ export default defineConfig({
           text: '响应式',
           collapsed: true,
           items: [
-            { text: 'ref和reactive', link: '/learn_frontend/vue3/vue3基础/响应式/ref和reactive' },
-            { text: '计算属性', link: '/learn_frontend/vue3/vue3基础/响应式/计算属性' },
-            { text: '监听器', link: '/learn_frontend/vue3/vue3基础/响应式/监听器' },
+            {
+              text: 'ref和reactive',
+              link: '/learn_frontend/vue3/vue3基础/响应式/ref和reactive',
+            },
+            {
+              text: '计算属性',
+              link: '/learn_frontend/vue3/vue3基础/响应式/计算属性',
+            },
+            {
+              text: '监听器',
+              link: '/learn_frontend/vue3/vue3基础/响应式/监听器',
+            },
           ],
         },
         {
@@ -772,16 +1006,37 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: 'Jsx', link: '/learn_frontend/react/react基础/Jsx' },
-            { text: '组件通信', link: '/learn_frontend/react/react基础/组件通信' },
-            { text: '组件生命周期', link: '/learn_frontend/react/react基础/组件生命周期' },
-            { text: '类组件', link: '/learn_frontend/react/react基础/优化方案' },
+            {
+              text: '组件通信',
+              link: '/learn_frontend/react/react基础/组件通信',
+            },
+            {
+              text: '组件生命周期',
+              link: '/learn_frontend/react/react基础/组件生命周期',
+            },
+            {
+              text: '类组件',
+              link: '/learn_frontend/react/react基础/优化方案',
+            },
             { text: 'Router', link: '/learn_frontend/react/react基础/Router' },
             { text: 'Redux', link: '/learn_frontend/react/react基础/Redux' },
-            { text: 'zustand', link: '/learn_frontend/react/react基础/zustand' },
+            {
+              text: 'zustand',
+              link: '/learn_frontend/react/react基础/zustand',
+            },
             { text: 'Hook', link: '/learn_frontend/react/react基础/Hook' },
-            { text: '优化方案', link: '/learn_frontend/react/react基础/优化方案' },
-            { text: '使用vite和Ts', link: '/learn_frontend/react/react基础/使用vite和Ts' },
-            { text: '极客园小项目', link: '/learn_frontend/react/react基础/极客园小项目' },
+            {
+              text: '优化方案',
+              link: '/learn_frontend/react/react基础/优化方案',
+            },
+            {
+              text: '使用vite和Ts',
+              link: '/learn_frontend/react/react基础/使用vite和Ts',
+            },
+            {
+              text: '极客园小项目',
+              link: '/learn_frontend/react/react基础/极客园小项目',
+            },
           ],
         },
         {
@@ -796,8 +1051,14 @@ export default defineConfig({
               text: 'Fiber与Fiber链表树',
               link: '/learn_frontend/react/react源码-18.1.0/Fiber与Fiber链表树',
             },
-            { text: 'Fiber中的模式', link: '/learn_frontend/react/react源码-18.1.0/Fiber中的模式' },
-            { text: 'Fiber中的Lane', link: '/learn_frontend/react/react源码-18.1.0/Fiber中的Lane' },
+            {
+              text: 'Fiber中的模式',
+              link: '/learn_frontend/react/react源码-18.1.0/Fiber中的模式',
+            },
+            {
+              text: 'Fiber中的Lane',
+              link: '/learn_frontend/react/react源码-18.1.0/Fiber中的Lane',
+            },
             {
               text: 'Render函数与元素的挂载和解析',
               link: '/learn_frontend/react/react源码-18.1.0/Render函数与元素的挂载和解析',
@@ -940,10 +1201,18 @@ export default defineConfig({
           text: '面试题',
           collapsed: true,
           items: [
-
-            { text: 'XSS跨站脚本攻击', link: '/learn_408/计算机网络/面试题/XSS跨站脚本攻击' },
-            { text: 'CSRF跨站请求伪造', link: '/learn_408/计算机网络/面试题/CSRF跨站请求伪造' },
-            { text: 'SQL注入攻击', link: '/learn_408/计算机网络/面试题/SQL注入攻击' },
+            {
+              text: 'XSS跨站脚本攻击',
+              link: '/learn_408/计算机网络/面试题/XSS跨站脚本攻击',
+            },
+            {
+              text: 'CSRF跨站请求伪造',
+              link: '/learn_408/计算机网络/面试题/CSRF跨站请求伪造',
+            },
+            {
+              text: 'SQL注入攻击',
+              link: '/learn_408/计算机网络/面试题/SQL注入攻击',
+            },
           ],
         },
         {
@@ -1093,23 +1362,45 @@ export default defineConfig({
               text: '基本概念',
               link: '/learn_408/计算机网络/应用层/基本概念',
             },
-            { text: 'DNS解析与优化', link: '/learn_408/计算机网络/应用层/DNS解析与优化' },
-            { text: 'HTTP和HTTPS协议', link: '/learn_408/计算机网络/应用层/HTTP和HTTPS协议' },
-            { text: 'RESTful API', link: '/learn_408/计算机网络/应用层/RESTful API' },
-            { text: 'HTTP不同请求方式', link: '/learn_408/计算机网络/应用层/HTTP不同请求方式' },
-            { text: 'HTTP请求体与MIME类型', link: '/learn_408/计算机网络/应用层/HTTP请求体与MIME类型' },
-            { text: 'HTTP协议的应用', link: '/learn_408/计算机网络/应用层/HTTP协议的应用' },
-            { text: '跨域的解决方案', link: '/learn_408/计算机网络/应用层/跨域的解决方案' },
+            {
+              text: 'DNS解析与优化',
+              link: '/learn_408/计算机网络/应用层/DNS解析与优化',
+            },
+            {
+              text: 'HTTP和HTTPS协议',
+              link: '/learn_408/计算机网络/应用层/HTTP和HTTPS协议',
+            },
+            {
+              text: 'RESTful API',
+              link: '/learn_408/计算机网络/应用层/RESTful API',
+            },
+            {
+              text: 'HTTP不同请求方式',
+              link: '/learn_408/计算机网络/应用层/HTTP不同请求方式',
+            },
+            {
+              text: 'HTTP请求体与MIME类型',
+              link: '/learn_408/计算机网络/应用层/HTTP请求体与MIME类型',
+            },
+            {
+              text: 'HTTP协议的应用',
+              link: '/learn_408/计算机网络/应用层/HTTP协议的应用',
+            },
+            {
+              text: '跨域的解决方案',
+              link: '/learn_408/计算机网络/应用层/跨域的解决方案',
+            },
             {
               text: 'GET和POST请求的区别',
               link: '/learn_408/计算机网络/面试题/GET和POST请求的区别',
             },
-
           ],
         },
       ],
     },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+    ],
   },
   markdown: {
     lineNumbers: true,
