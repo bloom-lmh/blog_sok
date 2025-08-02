@@ -531,6 +531,48 @@ export default defineConfig({
           ],
         },
         {
+          text: '未来阅读建议',
+          collapsed: true, // 默认折叠
+          items: [
+            {
+              text: 'DOM补充',
+              link: '/learn_frontend/javascript/未来阅读建议/DOM补充',
+            },
+            {
+              text: 'BOM补充',
+              link: '/learn_frontend/javascript/未来阅读建议/BOM补充',
+            },
+            {
+              text: '二进制API',
+              link: '/learn_frontend/javascript/未来阅读建议/二进制API',
+            },
+            {
+              text: '移动设备API',
+              link: '/learn_frontend/javascript/未来阅读建议/移动设备API',
+            },
+            {
+              text: '媒体API',
+              link: '/learn_frontend/javascript/未来阅读建议/媒体API',
+            },
+            {
+              text: 'performance',
+              link: '/learn_frontend/javascript/未来阅读建议/performance',
+            },
+            {
+              text: 'ServiceWorker',
+              link: '/learn_frontend/javascript/未来阅读建议/ServiceWorker',
+            },
+            {
+              text: '加密及相关API',
+              link: '/learn_frontend/javascript/未来阅读建议/加密及相关API',
+            },
+            {
+              text: 'webAssembly',
+              link: '/learn_frontend/javascript/未来阅读建议/webAssembly',
+            },
+          ],
+        },
+        {
           text: '面试题',
           collapsed: true,
           items: [
@@ -569,11 +611,19 @@ export default defineConfig({
           items: [
             {
               text: '实现轮播图的两种方式',
-              link: '/learn_frontend/js/小案例/实现轮播图',
+              link: '/learn_frontend/javascript/小案例/实现轮播图',
             },
             {
               text: '实现SPA路由',
-              link: '/learn_frontend/js/小案例/实现SPA路由',
+              link: '/learn_frontend/javascript/小案例/实现SPA路由',
+            },
+            {
+              text: '实现拖拽',
+              link: '/learn_frontend/javascript/小案例/实现拖拽',
+            },
+            {
+              text: '懒加载的实现方案',
+              link: '/learn_frontend/javascript/小案例/懒加载的实现方案',
             },
           ],
         },
