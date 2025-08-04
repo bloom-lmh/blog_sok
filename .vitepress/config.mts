@@ -1223,6 +1223,10 @@ export default defineConfig({
               text: '策略模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/策略模式',
             },
+            {
+              text: '模板方法模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-行为型/模板方法模式',
+            },
           ],
         },
       ],
