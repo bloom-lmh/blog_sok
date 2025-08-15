@@ -195,9 +195,7 @@ export default defineConfig({
         {
           text: '元素选择',
           collapsed: true,
-          items: [
-            { text: '选择器', link: '/learn_frontend/css/元素选择/选择器' },
-          ],
+          items: [{ text: '选择器', link: '/learn_frontend/css/元素选择/选择器' }],
         },
         {
           text: '变量',
@@ -773,6 +771,10 @@ export default defineConfig({
               text: '类型声明文件定义',
               link: '/learn_frontend/typescript/工程化/类型声明文件定义',
             },
+            {
+              text: 'tsconfig详解',
+              link: '/learn_frontend/typescript/工程化/tsconfig',
+            },
           ],
         },
       ],
@@ -952,9 +954,7 @@ export default defineConfig({
         {
           text: '拦截器',
           collapsed: true,
-          items: [
-            { text: '拦截器', link: '/learn_frontend/axios/拦截器/拦截器' },
-          ],
+          items: [{ text: '拦截器', link: '/learn_frontend/axios/拦截器/拦截器' }],
         },
         {
           text: '序列化',
@@ -1452,9 +1452,7 @@ export default defineConfig({
         },
       ],
     },
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
   },
   markdown: {
     lineNumbers: true,
