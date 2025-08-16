@@ -758,6 +758,10 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
+              text: '元数据',
+              link: '/learn_frontend/typescript/装饰器/元数据',
+            },
+            {
               text: '装饰器',
               link: '/learn_frontend/typescript/装饰器/装饰器',
             },
@@ -1188,6 +1192,10 @@ export default defineConfig({
             {
               text: '代理模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-结构型/代理模式',
+            },
+            {
+              text: '桥接模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-结构型/桥接模式',
             },
             {
               text: '装饰器模式',
