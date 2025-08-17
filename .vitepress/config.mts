@@ -841,6 +841,16 @@ export default defineConfig({
           ],
         },
         {
+          text: 'joi测试工具',
+          collapsed: true,
+          items: [
+            {
+              text: '基本使用',
+              link: '/learn_frontend/tools/joi/joi的基本使用',
+            },
+          ],
+        },
+        {
           text: 'msw模拟请求工具',
           collapsed: true,
           items: [
