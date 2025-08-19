@@ -37,11 +37,7 @@ test('测试返回值', () => {
 ### 链式返回值
 
 ```js
-const mockFn = jest
-  .fn()
-  .mockReturnValueOnce('first')
-  .mockReturnValueOnce('second')
-  .mockReturnValue('default');
+const mockFn = jest.fn().mockReturnValueOnce('first').mockReturnValueOnce('second').mockReturnValue('default');
 
 test('测试链式返回值', () => {
   expect(mockFn()).toBe('first');
@@ -109,7 +105,9 @@ test('手动 mock', () => {
 
 ::: warning 注意
 mock 模块后对应模块的所有方法都将使用 mock 模块中的方法,比如我再下面的案例中使用了 mock 模拟`@/utils/envUtils`模块
-::: code-gourp
+:::
+
+::: code-group
 
 ```js [mock模块]
 // 模拟 EnvUtils 模块，优先于导入的模块
@@ -127,11 +125,7 @@ export class EnvUtils {
   // 是否是测试环境
   static isTest(): boolean {
     // 同时检查 Jest 的全局变量
-    return (
-      process.env.NODE_ENV === 'test' ||
-      typeof jest !== 'undefined' ||
-      process.env.JEST_WORKER_ID !== undefined
-    );
+    return process.env.NODE_ENV === 'test' || typeof jest !== 'undefined' || process.env.JEST_WORKER_ID !== undefined;
   }
   static currentEnv(): string {
     return process.env.NODE_ENV || 'development';
@@ -140,8 +134,8 @@ export class EnvUtils {
 ```
 
 :::
-那么所有用到这个模块方法的地方都会使用这个模拟的实现，而不会真的去导入模块。
-比如下面再测试中调用`ApiFactory.clear()`使用的是 mock 模块而不是真实模块的 EnvUtils 类的方法：
+
+那么所有用到这个模块方法的地方都会使用这个模拟的实现，而不会真的去导入模块。比如下面再测试中调用`ApiFactory.clear()`使用的是 mock 模块而不是真实模块的 EnvUtils 类的方法：
 
 ```js
 beforeEach(() => {
@@ -177,6 +171,23 @@ test('使用 spy', () => {
 
   spy.mockRestore(); // 恢复原始实现
   expect(obj.method()).toBe('original');
+});
+```
+
+比如下面 inject 内部会调用`console.warn`,但实际测试会被替换为 mock 函数
+
+```ts
+test('1.5.10. 注入时类型不匹配会报警告', () => {
+  // 1. 创建 spy 监听 console.warn
+  const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {
+    console.log('inject内部调用的是mock warn函数');
+  });
+  class Test {
+    @Inject('testClass')
+    test3!: Test3;
+  }
+  expect(warnSpy).toHaveBeenCalled();
+  warnSpy.mockRestore(); // 恢复原始实现
 });
 ```
 

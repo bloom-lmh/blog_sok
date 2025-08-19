@@ -453,6 +453,10 @@ export default defineConfig({
               text: '进阶知识',
               link: '/learn_frontend/javascript/DOM/进阶知识',
             },
+            {
+              text: 'DOM补充',
+              link: '/learn_frontend/javascript/DOM/补充知识',
+            },
           ],
         },
         {
@@ -473,6 +477,11 @@ export default defineConfig({
             {
               text: 'navigator',
               link: '/learn_frontend/javascript/BOM/navigator',
+            },
+
+            {
+              text: 'BOM补充',
+              link: '/learn_frontend/javascript/BOM/补充知识',
             },
           ],
         },
@@ -532,14 +541,6 @@ export default defineConfig({
           text: '未来阅读建议',
           collapsed: true, // 默认折叠
           items: [
-            {
-              text: 'DOM补充',
-              link: '/learn_frontend/javascript/未来阅读建议/DOM补充',
-            },
-            {
-              text: 'BOM补充',
-              link: '/learn_frontend/javascript/未来阅读建议/BOM补充',
-            },
             {
               text: '二进制API',
               link: '/learn_frontend/javascript/未来阅读建议/二进制API',
@@ -1206,6 +1207,10 @@ export default defineConfig({
             {
               text: '桥接模式',
               link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-结构型/桥接模式',
+            },
+            {
+              text: '适配器模式',
+              link: '/learn_sofrwareArchitecture/designPattern/23种设计模式-结构型/适配器模式',
             },
             {
               text: '装饰器模式',
