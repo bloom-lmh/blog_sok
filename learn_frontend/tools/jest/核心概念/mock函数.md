@@ -252,3 +252,53 @@ expect(someMockFunction.mock.instances[0].name).toBe('test');
 // 函数最后一次调用的第一个参数是 'test'
 expect(someMockFunction.mock.lastCall[0]).toBe('test');
 ```
+
+### mock 定时器
+
+`mock`可以劫持定时器来手动推进定时器任务
+
+- 使用`advanceTimersByTime`手动推进
+- 使用`runOnlyPendingTimers`只执行到下一个定时器任务
+- 使用`runAllTimers`自动执行所有任务
+
+```js
+// 劫持axios函数，此后axios变为了mock函数
+jest.mock('axios');
+// axios声明为mock方法
+const mockedAxios = axios as jest.MockedFunction<typeof axios>;
+// 劫持定时器，需要手动推荐定时器时间
+jest.useFakeTimers();
+
+test.only('5.2 启用请求重发功能，并使用默认值', async () => {
+  const mockResponse = { message: 'http://localhost:8000/list/xm/1' };
+  // 模拟：失败、失败、成功
+  mockedAxios
+    .mockRejectedValueOnce(new Error('Network Error'))
+    .mockRejectedValueOnce(new Error('Network Error'))
+    .mockResolvedValueOnce(mockResponse );
+  @HttpApi('http://localhost:8000')
+  class UserApi {
+    @Get({
+      url: '/list/:name/:id',
+      retry: true,
+    })
+    async getUsers(@PathParam('id') id: string, @PathParam('name') name: string): Promise<any> {}
+  }
+  const userApi = new UserApi();
+  const resultPromise = userApi.getUsers('1', 'xm');
+  // 第一次请求（立即执行）
+  await Promise.resolve(); // 让微任务队列执行
+   // 第一次重试（100ms）
+  jest.advanceTimersByTime(100);
+  await Promise.resolve(); // 确保 Promise 回调执行
+  // 第二次重试（200ms）
+  jest.advanceTimersByTime(200);
+  await Promise.resolve();
+  // 第三次重试（10000ms）
+  jest.advanceTimersByTime(10000);
+  await Promise.resolve();
+  const result = await resultPromise;
+  expect(mockedAxios).toHaveBeenCalledTimes(3);
+  expect(result).toEqual(mockResponse);
+}, 35_000);
+```
