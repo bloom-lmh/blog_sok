@@ -1064,6 +1064,24 @@ export default defineConfig({
           collapsed: true,
           items: [],
         },
+        {
+          text: '状态管理Pinia',
+          collapsed: true,
+          items: [
+            {
+              text: '基本概念',
+              link: '/learn_frontend/vue3/vue3基础/状态管理/基本概念',
+            },
+            {
+              text: '定义和使用store',
+              link: '/learn_frontend/vue3/vue3基础/状态管理/定义和使用store',
+            },
+            {
+              text: 'store三要素',
+              link: '/learn_frontend/vue3/vue3基础/状态管理/store三要素',
+            },
+          ],
+        },
       ],
       '/learn_frontend/react/': [
         {
