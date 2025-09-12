@@ -1,7 +1,5 @@
 import path from 'path';
 import { defineConfig } from 'vitepress';
-import { buildSideBar } from './utils/sideBarGenerator';
-import { text } from 'stream/consumers';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'SOK',
@@ -1079,6 +1077,24 @@ export default defineConfig({
             {
               text: 'store三要素',
               link: '/learn_frontend/vue3/vue3基础/状态管理/store三要素',
+            },
+            {
+              text: '扩展pinia',
+              link: '/learn_frontend/vue3/vue3基础/状态管理/扩展pinia',
+            },
+          ],
+        },
+        {
+          text: '手写Vue3',
+          collapsed: true,
+          items: [
+            {
+              text: '设计思想和原理',
+              link: '/learn_frontend/vue3/vue3源码/vue3的设计思想和原理',
+            },
+            {
+              text: '开发环境搭建',
+              link: '/learn_frontend/vue3/vue3源码/vue3开发环境搭建',
             },
           ],
         },
