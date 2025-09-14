@@ -883,45 +883,23 @@ export default defineConfig({
           items: [
             {
               text: '起步',
-              collapsed: true,
-              items: [
-                {
-                  text: '基本介绍',
-                  link: '/learn_frontend/tools/faker/起步/基本介绍',
-                },
-                {
-                  text: '使用方法',
-                  link: '/learn_frontend/tools/faker/起步/使用方法',
-                },
-              ],
+              link: '/learn_frontend/tools/faker/起步',
             },
             {
-              text: '核心概念',
-              collapsed: true,
-              items: [
-                {
-                  text: '本地化',
-                  link: '/learn_frontend/tools/faker/核心概念/本地化',
-                },
-                {
-                  text: '随机值',
-                  link: '/learn_frontend/tools/faker/核心概念/随机值',
-                },
-                {
-                  text: '唯一值',
-                  link: '/learn_frontend/tools/faker/核心概念/唯一值',
-                },
-              ],
+              text: '本地化',
+              link: '/learn_frontend/tools/faker/本地化',
+            },
+            {
+              text: '随机器',
+              link: '/learn_frontend/tools/faker/随机器',
+            },
+            {
+              text: '唯一值',
+              link: '/learn_frontend/tools/faker/唯一值',
             },
             {
               text: '常用API',
-              collapsed: true,
-              items: [
-                {
-                  text: '常用API',
-                  link: '/learn_frontend/tools/faker/常用API/常用API',
-                },
-              ],
+              link: '/learn_frontend/tools/faker/常用API',
             },
           ],
         },
