@@ -747,6 +747,10 @@ export default defineConfig({
               link: '/learn_frontend/typescript/高级类型/条件类型',
             },
             {
+              text: '联合分布',
+              link: '/learn_frontend/typescript/高级类型/联合分布',
+            },
+            {
               text: '推断类型',
               link: '/learn_frontend/typescript/高级类型/推断类型',
             },
