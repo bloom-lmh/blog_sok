@@ -136,7 +136,7 @@ transform-origin: 50% 100%; /* 底边中点 */
 
 所谓的透视就是摄像机的视角
 
-- perspective：透视属性 perspective 用于设置元素距离观察者的距离，也就是设置元素的观察距离。它能让元素呈现出近大远小的效果。
+- perspective：所谓的透视效果就是近大远小效果，对于给定 perspective 的元素，会让其和子元素呈现透视效果，以此来模拟 3d
 - perspectiveOrigin：视点的 xy 坐标，perspective 则是 z 坐标，三者可以再三维中确定 视点的唯一位置
 
 ```html
@@ -192,7 +192,7 @@ perspective 如果设置在父元素上，子元素都会呈现近大远小的�
 规定被嵌套元素如何在 3D 空间中显示。
 
 - flat：表示所有子元素在 2D 平面呈现。比如沿着 X 轴旋转的元素会覆盖后续元素而不是嵌入
-- preserve-3d：表示子元素在 3D 空间中呈现。旋转元素会嵌入覆盖元素
+- preserve-3d：默认父元素需要设置保留 3d 也就是 preserved-3d，这样才能保留 3d 效果，不然会以 2d 形式进行渲染，比如两个重叠的卡片，要求一个卡片旋转后嵌入另一个而不是覆盖另一个
 
 ```html
 <style>
@@ -247,4 +247,4 @@ perspective 如果设置在父元素上，子元素都会呈现近大远小的�
 ## 背对元素的可见性-backface-visibility
 
 ![视点](https://image-bucket-1307756649.cos.ap-chengdu.myqcloud.com/image/20250614152429114.png)
-当元素背对视点的时候可以将元素隐藏
+还可以设置元素翻转后不可见也就是 backface-visible，当元素翻转过来后就不可见
