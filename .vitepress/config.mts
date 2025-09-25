@@ -75,6 +75,19 @@ export default defineConfig({
           },
         ],
       },
+      {
+        text: '计算机图像学',
+        items: [
+          {
+            text: '双三次插值算法',
+            link: '/learn_graphology/双三次插值算法',
+          },
+        ],
+      },
+      {
+        text: '机器学习',
+        items: [],
+      },
       { text: '学习计划', link: '/learn_plan/2025年学习计划' },
     ],
 
